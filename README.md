@@ -1,29 +1,18 @@
-Terrasoft_14 Manar Ahmed Eltayeb Ahmed Lotfy
-============
-<<<<<<< HEAD
-<<<<<<< HEAD
-Mohamed Ahmed Sherif
-mariam sanad fahym
-=======
-=======
+Terrasoft_14
+=========
+Mohamed Adly Gheith
+Manar Ahmed Eltayeb Ahmed Lotfy
+Mariam Sanad Fahym
 YoussefBarakat
->>>>>>> master
 Madeleine Aziz
 Mohamed Ahmed Sherif
 Rehab elShahawy
-hagar essam
 Rana Tarek Labib
-Mohamed Ahmed Sherif
 Rana Mohsen El-brishy
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 Abdelrahman yasser
-Mohamed Ahmed Sherif
-hagar essam
+Hagar Essam
 Rana Tarek Labib
-Mohamed Ahmed Sherif
-Ahmed samouka
 Youssef Aly
-mariam sanad fahym
+Ahmed Samouka
+
+
