@@ -1,7 +1,7 @@
 Terrasoft_14
 ===========
+John wageih
 Ahmed Hesham Nasser
-John
 Mohamed Adly Gheith
 Manar Ahmed Eltayeb Ahmed Lotfy
 Mariam Sanad Fahym
@@ -16,5 +16,4 @@ Hagar Essam
 Rana Tarek Labib
 Youssef Aly
 Ahmed Samouka
-
-
+Salah Zalat
