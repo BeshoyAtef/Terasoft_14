@@ -1,7 +1,15 @@
 Terrasoft_14
 ============
+<<<<<<< HEAD
 Mario Maged
 Mohamed Ahmed Sherif
+=======
+
+Mohamed Khairy
+Rana Tarek Labib
+Hagar essam
+Ahmed Hesham Nasser
+>>>>>>> master
 John wageih
 Ahmed Hesham Nasser
 Mohamed Adly Gheith
