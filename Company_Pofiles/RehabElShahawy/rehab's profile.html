@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-image:url("2.jpg");}
+h1 {color:#DC143C;}
+h1 {font-size:40px;}
+p1 {font-size:25px;}
+p1 {color:#00BFFF;}
+p2 {color:#00BFFF;}
+p2 {font-size:25px;}
+p3 {color:#00BFFF;}
+p3 {font-size:25px;}
+a {font-size: 25px}
+a {color: #FFFF00;}
+p4 {color:#FF4500;}
+p4 {font-size:25px;}
+p5 {color:#00BFFF;}
+p5 {font-size:20px;}
+</style>
+</head>
+
+<body>
+<IMG STYLE="position:absolute; TOP:0px; LEFT:700px; WIDTH:132px; HEIGHT:190px" SRC="1.jpg">
+
+<h1> Rehab el shahawy profile </h1>
+<p1><b>Age: 21</b></p1>
+<br> 
+<p2><b>Hobbies : reading </b></p2>
+<button type="button" onclick= "alert ('The Time Keeper')">Favourite Book</button>
+<br> 
+<p3><b>Education: Business informatics @GUC</b></p3>
+<br> 
+<br> 
+<br>  
+<a href="https://www.facebook.com/rehab.aelshahawy" target="_blank">Check my Facebook page</a> 
+<br> 
+<br> 
+<br>  
+<p4><b> Try My Calculator</b></p4>
+<br>
+<br>
+<p5>  
+<form>
+First Number: <input type="text" name="fno" id="fno">
+<br>
+Second Number: <input type="text" name="sno" id="sno">
+</form>
+</p5>
+
+<br>
+
+<button onclick="add()">Add</button> 
+<br>
+<button onclick="multiply()">Multiply</button> 
+
+</body>
+
+<script>
+
+function add()
+{
+   var a = parseInt(document.getElementById('fno').value);
+   var b = parseInt (document.getElementById('sno').value);
+   var y =a+b;
+   alert(y)
+}
+
+function multiply()
+{
+  var a = parseInt(document.getElementById('fno').value);
+  var b = parseInt (document.getElementById('sno').value);
+  var y =a*b;
+   alert(y)
+}
+
+</script>
+
+
+</html>
