@@ -1,0 +1,67 @@
+<html>
+<head>
+<style>
+body
+{
+background-color:"yellow";
+}
+h1{
+color:red;
+text-align:center;
+}
+p
+{
+font-family:"Times New Roman";
+font-size:30px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Ahmed Mohamed Samouka</h1>
+<p>welcome to my profile.</p>
+
+
+
+<script>
+
+function openWin()
+{
+myWindow=window.open('','','width=200,height=100');
+myWindow.document.write("<p>href="https://www.facebook.com/ahmed.samouka"</p>");
+myWindow.blur();
+}
+</script>
+<title>Profile Page</title>
+<style>
+.H1{vertical-align: right;
+}
+</style>
+</head>
+<body style="background-color:yellow">
+<input type="text" id="clock" />
+<script>
+var int=self.setInterval(function(){clock()},1000);
+function clock()
+{
+var d=new Date();
+var t=d.toLocaleTimeString();
+document.getElementById("clock").value=t;
+}
+</script>
+<button>clock </button>
+<marquee> TERASOFT!!!</marquee>
+<img src="porpic.jpg" width="250" height="300"> <br>
+<input type="button" value="my Facebook" onclick="openWin()" />
+<form>
+
+	<b>Name</b> <i>Ahmed Samouka</i> <br>
+	<b>age</b> <i>21</i> <br>
+	<b> birth date</b> <i> 24/2/1993</i> <br>
+	<b> E-mail</b> <i>ahmed_samouka@hotmail.com</i> <br>
+	<b>Universty</b> <i>GUC</i> <br>
+	<b>Hobbies</b> <i>Football-swimming</i> <br>
+</form>
+</body>
+</html>
