@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+  .clockStyle{
+    background-color: #000;
+    border: #999 2px inset;
+    padding: 6px;
+    color: #0FF;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 16px
+    font-weight:bold;
+    letter-spacing: 2px;
+    display: inline;
+    position: absolute;left:1200px;top:600px
+
+  }
+</style>
+<title>Ahmed Tarek</title>
+</head>
+
+
+<body background="background.JPG">
+
+
+
+<div id = "displayClock" class ="clockStyle">
+
+</div>
+<script type="text/javascript"language="javascript">
+function updateClock ( )
+{
+  var currentTime = new Date ( );
+
+  var currentHours = currentTime.getHours ( );
+  var currentMinutes = currentTime.getMinutes ( );
+  var currentSeconds = currentTime.getSeconds ( );
+  var time = "AM";
+if (currentHours==0){
+  currentHours=12;
+}else if(currentHours>12){
+  currentHours = currentHours-12;
+  time = "PM"
+}
+if (currentHours<10){
+  currentHours = "0"+currentHours;
+}
+if (currentMinutes<10){
+  currentHours = "0"+currentMinutes;
+}
+if (currentSeconds<10){
+  currentHours = "0"+currentSeconds;
+}
+
+var Clock = document.getElementById('displayClock')
+
+Clock.textContent = currentHours+":"+currentMinutes+":"+currentSeconds+":"+time;
+Clock.innerText = currentHours+":"+currentMinutes+":"+currentSeconds+":"+time;
+setTimeout('updateClock()',1000);
+}
+
+updateClock();
+</script>
+
+
+
+
+
+<DIV style="border:5px solid gray;padding:20px">
+
+<img src=Untitled.JPG
+width="325"
+height=280 >
+
+<h1 style="color:brown;font-family:arial;font-size:40px;position:absolute;left:450px;top:100px">Ahmed Tarek</h1>
+
+<a href="https://www.facebook.com/psychoo15?ref=tn_tnmn"><img src="facebook.png"width ="150"height="80";, style="position:absolute;left:450px;top:180px"></a>
+</DIV>
+
+
+<h1 style="padding:15px;color:brown"> Personal Information<h1>
+
+<hr style="width:290px;position:absolute;left:22px;top:400px">
+
+
+<p1 style="font-family:arial;font-size:22px;color:brown;">Age : 21 years old <br>
+Date of birth : 25/1/1993<br>
+University : German University in Cairo<br>
+Major : Buisness Informatics<br>
+E-mail : ahmedabdelhamied25@gmail.com
+</p1>
+</body>
+</html>
