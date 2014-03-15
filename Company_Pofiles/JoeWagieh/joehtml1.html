@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+// add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+t=setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+The Clock is....
+<div id="txt"></div>
+</body>
+<style>
+.Info
+{
+-webkit-column-count:2; /* Chrome, Safari, Opera */
+-moz-column-count:2; /* Firefox */
+column-count:3;
+
+-webkit-column-gap:40px; /* Chrome, Safari, Opera */
+-moz-column-gap:40px; /* Firefox */
+column-gap:40px;
+
+-webkit-column-rule:4px outset black; /* Chrome, Safari, Opera */
+-moz-column-rule:4px outset black; /* Firefox */
+column-rule:4px outset black;
+}
+a:link,a:visited
+{
+display:block;
+font-weight:bold;
+color:#FFFFFF;
+background-color:#98bf21;
+width:120px;
+text-align:center;
+padding:4px;
+text-decoration:none;
+}
+a:hover,a:active
+{
+background-color:#7A991A;
+}
+a:hover,a:active
+a:link {text-decoration:none;}    /* unvisited link */
+a:visited {text-decoration:none;} /* visited link */
+a:hover {text-decoration:underline;}   /* mouse over link */
+a:active {text-decoration:underline;}  /* selected link */
+a:link {color:black;}    /* unvisited link */
+a:visited {color:red;} /* visited link */
+a:hover {color:red;}   /* mouse over link */
+a:active {color:black;}  /* selected link */
+body
+{
+background-color:#b0c4de;
+}
+</style>
+</head>
+<body>
+<h1 style="text-align:center;">WELCOME TO MY PROFILE</h1>
+<img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash2/t1/525459_360352034076167_170055357_n.jpg"alt="width="300" height="300"">
+<i><b><h1>JOE WAGIEH</b></i></h1>
+<hr>
+<div class="Info">
+<h2><p style="color:red">Personal info :</p></h2>
+<ul>
+<address>
+<li>Gender : Male</li><br>
+<li>Age : 21</li><br>
+<li>Student at : German University in Cairo</li><br>
+<li>Phone : 01003683039</li><br>
+<li><a href="http://www.facebook.com/joe.wagieh">Facebook</a></li>
+</ul>
+</address>
+<hr>
+<h2><p style="color:red">Interested in :</p></h2>
+<ul>
+<li><i>Playing football</li></i><br>
+<li><i>Listening music</li></i><br>
+<li><i>Watching movies</li><i/><br>
+<li><i>Jogging with friends</li></i>
+</ul>
+</div>
+</body>
+</html>
