@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1 style ="text-align:center;"font-family:arial;font-size:25px;">Hagar Essam's Profile!</h1>
+<script>
+document.write("<h2>Hagar Essam</h2>
+</script>
+<div style="color:#480000 ;">
+<img src="image.jpg" width="350"height="350">
+<h3>Personnal Information :</h3>
+<a href="https://www.facebook.com/hagar.essam.94">
+Facebook Profile</a>
+<p style="font-family:arial;color:black;font-size:18px;"><em>Mail : hagar.essam93@gmail.com</em></p>
+<p style="font-family:arial;color:black;font-size:18px;"><em>BirthDate : 8/9/1993 </em></p>
+<p style="font-family:arial;color:black;font-size:18px;"><em>Address : Mohndseen/cairo</em></p>
+<p style="font-family:arial;color:black;font-size:18px;"><em>I am a 6th semester student in German Universiy in Cairo(Guc) studying business informatics,joined many clubs which help me to gain alot of experience as civic , Nassya and ICGE.My favourite hobby is swimming, I had a trainning in the United Bank which was the first time that helps me to deal with real working life .</em></P>
+<body style="background-color:crimson;">
+<script>
+function myFunction()
+{
+alert("Welcome to my profile!");
+}
+</script>
+</head>
+
+<body>
+<button onclick="myFunction()">Welcome</button>
+</body>
+<script type="text/javascript">
+
+// Description: change background color every 5 seconds
+
+function setbackground()
+{
+window.setTimeout( "setbackground()", 5000); // 5000 milliseconds delay
+
+var index = Math.round(Math.random() * 9);
+
+var ColorValue = "FFFFFF"; // default color - white (index = 0)
+if(index == 1)
+ColorValue = "FFCCCC"; //peach
+if(index == 2)
+ColorValue = "CCAFFF"; //violet
+if(index == 3)
+ColorValue = "A6BEFF"; //lt blue
+if(index == 4)
+ColorValue = "99FFFF"; //cyan
+if(index == 5)
+ColorValue = "DC143C"; //crimson
+if(index == 6)
+ColorValue = "99FF99"; //lt green
+if(index == 7)
+ColorValue = "006400"; //lt DarkGreen
+if(index == 8)
+ColorValue = "FFCC99"; //lt orange
+if(index == 9)
+ColorValue = "C71585"; //lt MediumVioletRed
+
+
+document.getElementsByTagName("body")[0].style.backgroundColor = "#" + ColorValue;
+
+}
+</script>
+<body onload="setbackground();">
+</body>
+</html>
