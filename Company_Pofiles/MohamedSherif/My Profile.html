@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+body{background-color:#136CA4}
+
+h1
+{color:white;
+text-align:left;
+font-family:"Calibri";font-style:oblique;}
+
+#pers
+{border:2px solid;border-color:black;
+background-color:grey;
+color:white;font-style:italic;
+position:relative;}
+
+#p0{text-align:center;}
+
+#p1{color:black}
+
+#hobb
+{border:2px solid;border-color:black;
+background-color:grey;
+color:white;font-style:italic;
+position:relative;}
+
+#p2{text-align:center;}
+
+#p3{color:black}
+
+#links
+{border:2px solid;border-color:black;
+background-color:grey;
+color:white;font-style:italic;
+position:relative;}
+
+#p4{text-align:center;}
+
+</style>
+</head>
+
+
+<body>
+
+<div><h1>My Profile</h1></div>
+
+<div id="pic">
+<img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-frc3/t31.0-8/291064_10150281487566353_4892576_o.jpg" alt="Profile Picture" width="500" height="375">
+</div>
+
+<div id="pers" style="height:200px;width:246px;float:left">
+<p id="p0"><b>Personal Information</b></p>
+<p id="p1">Name: Mohamed A. Sherif<br>Gender: Male<br>Age: 24</p>
+</div>
+
+<div id="hobb" style="height:200px;width:246px;float:left;">
+<p id="p2"><b>Hobbies</b></p>
+<p id="p3">Watching and playing sports (football, basketball & tennis)<br>Listening to music (all genres)<br>Reading books (novels mostly)<br>Watching movies<br>Running</p>
+</div>
+
+<div id="links" style="height:200px;width:246px;float:left">
+<p id="p4"><b>Links</b></p>
+<p id="p5"><a href="https://www.facebook.com/moekage" target="_blank">Facebook</a></p>
+<p id="p6"><a href="https://twitter.com/moekage" target="_blank">Twitter</a></p>
+<p id="p7"><a href="http://instagram.com/moekage" target="_blank">Instagram</a></p>
+</div>
+
+<p id="demo"></p>
+<button type="button" onclick="myFunction()">Display Time</button>
+
+<script>
+function myFunction()
+{
+document.getElementById("demo").innerHTML = Date();
+}
+</script>
+
+</body>
+
+</html>
