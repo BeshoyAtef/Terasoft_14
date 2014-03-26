@@ -1,0 +1,31 @@
+<h1>Listing add_trips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Destination</th>
+      <th>Travellingdate</th>
+      <th>Maximumweight</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @add_trips.each do |add_trip| %>
+      <tr>
+        <td><%= add_trip.Location %></td>
+        <td><%= add_trip.Destination %></td>
+        <td><%= add_trip.TravellingDate %></td>
+        <td><%= add_trip.MaximumWeight %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Add trip', new_add_trip_path %>
