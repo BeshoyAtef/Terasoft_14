@@ -1,0 +1,57 @@
+<%= form_for(@package) do |f| %>
+  <% if @package.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h2>
+
+      <ul>
+      <% @package.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.number_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :origin %><br>
+    <%= f.text_field :origin %>
+  </div>
+  <div class="field">
+    <%= f.label :ExpiryDate %><br>
+    <%= f.date_select :ExpiryDate %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.number_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :receiverAddress %><br>
+    <%= f.text_field :receiverAddress %>
+  </div>
+  <div class="field">
+    <%= f.label :receiverMobile %><br>
+    <%= f.number_field :receiverMobile %>
+  </div>
+  <div class="field">
+    <%= f.label :receiverMail %><br>
+    <%= f.text_field :receiverMail %>
+  </div>
+  <div class="field">
+    <%= f.label :ReceiverAccount %><br>
+    <%= f.text_field :ReceiverAccount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
