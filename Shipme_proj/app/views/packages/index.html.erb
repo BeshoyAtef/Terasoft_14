@@ -1,0 +1,45 @@
+<h1>Listing packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Destination</th>
+      <th>Description</th>
+      <th>Weight</th>
+      <th>Origin</th>
+      <th>Expirydate</th>
+      <th>Value</th>
+      <th>Receiveraddress</th>
+      <th>Receivermobile</th>
+      <th>Receivermail</th>
+      <th>Receiveraccount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @packages.each do |package| %>
+      <tr>
+        <td><%= package.destination %></td>
+        <td><%= package.description %></td>
+        <td><%= package.weight %></td>
+        <td><%= package.origin %></td>
+        <td><%= package.ExpiryDate %></td>
+        <td><%= package.value %></td>
+        <td><%= package.receiverAddress %></td>
+        <td><%= package.receiverMobile %></td>
+        <td><%= package.receiverMail %></td>
+        <td><%= package.ReceiverAccount %></td>
+        <td><%= link_to 'Show', package %></td>
+        <td><%= link_to 'Edit', edit_package_path(package) %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Package', new_package_path %>

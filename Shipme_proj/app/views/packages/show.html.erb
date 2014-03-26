@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @package.destination %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @package.description %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @package.weight %>
+</p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @package.origin %>
+</p>
+
+<p>
+  <strong>Expirydate:</strong>
+  <%= @package.ExpiryDate %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @package.value %>
+</p>
+
+<p>
+  <strong>Receiveraddress:</strong>
+  <%= @package.receiverAddress %>
+</p>
+
+<p>
+  <strong>Receivermobile:</strong>
+  <%= @package.receiverMobile %>
+</p>
+
+<p>
+  <strong>Receivermail:</strong>
+  <%= @package.receiverMail %>
+</p>
+
+<p>
+  <strong>Receiveraccount:</strong>
+  <%= @package.ReceiverAccount %>
+</p>
+
+<%= link_to 'Edit', edit_package_path(@package) %> |
+<%= link_to 'Back', packages_path %>

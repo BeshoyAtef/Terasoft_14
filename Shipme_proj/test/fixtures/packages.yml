@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  destination: MyString
+  description: MyString
+  weight: 1
+  origin: MyString
+  ExpiryDate: 2014-03-26
+  value: 1
+  receiverAddress: MyString
+  receiverMobile: 1
+  receiverMail: MyString
+  ReceiverAccount: MyString
+
+two:
+  destination: MyString
+  description: MyString
+  weight: 1
+  origin: MyString
+  ExpiryDate: 2014-03-26
+  value: 1
+  receiverAddress: MyString
+  receiverMobile: 1
+  receiverMail: MyString
+  ReceiverAccount: MyString
