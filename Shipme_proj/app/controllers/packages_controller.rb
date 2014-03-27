@@ -51,15 +51,7 @@ class PackagesController < ApplicationController
     end
   end
 
-  # DELETE /packages/1
-  # DELETE /packages/1.json
-  def destroy
-    @package.destroy
-    respond_to do |format|
-      format.html { redirect_to packages_url }
-      format.json { head :no_content }
-    end
-  end
+ 
 
   private
     # Use callbacks to share common setup or constraints between actions.
