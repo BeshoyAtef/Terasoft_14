@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-ShipmeProj::Application.config.secret_key_base = 'f6c392aa6abeb6940c2cb65aa6e2eb15bbb07d7025e37770beaba14f50019d75fc52ad50ed570111920ac38f883deefdbff57ba6c75c3d79d55ae3ebeb024101'
+ShipmeProj::Application.config.secret_key_base = 'e6468639c934a8d52dde08503e7d0abcdccefe9384dae23a03652fc398131ae414c47d95c9657a747ef717b879ac296bb64e8d953223cf7e19776e70f4605853'
