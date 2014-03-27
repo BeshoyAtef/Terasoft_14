@@ -1,4 +1,14 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<table width="500">
+<tr>
+<td colspan="2" style="background-color:#FFA500;text-align:center;">
 <h1>Listing packages</h1>
+
+
 
 <table>
   <thead>
@@ -33,13 +43,18 @@
         <td><%= package.receiverMail %></td>
         <td><%= package.ReceiverAccount %></td>
         <td><%= link_to 'Show', package %></td>
-        <td><%= link_to 'Edit', edit_package_path(package) %></td>
+        
        
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
 <br>
 
 <%= link_to 'New Package', new_package_path %>
+
+</td>
+</tr>
+

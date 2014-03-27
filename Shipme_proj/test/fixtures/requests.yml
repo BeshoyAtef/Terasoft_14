@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  package_id: 
+  sender_id: 
+  carrier_id: 
+  accepted: 
+
+two:
+  package_id: 
+  sender_id: 
+  carrier_id: 
+  accepted: 
