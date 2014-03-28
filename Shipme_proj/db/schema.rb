@@ -11,6 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20140328134215) do
+
+  create_table "create_packages", force: true do |t|
+    t.string   "destination"
+    t.string   "description"
+    t.integer  "weight"
+    t.string   "origin"
+    t.date     "Expiry_Date"
+    t.integer  "value"
+    t.string   "receiverAddress"
+    t.integer  "receivermobile"
+    t.string   "receiverMail"
+=======
 ActiveRecord::Schema.define(version: 20140327191646) do
 
   create_table "requests", force: true do |t|
@@ -26,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140327191646) do
     t.string   "location"
     t.integer  "maxweight"
     t.date     "depdate"
+>>>>>>> master
     t.datetime "created_at"
     t.datetime "updated_at"
   end
