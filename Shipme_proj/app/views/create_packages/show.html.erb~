@@ -50,6 +50,6 @@
 <%= link_to 'Back', create_packages_path %>
 
 
-<%= link_to('See list of matching carriers', {:controller => 'matching', :action => 'read', :location => @create_package.origin, :destination => @create_package.destination}) %>
+<%= link_to('See list of matching carriers', {:controller => 'matching', :action => 'read'}) %>
 
 

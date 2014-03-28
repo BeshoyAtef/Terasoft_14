@@ -1,0 +1,4 @@
+class AddTrip < ActiveRecord::Base
+scope :match, lambda {|destination,weight,location| 
+		where(:Destination => destination, :MaximumWeight => weight, :Location => location)}
+end

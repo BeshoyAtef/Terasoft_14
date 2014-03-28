@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20140328134215) do
 
+  create_table "add_trips", force: true do |t|
+    t.string   "Location"
+    t.string   "Destination"
+    t.date     "TravellingDate"
+    t.integer  "Weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "create_packages", force: true do |t|
     t.string   "destination"
     t.string   "description"

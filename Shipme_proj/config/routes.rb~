@@ -5,7 +5,7 @@ ShipmeProj::Application.routes.draw do
 
   resources :add_trips
 
- get "matching/read" 
+resources :matching
 
 
   # The priority is based upon order of creation: first created -> highest priority.
