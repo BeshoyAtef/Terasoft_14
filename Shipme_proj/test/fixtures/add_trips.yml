@@ -3,11 +3,11 @@
 one:
   Location: MyString
   Destination: MyString
-  TravellingDate: 2014-03-26
-  MaximumWeight: 1
+  TravellingDate: 2014-03-27
+  Weight: 1
 
 two:
   Location: MyString
   Destination: MyString
-  TravellingDate: 2014-03-26
-  MaximumWeight: 1
+  TravellingDate: 2014-03-27
+  Weight: 1

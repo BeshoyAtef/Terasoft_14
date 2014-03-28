@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326173147) do
+ActiveRecord::Schema.define(version: 20140327135756) do
 
   create_table "add_trips", force: true do |t|
     t.string   "Location"
     t.string   "Destination"
     t.date     "TravellingDate"
-    t.integer  "MaximumWeight"
+    t.integer  "Weight"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

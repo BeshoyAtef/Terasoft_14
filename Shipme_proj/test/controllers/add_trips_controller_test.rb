@@ -18,7 +18,7 @@ class AddTripsControllerTest < ActionController::TestCase
 
   test "should create add_trip" do
     assert_difference('AddTrip.count') do
-      post :create, add_trip: { Destination: @add_trip.Destination, Location: @add_trip.Location, MaximumWeight: @add_trip.MaximumWeight, TravellingDate: @add_trip.TravellingDate }
+      post :create, add_trip: { Destination: @add_trip.Destination, Location: @add_trip.Location, TravellingDate: @add_trip.TravellingDate, Weight: @add_trip.Weight }
     end
 
     assert_redirected_to add_trip_path(assigns(:add_trip))
@@ -35,7 +35,7 @@ class AddTripsControllerTest < ActionController::TestCase
   end
 
   test "should update add_trip" do
-    patch :update, id: @add_trip, add_trip: { Destination: @add_trip.Destination, Location: @add_trip.Location, MaximumWeight: @add_trip.MaximumWeight, TravellingDate: @add_trip.TravellingDate }
+    patch :update, id: @add_trip, add_trip: { Destination: @add_trip.Destination, Location: @add_trip.Location, TravellingDate: @add_trip.TravellingDate, Weight: @add_trip.Weight }
     assert_redirected_to add_trip_path(assigns(:add_trip))
   end
 

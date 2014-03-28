@@ -69,6 +69,6 @@ class AddTripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def add_trip_params
-      params.require(:add_trip).permit(:Location, :Destination, :TravellingDate, :MaximumWeight)
+      params.require(:add_trip).permit(:Location, :Destination, :TravellingDate, :Weight)
     end
 end
