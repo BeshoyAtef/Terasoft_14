@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  my_destination: 
+  my_location: 
+  max_weight: 
+  travel_date: 
+
+two:
+  my_destination: 
+  my_location: 
+  max_weight: 
+  travel_date: 
