@@ -1,6 +1,4 @@
 ShipmeProj::Application.routes.draw do
-  get "compare/index"
-  get "count/index"
   get "demo/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
