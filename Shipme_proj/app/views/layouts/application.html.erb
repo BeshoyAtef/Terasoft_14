@@ -2,13 +2,43 @@
 <html>
 <head>
   <title>ShipmeProj</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<%= stylesheet_link_tag 'style.css' %>
+<%= stylesheet_link_tag 'colors/blue.css' %>
+<%= javascript_include_tag "jquery.min.js" %>
+<%= javascript_include_tag "jquery-ui.min.js" %>
+<%= javascript_include_tag "jquery.flexslider.js" %>
+<%= javascript_include_tag "jquery.selectnav.js" %>
+<%= javascript_include_tag "jquery.twitter.js" %>
+<%= javascript_include_tag "jquery.modernizr.js" %>
+<%= javascript_include_tag "jquery.easing.1.3.js" %>
+<%= javascript_include_tag "jquery.contact.js" %>
+<%= javascript_include_tag "jquery.isotope.min.js" %>
+<%= javascript_include_tag "jquery.jcarousel.js" %>
+<%= javascript_include_tag "jquery.fancybox.min.js" %>
+<%= javascript_include_tag "jquery.layerslider.min.js" %>
+<%= javascript_include_tag "custom.js" %>
+<!-- <%= javascript_include_tag "google_analytics_auto.js" %> -->
+
+
+
+
+
+
+
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
+<%= stylesheet_link_tag 'switcher.css' %>
+<%= javascript_include_tag "switcher.js" %>
 
 </body>
 </html>
+
