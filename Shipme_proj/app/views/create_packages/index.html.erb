@@ -1,0 +1,54 @@
+<html>
+<body>
+
+<table width="500">
+<tr>
+<td colspan="2" style="background-color:#FFA500;text-align:center;">
+<h1>create packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Destination</th>
+      <th>Description</th>
+      <th>Weight</th>
+      <th>Origin</th>
+      <th>Expiry date</th>
+      <th>Value</th>
+      <th>Receiveraddress</th>
+      <th>Receivermobile</th>
+      <th>Receivermail</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @create_packages.each do |create_package| %>
+      <tr>
+        <td><%= create_package.destination %></td>
+        <td><%= create_package.description %></td>
+        <td><%= create_package.weight %></td>
+        <td><%= create_package.origin %></td>
+        <td><%= create_package.Expiry_Date %></td>
+        <td><%= create_package.value %></td>
+        <td><%= create_package.receiverAddress %></td>
+        <td><%= create_package.receivermobile %></td>
+        <td><%= create_package.receiverMail %></td>
+        <td><%= link_to 'Show', create_package %></td>
+        <td><%= link_to 'Destroy', create_package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Create package', new_create_package_path %>
+</td>
+</tr>
+</table>
+</body>
+</html>
+
