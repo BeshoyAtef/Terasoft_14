@@ -1,10 +1,15 @@
 ShipmeProj::Application.routes.draw do
+<<<<<<< HEAD
   get "nwesletter/mailer"
   get "nwesletter/daily"
   get "check/index"
   get "demo/index"
   get "balance/noti"
   get "balance/accept"
+=======
+  resources :create_packages
+
+>>>>>>> d7d143f18d6d68412dd502605243a0b3ac29ba3a
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
