@@ -1,4 +1,6 @@
 ShipmeProj::Application.routes.draw do
+  resources :packages
+
   resources :add_trips
 
   get "add_trips/index"
