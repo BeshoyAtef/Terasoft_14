@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Reporter: MyString
+  Reporting: MyString
+  PackageNo: 1
+  Report: MyString
+
+two:
+  Reporter: MyString
+  Reporting: MyString
+  PackageNo: 1
+  Report: MyString
