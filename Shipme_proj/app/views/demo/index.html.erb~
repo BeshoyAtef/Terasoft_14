@@ -1,0 +1,61 @@
+<h1>Demo#index</h1>
+<p>Hello world</p>
+
+  <!DOCTYPE html>
+  <!-- studySample.html by Rana Labib -->
+  
+
+  <html Lang='en'>
+ 
+  <head>
+		<meta charset= "study" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+		<title>
+			Rana Labib- Profile
+		</title>
+	
+  <style>
+  </style>
+</head>
+<body>
+<div id="page" class="container">
+	<div id="header">
+		<div id="logo">
+			<img src="images/by JOEE.jpg" alt="" width ="340px" height="340px"/>
+			<h1><a href="#">Rana Labib</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+			<script>
+			function mOver(obj)
+			{
+			obj.style.backgroundColor="#1ec5e5";
+			}
+			function mOut(obj)
+				{
+					obj.style.backgroundColor="#2a2a2a";	
+				}
+		</script>
+		
+		
+		
+				<li class="current_page_item" ><a href="Profile-Task.html" accesskey="1" title="">About Me</a></li>
+				<li onmouseover="mOver(this)"  onmouseout="mOut(this)"><a href="myEducation.html" accesskey="2" 
+				
+				<embed src="Pharrell Williams- Happy.mp3" autostart=true loop=true >
+			</ul>
+		</div>
+	</div>
+	<div id="main">
+		<div id="banner">
+			<img src="images/20140208_150648.jpg" alt="" class="image-full"  />
+		</div>
+		<p> <b>Hello World </b>. 
+
+		
+		</div>
+
+</body>
+</html>

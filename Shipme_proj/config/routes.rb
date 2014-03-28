@@ -1,4 +1,10 @@
 ShipmeProj::Application.routes.draw do
+  get "nwesletter/mailer"
+  get "nwesletter/daily"
+  get "check/index"
+  get "demo/index"
+  get "balance/noti"
+  get "balance/accept"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
