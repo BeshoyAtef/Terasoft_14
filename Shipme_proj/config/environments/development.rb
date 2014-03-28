@@ -26,4 +26,17 @@ ShipmeProj::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+config.action_mailer.delivery_method = :smtp
+ # these options are only needed if you choose smtp delivery
+ config.action_mailer.smtp_settings = { :enable_starttls_auto => true, 
+:address => 'smtp.gmail.com',
+ :port => 587, 
+:domain => 'gmail.com', 
+#you can also use google.com 
+:authentication => :plain, 
+user_name: 'rana.tlabib@gmail.com', 
+password: 'Polly1Molly' } 
+config.action_mailer.default :charset => "utf-8"
+  
 end
