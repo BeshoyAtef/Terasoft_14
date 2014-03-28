@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  destination: MyString
+  location: MyString
+  maxweight: 1
+  depdate: 2014-03-27
+
+two:
+  destination: MyString
+  location: MyString
+  maxweight: 1
+  depdate: 2014-03-27
