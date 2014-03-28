@@ -12,7 +12,7 @@
   height: 14px;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url(../images/glyphicons_halflings.svg);
+  background-image: url(../assets/glyphicons_halflings.svg);
   background-position: 0 0;
   background-repeat: no-repeat;
   vertical-align: top;
@@ -22,17 +22,17 @@
 }
 
 .ie8 .halflings {
-  background-image: url(../images/glyphicons_halflings.png);
+  background-image: url(../assets/glyphicons_halflings.png);
  }
 
 .no-inlinesvg .halflings-icon {
-  background-image: url(../images/glyphicons_halflings.png);
+  background-image: url(../assets/glyphicons_halflings.png);
 }
 .halflings.white {
-  background-image: url(../images/glyphicons_halflings-white.svg);
+  background-image: url(../assets/glyphicons_halflings-white.svg);
 }
 .no-inlinesvg .halflings.white {
-  background-image: url(../images/glyphicons_halflings-white.png);
+  background-image: url(../assets/glyphicons_halflings-white.png);
 }
 .halflings.glass {
   background-position: 0 0;
@@ -542,8 +542,8 @@
     */
 @font-face {
   font-family: "FontAwesome";
-  src: url('../fonts/fontawesome-webfont.eot');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix') format('eot'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype'), url('../fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
+  src: url('../fontawesome-webfont.eot');
+  src: url('../fontawesome-webfont.eot?#iefix') format('eot'), url('../fontawesome-webfont.woff') format('woff'), url('../fontawesome-webfont.ttf') format('truetype'), url('../fontawesome-webfont.svg#FontAwesome') format('svg');
   font-weight: normal;
   font-style: normal;
 }
