@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userid: 1
+  packageid: 1
+  accepted: false
+
+two:
+  userid: 1
+  packageid: 1
+  accepted: false

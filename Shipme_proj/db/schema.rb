@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+HEAD
 ActiveRecord::Schema.define(version: 20140327135756) do
 
   create_table "add_trips", force: true do |t|
@@ -18,6 +19,35 @@ ActiveRecord::Schema.define(version: 20140327135756) do
     t.string   "Destination"
     t.date     "TravellingDate"
     t.integer  "Weight"
+HEAD
+ActiveRecord::Schema.define(version: 20140328134215) do
+
+  create_table "create_packages", force: true do |t|
+    t.string   "destination"
+    t.string   "description"
+    t.integer  "weight"
+    t.string   "origin"
+    t.date     "Expiry_Date"
+    t.integer  "value"
+    t.string   "receiverAddress"
+    t.integer  "receivermobile"
+    t.string   "receiverMail"
+
+ActiveRecord::Schema.define(version: 20140327191646) do
+
+  create_table "requests", force: true do |t|
+    t.integer  "userid"
+    t.integer  "packageid"
+    t.boolean  "accepted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trips", force: true do |t|
+    t.string   "destination"
+    t.string   "location"
+    t.integer  "maxweight"
+    t.date     "depdate"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
