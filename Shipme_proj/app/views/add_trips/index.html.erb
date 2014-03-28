@@ -1,0 +1,33 @@
+<h1>Listing Add Trip</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Destination</th>
+      <th>Travelling Date</th>
+      <th>Weight</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @add_trips.each do |add_trip| %>
+      <tr>
+        <td><%= add_trip.Location %></td>
+        <td><%= add_trip.Destination %></td>
+        <td><%= add_trip.TravellingDate %></td>
+        <td><%= add_trip.Weight %></td>
+        <td><%= link_to 'View', add_trip %></td>
+        <td><%= link_to 'Edit', edit_add_trip_path(add_trip) %></td>
+        <td><%= link_to 'Delete', add_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Add trip', new_add_trip_path %>
