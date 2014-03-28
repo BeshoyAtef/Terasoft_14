@@ -1,14 +1,27 @@
 ShipmeProj::Application.routes.draw do
 <<<<<<< HEAD
+<<<<<<< HEAD
   resources :add_trips
 
 =======
 >>>>>>> 037675760de768083ba6fa2d3d256b9a4d5a7174
+=======
+HEAD
+HEAD
+  resources :add_trips
+
+ resources :create_packages
+
+>>>>>>> e3bfc101df6ba13f8e4ee833c76761e8add01256
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+<<<<<<< HEAD
   # root 'welcome#index'
+=======
+  #root 'homepage#index'
+>>>>>>> e3bfc101df6ba13f8e4ee833c76761e8add01256
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
