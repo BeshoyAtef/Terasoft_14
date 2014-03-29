@@ -11,6 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 HEAD
 ActiveRecord::Schema.define(version: 20140327135756) do
 
@@ -33,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140328134215) do
     t.integer  "receivermobile"
     t.string   "receiverMail"
 
+>>>>>>> master
 ActiveRecord::Schema.define(version: 20140327191646) do
 
   create_table "requests", force: true do |t|
@@ -48,6 +52,23 @@ ActiveRecord::Schema.define(version: 20140327191646) do
     t.string   "location"
     t.integer  "maxweight"
     t.date     "depdate"
+<<<<<<< HEAD
+=======
+ActiveRecord::Schema.define(version: 20140328134215) do
+
+  create_table "create_packages", force: true do |t|
+    t.string   "destination"
+    t.string   "description"
+    t.integer  "weight"
+    t.string   "origin"
+    t.date     "Expiry_Date"
+    t.integer  "value"
+    t.string   "receiverAddress"
+    t.integer  "receivermobile"
+    t.string   "receiverMail"
+>>>>>>> d7d143f18d6d68412dd502605243a0b3ac29ba3a
+=======
+>>>>>>> master
     t.datetime "created_at"
     t.datetime "updated_at"
   end

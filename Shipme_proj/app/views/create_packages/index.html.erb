@@ -37,6 +37,7 @@
         <td><%= create_package.receivermobile %></td>
         <td><%= create_package.receiverMail %></td>
         <td><%= link_to 'Show', create_package %></td>
+        <td><%= link_to 'Destroy', create_package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
