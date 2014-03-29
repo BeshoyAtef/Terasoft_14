@@ -1,16 +1,21 @@
 ShipmeProj::Application.routes.draw do
 <<<<<<< HEAD
-<<<<<<< HEAD
-  resources :add_trips
-
-=======
->>>>>>> 037675760de768083ba6fa2d3d256b9a4d5a7174
-=======
 
   resources :create_packages
+=======
+HEAD
+HEAD
+  resources :add_trips
 
-
+ resources :create_packages
 >>>>>>> master
+
+
+  resources :add_trips
+
+ get "matching/read" 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

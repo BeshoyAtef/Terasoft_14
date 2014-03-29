@@ -1,0 +1,11 @@
+class MatchingController < ApplicationController
+def read
+ 	@location = params[:location]
+
+ 	@destination = params[:destination]
+
+ 	@weight = params[:weight]
+ 	
+    @trips = AddTrip.match(@destination,@weight,@location)
+  end
+end
