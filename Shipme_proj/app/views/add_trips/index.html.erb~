@@ -13,7 +13,7 @@
     </tr>
   </thead>
 
-  <tbody bgcolor=silver>
+  <tbody>
     <% @add_trips.each do |add_trip| %>
       <tr>
         <td><%= add_trip.Location %></td>
