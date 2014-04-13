@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :admin
       t.integer :idNumber
       t.boolean :idVerify
-      t.floats :averageRating
+      t.float :averageRating
       t.date :dateOfRegister
       t.integer :user_Id
 
