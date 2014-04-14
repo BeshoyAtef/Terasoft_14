@@ -1,9 +1,13 @@
 ShipmeProj::Application.routes.draw do
-#HEAD
-#HEAD
+
   resources :add_trips
 
  resources :create_packages
+
+
+  devise_for :users
+
+  get "homepage/index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

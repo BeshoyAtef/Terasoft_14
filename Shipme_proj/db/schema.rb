@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-HEAD
 ActiveRecord::Schema.define(version: 20140327135756) do
 
   create_table "add_trips", force: true do |t|
@@ -19,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140327135756) do
     t.string   "Destination"
     t.date     "TravellingDate"
     t.integer  "Weight"
-HEAD
+
 ActiveRecord::Schema.define(version: 20140328134215) do
 
   create_table "create_packages", force: true do |t|
@@ -32,6 +31,26 @@ ActiveRecord::Schema.define(version: 20140328134215) do
     t.string   "receiverAddress"
     t.integer  "receivermobile"
     t.string   "receiverMail"
+
+ActiveRecord::Schema.define(version: 20140327235919) do
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "fullName"
+    t.integer  "mobileNumber"
+  end
+
 
 ActiveRecord::Schema.define(version: 20140327191646) do
 
