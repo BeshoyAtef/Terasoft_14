@@ -72,7 +72,23 @@
       <!-- Contact Details -->
       
 
-      
+      <div class="clearfix"></div>
+
+      <!-- Search -->
+      <nav class="top-search">
+        <form action="http://vasterad.com/themes/nevia/404-page.html" method="get">
+         <button class="search-btn-widget">login</button>
+          <input class="search-field" type="text" onblur="if(this.value=='')this.value='********';" onfocus="if(this.value=='********')this.value='';" value="********" />
+                    
+                    <input class="search-field" type="text" onblur="if(this.value=='')this.value='E-mail ';" onfocus="if(this.value=='E-mail ')this.value='';" value="E-mail" />
+                    <br>
+                    <a href="#" style="float:right">Forgot Password</a>
+                     <a href="#" style="float:left">Register</a>
+        </form>
+      </nav>
+
+    </div>
+  </header>
   <!-- Header / End -->
 
   <div class="clearfix"></div>
@@ -167,6 +183,7 @@
 </ul>
 </nav>
 <div class="clearfix"></div>
+
 
 <%= yield %>
 <%= stylesheet_link_tag 'switcher.css' %>
