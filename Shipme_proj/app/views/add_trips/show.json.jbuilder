@@ -1,1 +1,1 @@
-json.extract! @add_trip, :id, :Location, :Destination, :TravellingDate, :Weight, :created_at, :updated_at
+json.extract! @trips, :id, :Location, :Destination, :TravellingDate, :Weight, :created_at, :updated_at
