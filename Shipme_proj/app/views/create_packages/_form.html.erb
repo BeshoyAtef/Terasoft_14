@@ -1,10 +1,10 @@
-<%= form_for(@create_package) do |f| %>
-  <% if @create_package.errors.any? %>
+<%= form_for(:create_packages) do |f| %>
+  <% if @create_packages.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@create_package.errors.count, "error") %> prohibited this create_package from being saved:</h2>
 
       <ul>
-      <% @create_package.errors.full_messages.each do |msg| %>
+      <% @create_packages.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -16,7 +16,7 @@
     <%= f.text_field :destination %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description%><br>
     <%= f.text_field :description %>
   </div>
   <div class="field">
@@ -28,24 +28,21 @@
     <%= f.text_field :origin %>
   </div>
   <div class="field">
-    <%= f.label :Expiry_Date %><br>
-    <%= f.date_select :Expiry_Date %>
+    <%= f.label :expiryDate %><br>
+    <%= f.date_select :expiryDate %>
   </div>
-  <div class="field">
-    <%= f.label :value %><br>
-    <%= f.number_field :value %>
-  </div>
+ 
   <div class="field">
     <%= f.label :receiverAddress %><br>
     <%= f.text_field :receiverAddress %>
   </div>
   <div class="field">
-    <%= f.label :receivermobile %><br>
-    <%= f.number_field :receivermobile %>
+    <%= f.label :receiverMobNumber %><br>
+    <%= f.number_field :receiverMobNumber %>
   </div>
   <div class="field">
-    <%= f.label :receiverMail %><br>
-    <%= f.text_field :receiverMail %>
+    <%= f.label :receiverEmail %><br>
+    <%= f.text_field :receiverEmail %>
   </div>
   <div class="actions">
     <%= f.submit %>

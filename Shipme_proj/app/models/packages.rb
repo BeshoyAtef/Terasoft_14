@@ -5,5 +5,6 @@ class Packages < ActiveRecord::Base
 	has_one :reports, :class_name => "Packages", :foreign_key => "package_Id"
      
      #this methode(scope) gets the delivered packages only
-	scope:counter, where(:finalDelivery => true)
+	#scope:counter, where(:finalDelivery => true)
 end
+
