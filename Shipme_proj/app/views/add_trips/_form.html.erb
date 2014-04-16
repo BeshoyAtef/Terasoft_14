@@ -1,4 +1,4 @@
-<%= form_for(@add_trip) do |f| %>
+<%= form_for(:add_trip) do |f| %>
   <% if @add_trip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@add_trip.errors.count, "error") %> prohibited this add_trip from being saved:</h2>
@@ -12,20 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Location %><br>
-    <%= f.text_field :Location %>
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
   </div>
   <div class="field">
-    <%= f.label :Destination %><br>
-    <%= f.text_field :Destination %>
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
   </div>
   <div class="field">
-    <%= f.label :TravellingDate %><br>
-    <%= f.date_select :TravellingDate %>
+    <%= f.label :travelDate %><br>
+    <%= f.date_select :travelDate %>
   </div>
   <div class="field">
-    <%= f.label :Weight %><br>
-    <%= f.number_field :Weight %>
+    <%= f.label :maxWeight %><br>
+    <%= f.number_field :maxWeight %>
   </div>
   <div class="actions">
     <%= f.submit %>

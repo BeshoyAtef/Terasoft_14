@@ -20,9 +20,9 @@
         <td><%= add_trip.destination %></td>
         <td><%= add_trip.travelDate %></td>
         <td><%= add_trip.maxWeight %></td>
-        <td><%= link_to 'View', add_trip %></td>
+        <td><%= link_to 'View', add_trips_path %></td>
         <td><%= link_to 'Edit', edit_add_trip_path(add_trip) %></td>
-        <td><%= link_to 'Delete', add_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', add_trips_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
