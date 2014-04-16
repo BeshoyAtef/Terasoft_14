@@ -11,34 +11,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-HEAD
-ActiveRecord::Schema.define(version: 20140327135756) do
+ActiveRecord::Schema.define(version: 20140413131213) do
 
-  create_table "add_trips", force: true do |t|
-    t.string   "Location"
-    t.string   "Destination"
-    t.date     "TravellingDate"
-    t.integer  "Weight"
-HEAD
-ActiveRecord::Schema.define(version: 20140328134215) do
+  create_table "configurations", force: true do |t|
+    t.float    "comission"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
-  create_table "create_packages", force: true do |t|
-    t.string   "destination"
+  create_table "messages", force: true do |t|
     t.string   "description"
-    t.integer  "weight"
-    t.string   "origin"
-    t.date     "Expiry_Date"
-    t.integer  "value"
-    t.string   "receiverAddress"
-    t.integer  "receivermobile"
-    t.string   "receiverMail"
+    t.date     "dateTime"
+    t.integer  "sender_Id"
+    t.integer  "receiver_Id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
-ActiveRecord::Schema.define(version: 20140327191646) do
+  create_table "notifications", force: true do |t|
+    t.string   "description"
+    t.integer  "user_Id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "packages", force: true do |t|
+    t.date     "expiryDate"
+    t.string   "description"
+    t.string   "destination"
+    t.string   "origin"
+    t.string   "receiverAddress"
+    t.integer  "receiverMobNumber"
+    t.string   "receiverEmail"
+    t.boolean  "receivedByCarrier"
+    t.boolean  "finalDelivery"
+    t.date     "creationDate"
+    t.float    "weight"
+    t.string   "type"
+    t.float    "carryingPrice"
+    t.float    "packageValue"
+    t.float    "rating"
+    t.integer  "sender_Id"
+    t.integer  "carrier_Id"
+    t.integer  "package_Id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", force: true do |t|
+    t.integer  "packageid"
+    t.float    "amountWithdraw"
+    t.float    "amountTransfer"
+    t.date     "date"
+    t.integer  "user_Id"
+    t.integer  "package_Id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reports", force: true do |t|
+    t.string   "description"
+    t.boolean  "verified"
+    t.integer  "reporter_Id"
+    t.integer  "reported_Id"
+    t.integer  "package_Id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "requests", force: true do |t|
-    t.integer  "userid"
-    t.integer  "packageid"
-    t.boolean  "accepted"
+    t.boolean  "accept"
+    t.integer  "carrier_Id"
+    t.integer  "sender_Id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,8 +90,25 @@ ActiveRecord::Schema.define(version: 20140327191646) do
   create_table "trips", force: true do |t|
     t.string   "destination"
     t.string   "location"
-    t.integer  "maxweight"
-    t.date     "depdate"
+    t.float    "maxWeight"
+    t.date     "travelDate"
+    t.integer  "user_Id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "password"
+    t.string   "username"
+    t.integer  "mobileNumber"
+    t.integer  "creditCard"
+    t.boolean  "admin"
+    t.integer  "idNumber"
+    t.integer  "idVerify"
+    t.float    "averageRating"
+    t.date     "dateOfRegister"
+    t.integer  "user_Id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
