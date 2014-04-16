@@ -1,0 +1,56 @@
+<html>
+<body>
+
+<h1>Pending requests</h1>
+<ul class="users">
+
+<% @users.to_a.each do |user| %>
+    <li>
+     
+       <%= link_to user.username ,@user %>
+      
+       sent you a request of a package
+    </li>
+    
+</ul>
+<%end%>
+ 
+
+
+<r1 class="requests">
+   <% unless @requests.blank? %>
+  <%  @requests.to_a.each do |request| %>
+  <tr>
+  <%= hidden_field_tag 'requests[accept]', true %>
+  <%= submit_tag ( "Accept" ) %>
+  </tr> 
+  </r1>  
+    <% end %>
+  
+    <% end %>
+
+
+    <r2 class="requests">
+      <% unless @requests.blank? %>
+     <% @requests.each do |request| %>
+     <% @request.sender_Id,@request %>
+    
+  <%= hidden_field_tag 'requests[accept]', false %>
+  <%= submit_tag ( "Reject" ) %>
+     </r2>
+    <% end %>
+  
+    <% end %>
+
+</body>
+</html>
+
+
+
+
+
+        
+
+
+     
+

@@ -1,0 +1,10 @@
+class RequesstsController < ApplicationController
+  def index
+@x=2
+@requests= Requests.find(:all, :conditions => {:carrier_Id => 3})
+
+	@requests.all.each do|t|
+@users=Users.find(:all, :conditions => {:user_Id => @x})
+    	end	
+  end
+end
