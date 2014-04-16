@@ -1,7 +1,9 @@
 ShipmeProj::Application.routes.draw do
+  get "reports/Reports"
 #HEAD
 #HEAD
   resources :add_trips
+  resources :reports
 
  resources :create_packages
 
@@ -10,7 +12,7 @@ ShipmeProj::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'homepage#index'
-
+       'reports#Reports'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
