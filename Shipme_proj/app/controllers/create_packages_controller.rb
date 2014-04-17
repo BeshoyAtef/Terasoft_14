@@ -4,7 +4,7 @@ class CreatePackagesController < ApplicationController
   # GET /create_packages
   # GET /create_packages.json
   def index
-    @create_packages = Packages.all
+    @packages = Packages.all
   end
 
   # GET /create_packages/1
@@ -14,7 +14,7 @@ class CreatePackagesController < ApplicationController
 
   # GET /create_packages/new
   def new
-    @create_packages = Packages.new
+    @package = Packages.new
   end
 
   # GET /create_packages/1/edit
@@ -24,15 +24,15 @@ class CreatePackagesController < ApplicationController
   # POST /create_packages
   # POST /create_packages.json
   def create
-    @create_packages = Packages.new(create_packages_params)
+    @package = Packages.new(Packages_params)
 
     respond_to do |format|
-      if @create_packages.save
-        format.html { redirect_to @create_packages, notice: 'Create package was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @create_packages }
+      if @package.save
+        format.html { redirect_to @package, notice: 'Create package was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @packages }
       else
         format.html { render action: 'new' }
-        format.json { render json: @create_packages.errors, status: :unprocessable_entity }
+        format.json { render json: @package.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class CreatePackagesController < ApplicationController
   # PATCH/PUT /create_packages/1.json
   def update
     respond_to do |format|
-      if @create_package.update(create_packages_params)
-        format.html { redirect_to @creates_package, notice: 'Create package was successfully updated.' }
+      if @package.update(Packages_params)
+        format.html { redirect_to @package, notice: 'Create package was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @create_packages.errors, status: :unprocessable_entity }
+        format.json { render json: @package.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +54,7 @@ class CreatePackagesController < ApplicationController
   # DELETE /create_packages/1
   # DELETE /create_packages/1.json
   def destroy
-    @create_package.destroy
+    @cackage.destroy
     respond_to do |format|
       format.html { redirect_to create_packages_url }
       format.json { head :no_content }
@@ -68,7 +68,7 @@ class CreatePackagesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def create_package_params
-      params.require(:create_packages).permit(:destination, :description, :weight, :origin, :Expiry_Date, :value, :receiverAddress, :receivermobile, :receiverMail)
+    def Packages_params
+      params.require(:Packages).permit(:destination, :description, :weight, :origin, :expiryDate, :receiverAddress, :receiverMobNumber, :receiverEmail)
     end
 end
