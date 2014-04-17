@@ -1,31 +1,36 @@
 class SendMessageController < ApplicationController
+ 
   def view_conversation
    @messages_sent= Messages.find(:all,
-    :conditions => {:sender_Id => 1, :receiver_Id => 2}, 
-    :select => "description",
-    :order => 'dateTime' )
-  
-  @messages_received= Messages.find(:all,
-    :conditions => {:sender_Id => 2, :receiver_Id => 1 }, 
-    :select => "description",
-    :order => 'dateTime' )
-  @conv= (@messages_received +  @messages_sent)
+    :conditions => ["sender_Id = ? and receiver_Id = ? or sender_Id = ? and receiver_Id = ? ",1,2,2,1], 
+    :order => 'created_at' )
+  @conv= @messages_sent
+
+end
+
+  def construct_message
+
+  end
 
 
-  def send
-  	#@sender_Id= params[:senderID]
-  	#@receiver_Id= params[:receiverID]
+  def send_now
   	@sender_Id=1
   	@receiver_Id=2
   	@description= params[:text]
-  	msg = Messages.new
-  		receiver_Id = @receiver_Id
-  		sender_Id = @sender_Id
-  		description=@description
-  		Messages.save
-  	#Message.create(description: @description, sender_Id: @sender_Id, receiverID: @receiver_Id)
-    #Message.create( @textMessage,@receiver_Id, @sender_Id)
+
+    puts @description
+
+  	@msg = Messages.new(
+  		:receiver_Id => @receiver_Id,
+  		:sender_Id => @sender_Id,
+  		:description => @description
+      )
+  		@msg.save
+
+       redirect_to(:action => 'view_conversation')
+
 
   end
-end
+
+
 end

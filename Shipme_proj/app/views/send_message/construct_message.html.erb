@@ -1,0 +1,10 @@
+<h1>Send Message</h1>
+<p>
+<%= form_tag("/send_message/send_now/", :method => "post") %>
+<input type="hidden" name="senderID" >
+<input type="hidden" name="receiverID">
+Type Your Message here: <input type="text" name="text">
+<input name="commit" type="submit" value="Send">
+
+</form>
+<p>
