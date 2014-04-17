@@ -1,4 +1,5 @@
 ShipmeProj::Application.routes.draw do
+  devise_for :users
 #HEAD
 #HEAD
   resources :add_trips
