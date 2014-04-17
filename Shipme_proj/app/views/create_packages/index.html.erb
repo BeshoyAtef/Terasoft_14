@@ -8,6 +8,7 @@
       <th>Description    ,</th>
       <th>Weight         ,</th>
       <th>Origin         ,</th>
+      <th>value         ,</th>
       <th>Expiry date    ,</th>
       <th>Receiveraddress     ,</th>
       <th>Receivermobile     ,</th>
@@ -25,6 +26,7 @@
         <td><%= create_packages.description%></td>
         <td><%= create_packages.weight %></td>
         <td><%= create_packages.origin %></td>
+        <td><%= create_packages.packageValue %></td>
         <td><%= create_packages.expiryDate %></td>
         <td><%= create_packages.receiverAddress %></td>
         <td><%= create_packages.receiverMobNumber %></td>
@@ -37,7 +39,7 @@
 
 <br>
 
-<%= link_to 'Create new package', new_create_packages_path%>
+<%= link_to 'Create new package', create_packages_new_path%>
 
 
 

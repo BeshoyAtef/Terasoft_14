@@ -1,7 +1,8 @@
-<%= form_for(:create_packages) do |f| %>
+<p1 class="Packages"
+<%= form_for (@create_packages) do |f| %>
   <% if @create_packages.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@create_package.errors.count, "error") %> prohibited this create_package from being saved:</h2>
+      <h2><%= pluralize(@create_packages.errors.count, "error") %> prohibited this create_packages from being saved:</h2>
 
       <ul>
       <% @create_packages.errors.full_messages.each do |msg| %>
@@ -9,6 +10,7 @@
       <% end %>
       </ul>
     </div>
+    </p1>
   <% end %>
 
   <div class="field">
@@ -26,6 +28,10 @@
   <div class="field">
     <%= f.label :origin %><br>
     <%= f.text_field :origin %>
+  </div>
+  <div class="field">
+    <%= f.label :packageValue %><br>
+    <%= f.text_field :packageValue %>
   </div>
   <div class="field">
     <%= f.label :expiryDate %><br>
