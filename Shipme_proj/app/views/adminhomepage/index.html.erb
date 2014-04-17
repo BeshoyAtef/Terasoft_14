@@ -40,7 +40,7 @@
 
 	 <button type="button" onclick="myFunction()">View reports!</button>
 
-	 <p id="infor"> <b> view all shipments that already did per month
+	 <p id="infor"> <b> view all shipments that already did
 	 </b></p>
 
 	  <button type="button" onclick="myFunction()">view shipments</button>
@@ -59,31 +59,19 @@
 
 
 	 <script>
-	 
+
 function myFunction()
 {
 
-document.getElementById("info").innerHTML;
+document.getElementById("infor").innerHTML=  <h1> all packages</h1>
+  <% @packages.each do |package| %>
+    <tr>
+      <td><%= package.description %></td>
+    
+      </td>
+    </tr>
+    <% end %>
 
-}
-function myFunction()
-{
-
-document.getElementById("infor").innerHTML;
-
-}
-function myFunction()
-{
-
-document.getElementById("inform").innerHTML;
-
-}
-function myFunction()
-{
-
-document.getElementById("information").innerHTML;
-
-}
 
 </script>
 <p>  <b> <button type="button" onclick="myFunction()">generate graphs</button>  </b> </p>
