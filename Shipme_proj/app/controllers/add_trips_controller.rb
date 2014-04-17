@@ -4,7 +4,7 @@ class AddTripsController < ApplicationController
   # GET /add_trips
   # GET /add_trips.json
   def index
-    @add_trips = AddTrip.all
+    @add_trips = trips.all
   end
 
   # GET /add_trips/1
@@ -14,7 +14,7 @@ class AddTripsController < ApplicationController
 
   # GET /add_trips/new
   def new
-    @add_trip = AddTrip.new
+    @add_trip = Trips.new
   end
 
   # GET /add_trips/1/edit
@@ -24,7 +24,7 @@ class AddTripsController < ApplicationController
   # POST /add_trips
   # POST /add_trips.json
   def create
-    @add_trip = AddTrip.new(add_trip_params)
+    @add_trip = Trips.new(add_trip_params)
 
     respond_to do |format|
       if @add_trip.save
@@ -64,7 +64,7 @@ class AddTripsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_add_trip
-      @add_trip = AddTrip.find(params[:id])
+      @add_trip = Trips.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
