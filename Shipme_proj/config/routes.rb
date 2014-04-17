@@ -1,9 +1,11 @@
 ShipmeProj::Application.routes.draw do
 
+  get "ratings/show"
   resources :add_trips
 
- resources :create_packages
-
+  resources :create_packages
+  # The route for updating ratings
+  resources :ratings, only: :update
 
   devise_for :users
 

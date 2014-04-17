@@ -6,4 +6,7 @@ class Users < ActiveRecord::Base
 	has_many :reports, :class_name => "Users", :foreign_key => "user_Id"
 	has_many :requests, :class_name => "Users", :foreign_key => "user_Id"
 	has_many :trips, :class_name => "Users", :foreign_key => "user_Id"
+
+	has_many :ratings
+    has_many :packages
 end

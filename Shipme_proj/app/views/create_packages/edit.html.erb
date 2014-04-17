@@ -10,5 +10,38 @@
 
 <%= link_to 'Show', @create_package %> |
 <%= link_to 'Back', create_packages_path %>
+
+<script>
+  $('#star').raty({
+    readOnly: true,
+    rating: <%= @package.average_rating %>,
+    path: '/assets/images'
+  });
+
+  $('#user_star').raty({
+    rating: <%= @rating.score %>,
+    path: '/assets/images',
+    click: function(score, evt) {
+      $.ajax({
+        url: '/ratings/' + <%= @rating.id %>,
+        type: 'PATCH',
+        data: { rating: rating }
+      });
+    }
+  });
+</script>
+
+<p>Averate rating</p>
+<div id="star"></div>
+
+<p>Your rating</p>
+<div id="user_star"></div>
+
+
+
 </td>
 </tr>
+
+
+</body>
+</html>

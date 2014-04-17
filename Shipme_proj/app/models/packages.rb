@@ -4,6 +4,9 @@ class Packages < ActiveRecord::Base
 	has_many :payment, :class_name => "Packages", :foreign_key => "package_Id"
 	has_one :reports, :class_name => "Packages", :foreign_key => "package_Id"
      
+    has_one :rating
+    belongs_to :Users
+
      #this methode(scope) gets the delivered packages only
 	scope:counter, where(:finalDelivery => true)
 end
