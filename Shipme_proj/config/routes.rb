@@ -1,4 +1,6 @@
 ShipmeProj::Application.routes.draw do
+  get "package_view/PackgeViewer"
+  get "account/accountv"
 #HEAD
 #HEAD
   resources :add_trips
