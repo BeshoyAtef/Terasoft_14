@@ -9,4 +9,6 @@ def create
 	@trip.save
 		redirect_to(:action => 'new')
 	  end
+	  def list
+	  end
 end
