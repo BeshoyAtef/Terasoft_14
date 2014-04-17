@@ -1,4 +1,5 @@
 ShipmeProj::Application.routes.draw do
+  get "trips/index"
 #HEAD
 #HEAD
   resources :add_trips
@@ -9,8 +10,10 @@ ShipmeProj::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'homepage#index'
-
+  root 'trips#index'
+  get 'trips/index'
+   get 'trips/newtrips'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

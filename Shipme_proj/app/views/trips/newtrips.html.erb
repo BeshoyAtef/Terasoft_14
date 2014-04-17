@@ -1,0 +1,34 @@
+<h1>Add Trip</h1>
+
+
+
+<br>
+<div class="Trips">
+  <h2>Create Trip</h2>
+
+  <%= form_for(:AddTrip, :url => {:action => 'create'}) do |f| %>
+  
+    <table summary="Trip form fields">
+      <tr>
+        <th>Location</th>
+        <td><%= f.text_field(:location) %></td>
+      </tr>
+      <tr>
+        <th>Destination</th>
+        <td><%= f.text_field(:destination) %></td>
+      </tr>
+      <tr>
+        <th>TravelDate</th>
+        <td><%= f.text_field(:traveldate) %></td>
+      </tr>
+    </table>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Create Trip") %>
+    </div>
+    
+  <% end %>
+</div>
+
+
+
