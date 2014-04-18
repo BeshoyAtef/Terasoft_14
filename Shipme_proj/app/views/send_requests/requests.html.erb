@@ -7,13 +7,17 @@
 	
 
 <%= button_to 'Send', "/send_requests/requests" %>
-<% if @requests_count < 3  && @requests_count >0 %>
+<% if @requests_count < 3  %>
 
      <p> sent successfully :) </p>
 
  
- <% else @requests_count > 3 %>
+ <% elsif  @requests_count >= 3  %>
   <p2> you are not allowed to send more requests! </p2>
+
+  <% elsif  @requests_count > 0  %>
+  <p4> sent successfully :) </p4>
+
 
 <% end %>
 
