@@ -1,0 +1,25 @@
+<% @messages_sent.each do |c|%>
+<h2>
+	<% c.shift%>
+
+	<%b = c.first(1).first().first() %>
+	
+<li><%= link_to (b.receiver_Id),{:action => 'showMsg', :sid => b.sender_Id } -%>
+ &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
+<%= b.description %></h2>
+</li>
+<%end%>  
+
+<br>
+<% @messages_recieved.each do |c|%>
+<h2>
+	<% c.shift%>
+
+	<%b = c.first(1).first().first() %>
+	
+<li><%= link_to (b.sender_Id),{:action => 'showMsg', :sid => b.sender_Id } -%>
+ &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
+<%= b.description %>
+</li></h2>
+<%end%>   
+<p>Find me in app/views/messages/viewmessages.html.erb</p>
