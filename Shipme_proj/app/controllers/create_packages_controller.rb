@@ -71,4 +71,14 @@ class CreatePackagesController < ApplicationController
     def create_package_params
       params.require(:create_package).permit(:destination, :description, :weight, :origin, :Expiry_Date, :value, :receiverAddress, :receivermobile, :receiverMail)
     end
+    
+    def  deletepackage(user_id,package_id)
+    @user=Users.find(:all, :condition => {:id => user_id},{:package_Id => package_id})
+        if (@user.package_Id!=nil)
+            @package = Packages.find(:all, :condition => {:id => package_id})
+            @@user.package_id => nil
+            @package.destroy
+        end
+return;
+end
 end
