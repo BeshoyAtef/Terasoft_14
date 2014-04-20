@@ -1,6 +1,8 @@
 ShipmeProj::Application.routes.draw do
 #HEAD
 #HEAD
+get "edit_trips/index"
+get "edit_trips/update"
   resources :add_trips
 
  resources :create_packages
@@ -10,6 +12,7 @@ ShipmeProj::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'homepage#index'
+       'edit_trips#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
