@@ -1,5 +1,4 @@
- <t1 class="trips create">
- <head>
+<head>
  <script>
  function checkrequired(which){
 var pass=true
@@ -24,13 +23,11 @@ return true
 </script>
 </head>
 <body>
-  <form onSubmit="return checkrequired(this)" action= "create" >
-Destination: <input type="text" name="requireddestination"><br>
-Location: <input type="text" name="requiredlocation"><br>
-Travelling Date: <input type="datetime-local" name="requiredtraveldate"><br>
-Weight <input type="number" name="requiredweight"><br>
-<input type="submit" value="Add Trip">
+<form onSubmit="return checkrequired(this)" action= "complete_user" >
+Credit Card Number: <input type="text" name="requiredcrdtcardnum"><br>
+Mobile Number <input type="text" name="requiredmobnum"><br>
+ID Number: <input type="text" name="requiredidnum"><br>
+<input type="hidden" value=<%=params[:id]%> name=id>
+<input type="submit" value="Add Information">
 </form>
-
 </body>
-</t1>
