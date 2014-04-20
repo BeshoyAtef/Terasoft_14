@@ -3,6 +3,7 @@ ShipmeProj::Application.routes.draw do
 #HEAD
 get "edit_trips/index"
 get "edit_trips/update"
+get "edit_trips/edit"
   resources :add_trips
 
  resources :create_packages
