@@ -21,10 +21,14 @@ return false
 else
 return true
 }
+function show_alert()
+{
+   alert("Your Trip was successfully edited!");
+}
 </script>
 </head>
 <body>
-  <form onSubmit="return checkrequired(this)" action= "update" >
+  <form onSubmit="return checkrequired(this) & show_alert()"   action= "update" >
 Destination: <input type="text" name="requireddestination"><br>
 Location: <input type="text" name="requiredlocation"><br>
 Travelling Date: <input type="datetime-local" name="requiredtraveldate"><br>
