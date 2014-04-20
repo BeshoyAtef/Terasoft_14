@@ -1,7 +1,26 @@
 ShipmeProj::Application.routes.draw do
+  get "requests/index"
+  get "requests/show"
+  get "requests/rejectance"
+  get "requests/accept"
+  get "requests/reject"
+
+
+ post "requests/accept"
+ post "requests/reject"
+
+
+  
+
+
+
 #HEAD
 #HEAD
   resources :add_trips
+  resources :requests 
+
+
+  
 
  resources :create_packages
 
@@ -10,6 +29,10 @@ ShipmeProj::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'homepage#index'
+       'requests#index'
+       'requests#accept'
+       'requests#reject'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
