@@ -1,24 +1,30 @@
 class SendRequestsController < ApplicationController
  
-  #This method is inserting the requests being sent in table request in the db.
-   #Author:  Manar A. Eltayeb.
+  #This method is inserting the requests being sent in table Requests in the db.
+  #input : params[:id].
+  #Author:  Manar A. Eltayeb.
 
   def  requests
-  
- 		
-  		 @requests_count = Requests.find( :all, :conditions => { :sender_id => 220 } ).count 
-  		 
-  		 if @requests_count < 3
 
-  		  request = Requests.new
-  		  request.carrier_Id = 1
-  		  request.sender_Id = 220
-  		  request.accept = false
-  		  request.save
-            	
-  			
+       package = Packages.new
+       package.id = params[:id]
+
+       @requests_count = Requests.find( :all, :conditions => { :packages_id => package.id} ).count 
+       
+       if @requests_count < 3
+
+        request = Requests.new
+        request.carriers_id = 1
+        request.senders_id= params[:id]
+        request.packages_id = package.id
+        request.accept = nil
+        request.save
+
+        
+              
        end
-  		
+      
   end
   
 end
+
