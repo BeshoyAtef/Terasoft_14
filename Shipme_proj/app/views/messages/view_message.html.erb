@@ -1,0 +1,34 @@
+<h3 class="title-2"> My Messages </h3>
+<br>
+<br>
+ 
+	<% @messages_recieved.each do |c|%>
+
+		<% c.shift%>
+
+		<% b = c.first(1).last().last() %>
+	
+		<%@users.each do |u|%>
+		
+			<%if u.user_Id == b.sender_Id%>
+
+		 		<a href = "../send_message/view_conversation?sid = <%=b.sender_Id%> & rid=<%= b.receiver_Id %>"> <%=u.username%> </a> 
+		 		&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
+				<%= b.description %>
+				<br>
+				<br>
+				<br>
+			<%end%>
+		<%end%>
+<%end%>
+<br>
+<br>
+<br>   
+
+	<nav id="navigation" class="style-2">
+	<div class="left-corner"></div>
+	<div class="right-corner"></div>
+
+	<ul class="menu" id="responsive">
+
+  <li><a href="new_message" id="current"><i class="halflings white envelope"></i> Send New Messages</a></li>
