@@ -21,7 +21,6 @@ class SendRequestsController < ApplicationController
         request.save
 
         
-              
        end
       
   end

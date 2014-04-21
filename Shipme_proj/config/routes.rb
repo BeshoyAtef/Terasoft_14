@@ -2,8 +2,6 @@ ShipmeProj::Application.routes.draw do
   get "send_requests/requests"
 
   get "/send_requests/requests" => 'send_requests#requests', :as => 'Send_button'
-  get "send_requests/redirectpage"
-  post "send_requests/redirectpage"
   post "/send_requests/requests"
   get "send_requests/count_requests"
   post "/send_requests/count_requests"
