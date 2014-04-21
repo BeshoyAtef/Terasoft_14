@@ -1,8 +1,35 @@
 <h1>Reports</h1>
-<form>
-Package Number: <input type="text" name="PackageNo"><br>
-Report: <br><TEXTAREA Name="Report" ROWS=10 COLS=35></TEXTAREA><br>
-<button type="button">Submit Report</button> 
+<head>
+ <script>
+ function checkrequired(which){
+var pass=true
+if (document.images){
+for (i=0;i<which.length;i++){
+var tempobj=which.elements[i]
+if (tempobj.name.substring(0,8)=="required"){
+if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+pass=false
+break
+}
+}
+}
+}
+if (!pass){
+alert("One or more of the required elements are not completed. Please complete them, then submit again!")
+return false
+}
+else
+return true
+}
+</script>
+
+</head><body>
+<form onSubmit="return checkrequired(this)" action= "reports" >
+<form  action= 'createReport' >
+Package Number: <input type="text" name="requiredPackageNo"><br>
+Report: <br><TEXTAREA Name="requiredReport" ROWS=10 COLS=35></TEXTAREA><br>
+<input type="submit" value="Submit Report"> 
+</body>
 </form> 
 
 

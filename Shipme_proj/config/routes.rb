@@ -1,11 +1,14 @@
 ShipmeProj::Application.routes.draw do
   get "reports/Reports"
+   get "reports/index"
+    get "reports/createReport"
 #HEAD
 #HEAD
   resources :add_trips
   resources :reports
 
  resources :create_packages
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
