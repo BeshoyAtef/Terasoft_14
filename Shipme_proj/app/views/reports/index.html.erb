@@ -1,26 +1,28 @@
 <h1>Reports</h1>
+ <!--This view is intended to add a text field for reports and a text field to the package no and a button to submit reports the javascript handles empty spaces -->
+  <!--Mohamed Adly G-->
 <head>
  <script>
  function checkrequired(which){
 var pass=true
-if (document.images){
-for (i=0;i<which.length;i++){
-var tempobj=which.elements[i]
-if (tempobj.name.substring(0,8)=="required"){
-if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
-pass=false
-break
+		if (document.images){
+			for (i=0;i<which.length;i++){
+				var tempobj=which.elements[i]
+					if (tempobj.name.substring(0,8)=="required"){
+						if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+					pass=false
+				break
+			}
+		}
+	}
 }
-}
-}
-}
-if (!pass){
-alert("One or more of the required elements are not completed. Please complete them, then submit again!")
-return false
-}
-else
-return true
-}
+	if (!pass){
+		alert("One or more of the required elements are not completed. Please complete them, then submit again!")
+		return false
+	}
+	else
+		return true
+	}
 </script>
 
 </head><body>
