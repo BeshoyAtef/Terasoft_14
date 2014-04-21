@@ -1,16 +1,21 @@
 ShipmeProj::Application.routes.draw do
   get "adminhomepage/index"
+  get "adminhomepage/view_shipments"
 #HEAD
 #HEAD
   resources :add_trips
 
  resources :create_packages
+  resources :adminhomepage
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'adminhomepage#index'
+  
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

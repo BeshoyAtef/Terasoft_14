@@ -1,17 +1,17 @@
 class AdminhomepageController < ApplicationController
   #This method is to create ahome page for admin.
-  #Author:  Rana M. Elbishy.
+  #Author:  Rana M. Elbrishy.
 
   def  index
   
   end
 
 
-  #This method is show shipments done.
-  #@packages-array
-  #Author:  Rana M. Elbishy.
+  #This method shows all shipments done according to specific date
+  #Returns @packages-array[packages]
+  #Author:  Rana M. Elbrishy.
 
-  def  index
+  def  view_shipments
     @packages = Packages.find( :all, :conditions => {:finalDelivery => true, :creationDate => 0000-00-00 } )
   end
 

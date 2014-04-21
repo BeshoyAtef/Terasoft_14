@@ -1,81 +1,75 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style type="text/css">
+	<!DOCTYPE html>
+
+
+	<!--This view is intended to make the homepage for admin-->
+    <!--Author: Rana M. Elbrishy -->
+
+	<html>
+  <head>
+  <style type="text/css">
 	body
 	{
 		background-color:pink;
-		
-
 	}
+
 	h1 
 	{
 		color:orange;
 		text-align:center;
 		font-size: 40px;
-
 	}
 
 	p
 	{
 		font-family: "Times New Roman";
 		font-size: 20px;
-
 	}
 
-</style>
-<title>AdminPage</title>
-</head>
-<body>
+	</style>
+	<title>AdminPage</title>
+	</head>
+	<body>
 
 	<h1> <b> Admin homepage </b></h1>
 	<img src="img.gif" height="500" width="400"/>
 	
-
-<h4> <b> My responsibilities  </b> </h4>
+	<h4> <b> My responsibilities  </b> </h4>
 	 
-
 	<p id="info"> <b> view all reports sent against user (sender)s who didn't confirm the final delivery
-	 </b></p>
+	</b></p>
 
 	 <button type="button" onclick="myFunction()">View reports!</button>
 
-	 <p id="infor"> <b> view all shipments that already did
-	 </b></p>
 
-	  <button type="button" onclick="myFunction()">view shipments</button>
+	 <!--This view is intended to add a link for showing all shipments done-->
+    <!--Author: Rana M. Elbrishy -->
+
+	 <br>
+	 <%= link_to("Show all finished shipments", {:action => 'view_shipments'}, :class => 'Adminhomepage') %>
+	 </br>
 
 	 <p id="inform"> <b> view all new users per month 
 	 </b></p>
        
-       <button type="button" onclick="myFunction()">View new users</button>
+   <button type="button" onclick="myFunction()">View new users</button>
 
-	 <p id="information"> <b> view revenues /month 
-	 	
+	 <p id="information"> <b> view revenues /month 	
 	 </b></p>
+
 	 <button type="button" onclick="myFunction()">View revenue</button>
-	 	<button type="button" onclick="myFunction()">View Commisions </button>
 
-
+	 <button type="button" onclick="myFunction()">View Commisions </button>
 
 	 <script>
 
-function myFunction()
-{
+	function myFunction()
+	{
+		document.getElementById("infor").innerHTML=  <%= @packages %>
+	}
 
-document.getElementById("infor").innerHTML=  <h1> all packages</h1>
-  <% @packages.each do |package| %>
-    <tr>
-      <td><%= package.description %></td>
-    
-      </td>
-    </tr>
-    <% end %>
-
-
-</script>
-<p>  <b> <button type="button" onclick="myFunction()">generate graphs</button>  </b> </p>
-</body>
-</html>
+	</script>
+	<p>  <b> <button type="button" onclick="myFunction()">generate graphs</button>  </b> </p>
+	</body>
+	</html>
 
 
