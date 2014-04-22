@@ -1,0 +1,14 @@
+<% @lis.each do |c| %>
+<li><%= c.description%>
+	<%= c.destination %>
+	<%= c.origin %>
+	<%= c.packageValue %>
+	<%= c.expiryDate %>
+	<%= c.carryingPrice %>
+	<%= c.receiverAddress %>
+	<%= c.receiverMobNumber %>
+	<%= c.receiverEmail %>
+	<%= c.weight %>
+	<a href='/edit_packages/edit_package?id=<%=c.id%>&'> edit</a>
+</li>
+<%end%>

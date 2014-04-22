@@ -1,0 +1,53 @@
+ <t1 class="Edit packages">
+ <head>
+ <script>
+ function checkrequired(which){
+var pass=true
+if (document.images){
+for (i=0;i<which.length;i++){
+var tempobj=which.elements[i]
+if (tempobj.name.substring(0,8)=="required"){
+	if (tempobj.name.substring(0,11)=="requirednum"){
+		if (!(tempobj === parseInt(tempobj))){
+			pass=false
+			alert("Please insert digit values in value field!")
+			return false
+		}
+	}
+if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+pass=false
+break
+}
+}
+}
+}
+if (!pass){
+alert("One or more of the required elements are not completed. Please complete them, then submit again! YOUR PACKAGE WAS NOT EDITED!")
+return false
+}
+else{
+alert("Your Package was successfully edited! HOWEVER, IF YOU FOUND THAT YOUR PACKAGE WAS NOT EDITED THEN, YOUR Carrying REQUEST WAS ACCEPTED BY A CARRIER AND CAN'T BE EDITED!!")
+return true
+}
+}
+
+</script>
+</head>
+<body>
+  <form onSubmit="checkrequired(this);" action= "update" >
+Destination: <input type="text" name="requireddestination"><br>
+Description: <input type="text" name="requireddescription"><br>
+Expiry Date: <input type="date_select" name="requiredexpriydate"><br>
+Weight: <input type="number" name="requirednumweight"><br>
+Value: <input type="number" name="requirednumvalue"><br>
+Carrying Parice: <input type="number" name="requirednumprice"><br>
+Receiver Address: <input type="text" name="requiredaddress"><br>
+Receiver Mobile Number: <input type="text" name="requiredmobile"><br>
+Receiver Email: <input type="text" name="requiredemail"><br>
+Origin: <input type="text" name="requiredorigin"><br>
+<input type=hidden value =<%=params[:id]%> name='id'>
+<input type="submit" value="Edit Packages">
+</form>
+
+</body>
+</t1>
