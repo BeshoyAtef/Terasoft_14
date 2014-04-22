@@ -1,9 +1,9 @@
 class TripsController < ApplicationController
 
-#This method adds the attributes of the failure scenario to the database.
-#creditCard - integer, mobileNumber - integer, idNumber - integer.
-#This method return the attributes entered in the database.
-#Author: Ahmed H. Nasser.
+ #This method adds the attributes of the failure scenario to the database.
+ #creditCard - integer, mobileNumber - integer, idNumber - integer.
+ #This method return the attributes entered in the database.
+ #Author: Ahmed H. Nasser.
 
   def  complete_user
     @comp = Users.find(params[:id])
@@ -21,10 +21,10 @@ class TripsController < ApplicationController
   end
   end
 
-#This method creates add trip and also check if the user didnt add his/her creditcard/mobile number/id number.
-#Destination - string, location - string, maxWeight - float, travelDate - date.
-#This method returns the values inserted to the database.
-#Author: Ahmed H. Nasser.
+ #This method creates add trip and also check if the user didnt add his/her creditcard/mobile number/id number.
+ #Destination - string, location - string, maxWeight - float, travelDate - date.
+ #This method returns the values inserted to the database.
+ #Author: Ahmed H. Nasser.
 
   def  create
     @userId = Users.find(:all).last().id
