@@ -1,21 +1,19 @@
 
+
 <h1>Create new packages</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Destination    ,</th>
-      <th>Description    ,</th>
-      <th>Weight         ,</th>
-      <th>Origin         ,</th>
-      <th>value         ,</th>
-      <th>Expiry date    ,</th>
-      <th>Receiveraddress     ,</th>
-      <th>Receivermobile     ,</th>
+      <th>Destination,</th>
+      <th>Description,</th>
+      <th>Weight,</th>
+      <th>Origin,</th>
+      <th>value,</th>
+      <th>Expiry date,</th>
+      <th>Receiveraddress,</th>
+      <th>Receivermobile,</th>
       <th>Receivermail</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -31,7 +29,7 @@
         <td><%= create_packages.receiverAddress %></td>
         <td><%= create_packages.receiverMobNumber %></td>
         <td><%= create_packages.receiverEmail %></td>
-        <td><%= link_to 'Show', create_packages %></td>
+        <td><a href = 'show_package?id=<%=create_packages.id%>' >show</td>
       </tr>
     <% end %>
   </tbody>
@@ -39,7 +37,7 @@
 
 <br>
 
-<%= link_to 'Create new package', create_packages_new_path%>
+<a href='new'> create new package</a>
 
 
 

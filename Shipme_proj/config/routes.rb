@@ -4,11 +4,14 @@ ShipmeProj::Application.routes.draw do
  get "create_packages/new"
  #post "/create_packages/new"
  get "create_packages/index" 
+ get "create_packages/show_package" 
  post "packages/index"
+ get "reports/index"  
+ get "reports/sendMail"
 #HEAD
 #HEAD
 #resources :add_trips
-
+resources :reports
 resources :create_packages
 #get ':controller((/:create_packages#index(.:format))'''
 #post ':controller((/:create_packages#index(.:format))'''

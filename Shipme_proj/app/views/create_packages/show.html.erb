@@ -1,60 +1,46 @@
-<html>
-<body>
+  <div class="field">
+     destination : <%= params[:requireddestination]%>  
+  </div>
+  <br>
 
-<table width="500">
-<tr>
-<td colspan="2" style="background-color:#FFA500;">
-<h1>List of all packages</h1>
+  <div class="field">
+     description : <%= params[:requireddescription]%>
+  </div>
+  <br>
 
+  <div class="field">
+     weight : <%= params[:requiredweight]%>
+  </div>
+  <br>
 
-<p id="notice"><%= notice %></p>
+  <div class="field">
+     origin : <%= params[:requiredorigin]%>
+  </div>
+  <br>
 
-<p>
-  <strong>Destination:</strong>
-  <%= @create_packages.destination %>
-</p>
+  <div class="field">
+     packageValue : <%= params[:requiredpackageValue]%>
+  </div>
+  <br>
 
-<p>
-  <strong>Description:</strong>
-  <%= @create_packages.description %>
-</p>
+  <div class="field">
+     expiryDate : <%= params[:requiredexpiryDate]%>
+  </div>
+  <br>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @create_packages.weight %>
-</p>
+  <div class="field">
+     receiverAddress : <%= params[:requiredreceiverAddress]%>
+  </div>
+  <br>
 
-<p>
-  <strong>Origin:</strong>
-  <%= @create_packages.origin %>
-</p>
+    <div class="field">
+     receiverMobNumber : <%= params[:requiredreceiverMobNumber]%>
+  </div>
+  <br>
+    <div class="field">
+     receiverEmail : <%= params[:receiverEmail]%>
+  </div>
+  <br>
 
-<p>
-  <strong>Expiry date:</strong>
-  <%= @create_packages.Expiry_Date %>
-</p>
-
-<p>
-  <strong>Value:</strong>
-  <%= @create_packages.value %>
-</p>
-
-<p>
-  <strong>Receiveraddress:</strong>
-  <%= @create_packages.receiverAddress %>
-</p>
-
-<p>
-  <strong>Receivermobile:</strong>
-  <%= @create_package.receivermobile %>
-</p>
-
-<p>
-  <strong>Receivermail:</strong>
-  <%= @create_package.receiverMail %>
-</p>
-
-<%= link_to 'Edit', edit_create_package_path(@create_package) %> |
-<%= link_to 'Back', create_packages_path %>
-</td>
-</tr>
+  <a href='index'> back</a>
+<%#end%>

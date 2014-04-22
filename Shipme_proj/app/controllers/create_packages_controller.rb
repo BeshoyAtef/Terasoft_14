@@ -1,74 +1,68 @@
 class CreatePackagesController < ApplicationController
-  before_action :set_create_package, only: [:show, :edit, :update, :destroy]
 
-  # GET /create_packages
-  # GET /create_packages.json
+  #this method is initializing create_packages to packages
+  # create_packages
+  # all Packages 
+  #Author:  Ahmed Samouka
+
   def index
-    @packages = Packages.all
+    @create_packages = Packages.all
   end
 
-  # GET /create_packages/1
-  # GET /create_packages/1.json
-  def show
-  end
+  #ths method is to make sure that the id of the user is verified
+  # idVerify from database
+  # if the id is verified he should be able to create a package else he will not 
+  #Auther: Ahmed Samouka
 
-  # GET /create_packages/new
   def new
-    @package = Packages.new
+    @p = false
+    @user = Users.find(:all).last().id
+    @verify = Users.find(@user).idVerify
+    if @verify != 1 
+      redirect_to :action => 'index'
+    else
+       
+    end
   end
+  #this method is showing the created package
+  #package parameters
+  #show the last created package
+  #Author:Ahmed Samouka
+def show_package
+  @pack = Packages.find(params[:id])
 
-  # GET /create_packages/1/edit
-  def edit
-  end
+end
 
-  # POST /create_packages
-  # POST /create_packages.json
+  #this method is creating a new package and show it 
+  #packages parameters
+  #redirect to index
+  #Author:Ahmed Samouka
+def show
+    @create_packages = Packages.new
+    @create_packages.destination =  params[:requireddestination]
+    @create_packages.description =  params[:requireddescription]
+    @create_packages.receiverAddress =  params[:requiredreceiverAddress]
+    @create_packages.origin =  params[:requiredorigin]
+    @create_packages.receiverMobNumber =  params[:requiredreceiverMobNumber]
+    @create_packages.receiverEmail =  params[:receiverEmail]
+    @create_packages.weight =  params[:requiredweight]
+    @create_packages.packageValue =  params[:requiredpackageValue]
+    @create_packages.save
+end
+
+  #this method is after creating the package rediretct to show package with the id of the last created package to show it to the user
+  #packages parameters
+  #redirect to show_package
+  #Author:Ahmed Samouka
+
   def create
-    @package = Packages.new(Packages_params)
+    @c = Packages.find(:all).last()
+    @id = @c.id
+    redirect_to :action => 'show_package?id=@id'
 
-    respond_to do |format|
-      if @package.save
-        format.html { redirect_to @package, notice: 'Create package was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @packages }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @package.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
-  # PATCH/PUT /create_packages/1
-  # PATCH/PUT /create_packages/1.json
-  def update
-    respond_to do |format|
-      if @package.update(Packages_params)
-        format.html { redirect_to @package, notice: 'Create package was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @package.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+ 
+  
 
-  # DELETE /create_packages/1
-  # DELETE /create_packages/1.json
-  def destroy
-    @cackage.destroy
-    respond_to do |format|
-      format.html { redirect_to create_packages_url }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_create_package
-      @create_packages = Packages.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def Packages_params
-      params.require(:Packages).permit(:destination, :description, :weight, :origin, :expiryDate, :receiverAddress, :receiverMobNumber, :receiverEmail)
-    end
 end
