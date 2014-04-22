@@ -1,4 +1,7 @@
 ShipmeProj::Application.routes.draw do
+  get "confirm/confirm"
+  get "confirm/list"
+  get "confirm/input"
   get "trips/index"
 #HEAD
 #HEAD
@@ -12,7 +15,10 @@ ShipmeProj::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'trips#index'
   get 'trips/index'
-   get 'trips/newtrips'
+  get 'trips/newtrips'
+  get'trips/create'
+  get'trips/complete'
+  get'trips/complete_user'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

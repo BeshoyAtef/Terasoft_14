@@ -1,33 +1,35 @@
+<!-- This view is intended to enable the user to enter the attributes of the failure scenario of add trip -->
+<!-- Author: Ahmed H. Nasser -->
 <head>
- <script>
+<script>
  function checkrequired(which){
-var pass=true
-if (document.images){
-for (i=0;i<which.length;i++){
-var tempobj=which.elements[i]
-if (tempobj.name.substring(0,8)=="required"){
-if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
-pass=false
-break
-}
-}
-}
-}
-if (!pass){
-alert("One or more of the required elements are not completed. Please complete them, then submit again!")
-return false
-}
-else
-return true
-}
+ var pass=true
+ if (document.images){
+ for (i=0;i<which.length;i++){
+ var tempobj=which.elements[i]
+ if (tempobj.name.substring(0,8)=="required"){
+ if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+ pass=false
+ break
+ }
+  }
+   }
+    }
+ if (!pass){
+ alert("One or more of the required elements are not completed. Please complete them, then submit again!")
+ return false
+ }
+ else
+ return true
+ }
 </script>
 </head>
 <body>
 <form onSubmit="return checkrequired(this)" action= "complete_user" >
-Credit Card Number: <input type="text" name="requiredcrdtcardnum"><br>
-Mobile Number <input type="text" name="requiredmobnum"><br>
-ID Number: <input type="text" name="requiredidnum"><br>
-<input type="hidden" value=<%=params[:id]%> name=id>
-<input type="submit" value="Add Information">
+ Credit Card Number: <input type="text" name="requiredcrdtcardnum"><br>
+ Mobile Number <input type="text" name="requiredmobnum"><br>
+ ID Number: <input type="text" name="requiredidnum"><br>
+ <input type="hidden" value=<%=params[:id]%> name=id>
+ <input type="submit" value="Add Information">
 </form>
 </body>
