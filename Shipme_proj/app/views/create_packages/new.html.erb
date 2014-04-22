@@ -1,21 +1,27 @@
  <t1 class="package create">
+
+ 
+ <!--This part is to make sure nothnig of the requierd information is left blanl -->
+ <!--Author: Ahmed Samouka -->
+
  <head>
  <script>
- function checkrequired(which){
-var pass=true
-if (document.images){
-  for (i=0;i<which.length;i++){
-    var tempobj=which.elements[i]
-    if (tempobj.name.substring(0,8)=="required"){
-    if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
-      pass=false
-  break
- }
-  }
-   }
+
+  function checkrequired( which ){
+  var pass = true
+	if ( document.images ){
+		for ( i=0;i<which.length;i++ ){
+    		var tempobj = which.elements[ i ]
+    		if ( tempobj.name.substring(0,8) == "required" ){
+    		if ((( tempobj.type == "text"||tempobj.type == "textarea")&&tempobj.value == '')||(tempobj.type.toString().charAt(0) == "s"&&tempobj.selectedIndex == -1 )){
+      		pass = false
+  		break
     }
-  if (!pass){
-     alert("One or more of the required elements are not completed. Please complete them, then submit again!")
+          }
+             }
+             }
+  if ( !pass ){
+     alert( "One or more of the required elements are not completed. Please complete them, then submit again!" )
     return false
   }
   else
@@ -26,58 +32,62 @@ if (document.images){
 <html>
 <body>
 
+
+ <!--This view is intended to be able to create a new package-->
+ <!--Author: Ahmed Samouka -->
+
 <h2> Create new package</h2>
 <form onSubmit="return checkrequired(this)" action="Show" method="get" >
   <div class="field">
-     destination
+    destination
     <input type="text" name="requireddestination">
   </div>
-   <br>
+  <br>
  
   <div class="field">
-     description
+    description
     <input type="text" name="requireddescription">
   </div>
-   <br>
+  <br>
  
   <div class="field">
-     weight
+    weight
     <input type="float" name="requiredweight">
   </div>
    <br>
  
   <div class="field">
-     origin
+    origin
     <input type="text" name="requiredorigin">
   </div>
    <br>
  
   <div class="field">
-     packageValue
+    packageValue
     <input type="float" name="requiredpackageValue">
   </div>
    <br>
  
   <div class="field">
-     expiryDate
+    expiryDate
     <input type="date" name="requiredexpiryDate">
   </div>
    <br>
     <br>
   
   <div class="field">
-     receiverAddress
+    receiverAddress
     <input type="text" name="requiredreceiverAddress">
   </div>
    <br>
 
     <div class="field">
-     receiverMobNumber
+    receiverMobNumber
     <input type="integer" name="requiredreceiverMobNumber">
   </div>
  <br>
     <div class="field">
-     receiverEmail
+    receiverEmail
     <input type="text" name="receiverEmail">
   </div>
   <br>
