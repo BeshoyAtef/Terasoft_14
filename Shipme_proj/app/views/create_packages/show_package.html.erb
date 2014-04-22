@@ -1,0 +1,52 @@
+ <!--This view is intended to show the data of last created package-->
+ <!--Author: Ahmed Samouka -->
+
+<%# @pack.each do |c|%>
+  <%created_package = @package_show%>
+  
+  <div class="field">
+    destination : <%= created_package.destination%>  
+  </div>
+  <br>
+
+  <div class="field">
+     description : <%= created_package.description%>
+  </div>
+  <br>
+
+  <div class="field">
+     weight : <%= created_package.weight%>
+  </div>
+  <br>
+
+  <div class="field">
+     origin : <%= created_package.origin%>
+  </div>
+  <br>
+
+  <div class="field">
+     packageValue : <%= created_package.packageValue%>
+  </div>
+  <br>
+
+  <div class="field">
+     expiryDate : <%= created_package.expiryDate%>
+  </div>
+  <br>
+
+  <div class="field">
+     receiverAddress : <%= created_package.receiverAddress%>
+  </div>
+  <br>
+
+    <div class="field">
+     receiverMobNumber : <%= created_package.receiverMobNumber%>
+  </div>
+  <br>
+    <div class="field">
+     receiverEmail : <%= created_package.receiverEmail%>
+  </div>
+  <br>
+
+  <a href='index'> back</a>
+<%#end%>
