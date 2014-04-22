@@ -1,21 +1,40 @@
 <h3>Accept/Reject Request</h3>
+ <!--This view is intended to add a button for to accept the request and a button to reject the request-->
+<!--Author: Manar A. Eltayeb -->
 
 <p id="notice"><%= notice %></p>
 
 
-<%= form_for(:request, :url => {:action => 'accept', :id => @request.id }) do |f| %>
+<%= form_for(:requests, :url => {:action => 'accept', :id => @request.id }) do |f| %>
 
-		<%= f.submit "Accept Request" %>
+ 		<% if @request.accept==true || @request.accept==false || @request == nil%>
+
+ 				<p>An error occured please try after a while</p>
+
+ 		
+
+		<%else %>
+
+				<%= f.submit "Accept Request" %>
+		<%end%>
 
 
 <% end %>
 
-<%= form_for(:request, :url => {:action => 'reject', :id => @request.id}) do |f| %>
 
-		<%= f.submit "Reject Request" %>
+<%= form_for(:requests, :url => {:action => 'reject', :id => @request.id}) do |f| %>
+
+		<% if @request.accept==nil %>
+
+				<%= f.submit "Reject Request" %>
+
+		<%end%>
+
 
 
 <% end %>
+
+
 
 
 
