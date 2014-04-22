@@ -1,14 +1,14 @@
-<% @lis.each do |c| %>
-<li><%= c.description%>
-	<%= c.destination %>
-	<%= c.origin %>
-	<%= c.packageValue %>
-	<%= c.expiryDate %>
-	<%= c.carryingPrice %>
-	<%= c.receiverAddress %>
-	<%= c.receiverMobNumber %>
-	<%= c.receiverEmail %>
-	<%= c.weight %>
-	<a href='/edit_packages/edit_package?id=<%=c.id%>&'> edit</a>
-</li>
-<%end%>
+  <% @current_user_packages.each do |c| %>
+    <li>DESCRIPTION:<%= c.description%>
+	    DESTINATION:<%= c.destination %>
+	    ORIGIN:<%= c.origin %>
+		VALUE:<%= c.packageValue %>
+		EXPIRY DATE:<%= c.expiryDate %>
+		PRICE:<%= c.carryingPrice %>
+		REC. ADDRESS:<%= c.receiverAddress %>
+		REC. MOBILE:<%= c.receiverMobNumber %>
+		REC. EMAIL:<%= c.receiverEmail %>
+		WEIGHT:<%= c.weight %>
+	    <a href='/edit_packages/edit_package?id=<%=c.id%>&'>Edit Package Details</a>
+    </li>
+  <%end%>
