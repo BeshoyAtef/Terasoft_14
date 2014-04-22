@@ -12,7 +12,7 @@ class AdminhomepageController < ApplicationController
   #Author:  Rana M. Elbrishy.
 
   def  view_shipments
-    @packages = Packages.find( :all, :conditions => {:finalDelivery => true, :creationDate => 0000-00-00 } )
+    @packages = Packages.find( :all, :conditions => {:finalDelivery => true}, :order => "created_at ASC" )
   end
 
   end
