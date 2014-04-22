@@ -1,29 +1,39 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+# Listing the user input that is sucessfuly created .It contain mobileNumber(integer),crediCard(integer) and id(integer) 
+ # Authord :Mariam .S. Elsanady
 
-  # GET /users
-  # GET /users.json
-  def index
+  def  index
     @user = User.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
+
+# showing the records in details that is already created .It contain mobileNumber(integer),crediCard(integer) and id(integer) 
+# Authord :Mariam .S. Elsanady
+
+  def  show
   end
 
-  # GET /users/new
-  def new
+
+  # Create new user information. Input is mobileNumber(integer(12)),crediCard(integer(19)) and id(integer(22)) 
+  # Authord :Mariam .S. Elsanady
+
+  def  new
     @user = User.new
   end
 
-  # GET /users/1/edit
-  def edit
+
+  # Editing the information of the user that is already created (updating his information). Edited items could be mobileNumber(integer(12)),crediCard(integer(19)) and id(integer(22))
+  # Authord :Mariam .S. Elsanady
+
+  def  edit
   end
 
-  # POST /users
-  # POST /users.json
-  def create
+
+  # This method is active when the user click on create so it will save his information and redirect to new page . input parameters are mobileNumber(integer(12)),crediCard(integer(19)) and id(integer(22))
+  # Authord :Mariam .S. Elsanady
+
+  def  create
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -37,9 +47,11 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-  def update
+
+# This method is done when the user is in the edit page and he update his information by click on update information  
+   # Authord :Mariam .S. Elsanady
+
+  def  update
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -51,24 +63,16 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
-    end
-  end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
+# It settel all parameters that is created by user
+ # Authord :Mariam .S. Elsanady
+ 
+   private
+    def  set_user
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
+    def  user_params
       params.require(:user).permit(:creditCard, :mobileNumber, :user_Id)
     end
 end
