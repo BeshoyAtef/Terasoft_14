@@ -1,0 +1,33 @@
+ <!--This view is intended to add entries title , the already created records to be listed and three buttons(show , edit and new user) -->
+<!--Author: Mariam S. Elsanady -->
+
+<h1>Listing users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Creditcard</th>
+      <th>Mobilenumber</th>
+      <th>User id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.each do |user| %>
+      <tr>
+        <td><%= user.creditCard %></td>
+        <td><%= user.mobileNumber %></td>
+        <td><%= user.user_Id %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
