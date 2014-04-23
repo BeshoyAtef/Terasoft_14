@@ -1,5 +1,6 @@
 ShipmeProj::Application.routes.draw do
   get "adminhomepage/index"
+  get "adminhomepage/view_shipments"
  
 #HEAD
 #HEAD
