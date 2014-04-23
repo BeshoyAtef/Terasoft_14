@@ -84,7 +84,7 @@ class EditPackagesController < ApplicationController
     @current_user_request.each do |t|
       @is_accepted = t.accept
       @carrier_id = t.carriers_id
-      end
+    end
     @destination = params[ :required_destination]
     @description = params[ :required_description ]
     @origin = params[ :required_origin ]
@@ -100,7 +100,7 @@ class EditPackagesController < ApplicationController
     if (@destination == nil or @expiry_date == nil or @description == nil or @origin == nil or @package_value == nil or @carrying_price == nil or @receiver_address == nil or @receiver_email == nil or @receiver_mob_number == nil or @weight == nil or !(is_numeric(@package_value)) or !(is_numeric(@carrying_price)) or !(is_numeric(@weight)) or !(is_numeric(@receiver_mob_number)))
       @data_validated = false
     end  
-    if(@current_user_id == @current_package.senders_id && @is_accepted != true && @data_validated == true)
+    if(@current_user_id == @current_package.senders_id && @is_accepted == 0 && @data_validated == true)
       @package_id = @current_package.id
       @current_package.destroy
       @package = Packages.new
