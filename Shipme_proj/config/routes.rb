@@ -1,24 +1,20 @@
 ShipmeProj::Application.routes.draw do
-#get "create_packages/index"
- #post "create_packages/index"
- get "create_packages/new"
- #post "/create_packages/new"
- get "create_packages/index" 
- post "packages/index"
+ get "user/signup"
+ get "user/signin"
+ get "user/forgot"
+ get "user/create"
+ get "user/in"
+ get "user/forgot_mail"
+ get "user/used"
 #HEAD
 #HEAD
-#resources :add_trips
-
+resources :add_trips
 resources :create_packages
-#get ':controller((/:create_packages#index(.:format))'''
-#post ':controller((/:create_packages#index(.:format))'''
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root 'homepage#index'
-       'create_packages#index'
-       'create_packages#new'
-       'packages#index'
+       
   # You can have the root of your site routed with "root"
 
 
