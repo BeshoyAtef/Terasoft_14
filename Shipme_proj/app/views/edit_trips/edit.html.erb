@@ -1,43 +1,51 @@
- <t1 class="trips create">
- <head>
- <script>
- function checkrequired(which){
-var pass=true
-if (document.images){
-for (i=0;i<which.length;i++){
-var tempobj=which.elements[i]
-if (tempobj.name.substring(0,8)=="required"){
-if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
-pass=false
-break
-}
-}
-}
-}
-if (!pass){
-alert("One or more of the required elements are not completed. Please complete them, then submit again!")
-return false
-}
-else{
-alert("Your trip was successfullt edited!")
-return true
-}
-}
-function show_alert()
-{
-   alert("Your Trip was successfully edited!");
-}
-</script>
-</head>
-<body>
-  <form onSubmit="return checkrequired(this) & show_alert()"   action= "update" >
-Destination: <input type="text" name="requireddestination"><br>
-Location: <input type="text" name="requiredlocation"><br>
-Travelling Date: <input type="datetime-local" name="requiredtraveldate"><br>
-Weight <input type="number" name="requiredweight"><br>
-<input type=hidden value =<%=params[:id]%> name='id'>
-<input type="submit" value="edit Trip">
-</form>
+<!--This view is intended to add a label 'Edit Trip Details' and take the parameters for the new details as well as it sets some restrictions and popup messages to the user-->
+<!--Author: Youssef A. Saleh -->
 
-</body>
+<t1 class="trips create">
+	<head>
+  <script>
+  function checkrequired(which){
+ var pass=2
+ if (document.images){
+   for (i=0;i<which.length;i++){
+      var tempobj=which.elements[i]
+      if (tempobj.name.substring(0,8) == "required"){
+	    if (tempobj.name.substring(0,12)=="required_num"){
+	      if (isNaN(tempobj.value)){
+		    pass = 1
+		    break
+		  }
+	    }
+		  if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+            pass = 0  
+		    break
+          }
+        }
+      }
+    }
+  if (pass == 0){
+  alert("One or more of the required elements are not completed. Please complete them, then submit again! YOUR Trip WAS NOT EDITED!")
+  return;
+  }
+  if (pass == 1){
+  alert("Please insert integer values in the weight field, P.S. Your Trip was NOT edited!")
+  return;
+  }
+  else {
+	  alert("Your Trip was successfully edited!")
+  return;}
+  }
+	
+	</script>
+	</head>
+	<body>
+  	<form onSubmit="return checkrequired(this)"   action= "update" >
+			Destination: <input type="text" name="required_destination"><br>
+			Location: <input type="text" name="required_location"><br>
+			Travelling Date: <input type="date" name="required_traveldate"><br>
+			Weight <input type="number" name="required_num_weight"><br>
+			<input type=hidden value =<%=params[:id]%> name='id'>
+			<input type="submit" value="Edit Trip Trips">
+		</form>
+	</body>
 </t1>

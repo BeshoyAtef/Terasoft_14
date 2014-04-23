@@ -1,59 +1,111 @@
 class EditTripsController < ApplicationController
-  def edit_trips_view
-  end
+  
+
+  #This methods gets the user his list of trips to edit what he wants
+  # current_user_id - int
+  # current_user_trips - list of the user's package
+  # Returns: list of the user's Packages
+  # Author: Youssef A. Saleh
 
   def index
-    @userId = 1
-    @lis = Trips.find(:all, :conditions => {:user_Id => @userId})
+    @current_user_id = 1
+    @current_user_trips = Trips.find(:all, :conditions => {:user_Id => @current_user_id})
   end
 
-  def edit_trips
-  end
+
+  #This method displays the form and the layout
+  # no parameters because it just displays the form
+  # Returns the form
+  # Author: Youssef A. Saleh.
 
   def edit
   end
   
+
+  # This method send notification to the sender when the carrier edits his trip
+  # requests - get the request of the current user
+  # senders_id - array of the senders' ids that sent requests to/from the user(carrier)
+  # sender_id - each sender_id in the matching list in requests
+  # notification - the notification that will be sent to the senders if any
+  # user - gets the username of the sender that will be notified
+  # Returns: sends notification to the matching senders if any
+  # Author: Youssef A. Saleh
+
   def notification (user_id)
-    requests=Requests.find(:all, :conditions => {:carrier_Id => user_id})
+    requests = Requests.find(:all, :conditions => {:carrier_Id => user_id})
     if(requests != nil)
-     senders_id = Array.new
-       requests.each do |t|
-       sender_id = t.sender_Id;
-       senders_id.push sender_id;
-       end
+      senders_id = Array.new
+        requests.each do |t|
+        sender_id = t.sender_Id;
+        senders_id.push sender_id;
+      end
     senders_id.each do |s|
-    notification =  Notifications.new;
-    notification.user_Id = s;
-    user = Users.find_by_id(user_id).username
+      notification =  Notifications.new;
+      notification.user_Id = s;
+      user = Users.find_by_id(user_id).username
     
       requests.each do |t|
-       if (t.sender_Id == s)
-        notification.description = user +" "+ "edited his trip, please check it!";
-        notification.save;
-       end
-     end
-   end
+        if (t.sender_Id == s)
+          notification.description = user +" "+ "edited his trip, please check it!";
+          notification.save;
+        end
+      end
+    end
 
-       return;          
+      return;          
     end
   end
 
+
+  # This method edits the trip of the current user
+  # current_user_id - the current logged in user - int
+  # current_trip - the trip being edited - trip
+  # trip_id - the id of the new trip - int
+  # trip - the edited trip - trip
+  # data_validated - boolean
+  # destination - trips' destination - String
+  # location - carrier's location - String
+  # travel_date - carrier's travel date - date
+  # max_weight - carrier's max afforded weight - int
+  # Returns: edit the trip details and send notification to the sender if any
+  # Author: Youssef A. Saleh
+
   def update
-    @userId = 1
-    @tr = Trips.find(params[:id])
-      if(@userId == @tr.user_Id)
-       @t = @tr.id
-       @tr.destroy
-       @trip = Trips.new
-       @trip.id = @t
-       @trip.destination = params[:requireddestination]
-       @trip.location = params[:requiredlocation]
-       @trip.maxWeight = params[:requiredweight]
-       @trip.travelDate = params[:requiredtraveldate]
-       @trip.user_Id = @userId
-       @trip.save
-       notification(@userId)
-      end
+    @current_user_id = 1
+    @current_trip = Trips.find(params[ :id ])
+    @destination = params[ :required_destination]
+    @location = params[ :required_location ]
+    @travel_date = params[ :required_traveldate]
+    @max_weight = params[ :required_num_weight ]
+    @data_validated = true
+
+    if (@destination.length == 0 or @location.length == 0 or @max_weight == nil or @travel_date == nil or !(is_numeric(@max_weight)))
+      @data_validated = false
+    end  
+    
+    if(@current_user_id == @current_trip.user_Id && @data_validated == true)
+      @trip_id = @current_trip.id
+      @current_trip.destroy
+      @trip = Trips.new
+      @trip.id = @trip_id
+      @trip.destination = params[ :required_destination ]
+      @trip.location = params[ :required_location ]
+      @trip.maxWeight = params[ :required_num_weight ]
+      @trip.travelDate = params[ :required_traveldate ]
+      @trip.user_Id = @current_user_id
+      @trip.save
+      notification(@current_user_id)
+    end
      redirect_to :action =>'index'     
+  end
+
+  # This method gets whether an object is an integer or not
+  # o - the input sent to the method when called - object
+  # Returns - boolean
+  # Author: Youssef A. Saleh
+
+
+  def is_numeric(o)
+    true if Integer(o) rescue false
   end
 end

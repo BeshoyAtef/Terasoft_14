@@ -1,6 +1,11 @@
-<% @lis.each do |c| %>
-<li><%= c.destination%>
-	<%= c.location %>
-	<a href='/edit_trips/edit?id=<%=c.id%>&'> edit</a>
-</li>
+<!--This view is intended to view the details of the user's packages-->
+<!--Author: Youssef A. Saleh -->
+
+<% @current_user_trips.each do |c| %>
+	<li>Destination:<%= c.destination%>
+			Location:<%= c.location %>
+			travelDateling date:<%= c.travelDate %>
+			Max weight:<%= c.maxWeight %>
+			<a href='/edit_trips/edit?id=<%=c.id%>&'> edit</a>
+	</li>
 <%end%>
