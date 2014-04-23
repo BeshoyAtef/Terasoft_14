@@ -1,6 +1,5 @@
 class ReportsController < ApplicationController
   
-
 #This method is taking text input from html file and adding it in the database files
 #Reports-string PackageNo-int
 #It dosent return it adds in the database
