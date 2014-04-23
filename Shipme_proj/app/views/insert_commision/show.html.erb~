@@ -1,0 +1,12 @@
+<html>  
+   <%= form_for(:configurations, :url => {:action => 'create'}) do |f| %>
+      <h3> Enter comission </h3>
+   <%= f.text_field(:comission) %>
+   
+   <%= submit_tag("Enter") %>
+
+<% end %>
+
+
+ </html>
+
