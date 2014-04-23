@@ -1,14 +1,93 @@
+ <!--This view is intended to be able to create a new package without a blank text boxes -->
+ <!--Author: Ahmed M. Samouka -->
+
+ <t1 class="package create">
+ <head>
+ <script>
+ function checkrequired(which){
+var pass=true
+if (document.images){
+  for (i=0;i<which.length;i++){
+    var tempobj=which.elements[i]
+    if (tempobj.name.substring(0,8)=="required"){
+    if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+      pass=false
+  break
+ }
+  }
+   }
+    }
+  if (!pass){
+     alert("One or more of the required elements are not completed. Please complete them, then submit again!")
+    return false
+  }
+  else
+    return true
+  }
+</script>
+</head>
 <html>
 <body>
 
-<table width="500">
-<tr>
-<td colspan="2" style="background-color:#FFA500;">
-<h1>New Package</h1>
+<h2> Create new package</h2>
+<form onSubmit="return checkrequired(this)" action="Show" method="get" >
+  <div class="field">
+     destination
+    <input type="text" name="requireddestination">
+  </div>
+   <br>
+ 
+  <div class="field">
+     description
+    <input type="text" name="requireddescription">
+  </div>
+   <br>
+ 
+  <div class="field">
+     weight
+    <input type="float" name="requiredweight">
+  </div>
+   <br>
+ 
+  <div class="field">
+     origin
+    <input type="text" name="requiredorigin">
+  </div>
+   <br>
+ 
+  <div class="field">
+     packageValue
+    <input type="float" name="requiredpackageValue">
+  </div>
+   <br>
+ 
+  <div class="field">
+     expiryDate
+    <input type="date" name="requiredexpiryDate">
+  </div>
+   <br>
+    <br>
+  
+  <div class="field">
+     receiverAddress
+    <input type="text" name="requiredreceiverAddress">
+  </div>
+   <br>
 
+    <div class="field">
+     receiverMobNumber
+    <input type="integer" name="requiredreceiverMobNumber">
+  </div>
+ <br>
+    <div class="field">
+     receiverEmail
+    <input type="text" name="receiverEmail">
+  </div>
+  <br>
 
-<%= render 'form' %>
+  <input type="submit" value="create package"></ins>
 
-<%= link_to 'Back', create_packages_path %>
-</td>
-</tr>
+</form>
+</body>
+</html>
+
