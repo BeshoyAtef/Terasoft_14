@@ -9,7 +9,7 @@ class EditTripsController < ApplicationController
 
   def index
     @current_user_id = 1
-    @current_user_trips = Trips.find(:all, :conditions => {:user_Id => @current_user_id})
+    @current_user_trips = Trips.find(:all, :conditions => {:users_id => @current_user_id})
   end
 
 
@@ -32,20 +32,20 @@ class EditTripsController < ApplicationController
   # Author: Youssef A. Saleh
 
   def notification (user_id)
-    requests = Requests.find(:all, :conditions => {:carrier_Id => user_id})
+    requests = Requests.find(:all, :conditions => {:carriers_id => user_id})
     if(requests != nil)
       senders_id = Array.new
         requests.each do |t|
-        sender_id = t.sender_Id;
+        sender_id = t.senders_id;
         senders_id.push sender_id;
       end
     senders_id.each do |s|
       notification =  Notifications.new;
-      notification.user_Id = s;
+      notification.users_id = s;
       user = Users.find_by_id(user_id).username
     
       requests.each do |t|
-        if (t.sender_Id == s)
+        if (t.senders_id == s)
           notification.description = user +" "+ "edited his trip, please check it!";
           notification.save;
         end
@@ -79,11 +79,11 @@ class EditTripsController < ApplicationController
     @max_weight = params[ :required_num_weight ]
     @data_validated = true
 
-    if (@destination.length == 0 or @location.length == 0 or @max_weight == nil or @travel_date == nil or !(is_numeric(@max_weight)))
+    if (@destination.length == 0 or !(@destination =~ /\S/) or @location.length == 0 or !(@location =~ /\S/) or @max_weight == nil or !(@max_weight =~ /\S/) or @travel_date == nil or or !(@travel_date =~ /\S/) !(is_numeric(@max_weight)))
       @data_validated = false
     end  
     
-    if(@current_user_id == @current_trip.user_Id && @data_validated == true)
+    if(@current_user_id == @current_trip.users_id && @data_validated == true)
       @trip_id = @current_trip.id
       @current_trip.destroy
       @trip = Trips.new
@@ -92,7 +92,7 @@ class EditTripsController < ApplicationController
       @trip.location = params[ :required_location ]
       @trip.maxWeight = params[ :required_num_weight ]
       @trip.travelDate = params[ :required_traveldate ]
-      @trip.user_Id = @current_user_id
+      @trip.users_id = @current_user_id
       @trip.save
       notification(@current_user_id)
     end
