@@ -79,7 +79,7 @@ class EditTripsController < ApplicationController
     @max_weight = params[ :required_num_weight ]
     @data_validated = true
 
-    if (@destination.length == 0 or !(@destination =~ /\S/) or @location.length == 0 or !(@location =~ /\S/) or @max_weight == nil or !(@max_weight =~ /\S/) or @travel_date == nil or or !(@travel_date =~ /\S/) !(is_numeric(@max_weight)))
+    if (@destination.length == 0 or !(@destination =~ /\S/) or @location.length == 0 or !(@location =~ /\S/) or @max_weight == nil or !(@max_weight =~ /\S/) or @travel_date == nil or !(@travel_date =~ /\S/) or !(is_numeric(@max_weight)))
       @data_validated = false
     end  
     
