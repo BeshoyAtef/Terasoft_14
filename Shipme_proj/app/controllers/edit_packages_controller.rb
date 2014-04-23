@@ -16,7 +16,7 @@ class EditPackagesController < ApplicationController
   
   def  index
     @current_user_id = 1
-    @current_user_packages = Packages.find(:all, :conditions => {:sender_Id => @current_user_id})
+    @current_user_packages = Packages.find(:all, :conditions => {:senders_id => @current_user_id})
   end
 
 
@@ -30,21 +30,21 @@ class EditPackagesController < ApplicationController
   # Author: Youssef A. Saleh
 
   def  notification (user_id)
-    requests=Requests.find(:all, :conditions => {:sender_Id => user_id})
+    requests=Requests.find(:all, :conditions => {:senders_id => user_id})
     if(requests != nil)
       carriers_id = Array.new
       requests.each do |t|
-      carrier_id = t.carrier_Id;
+      carrier_id = t.carriers_id;
       carriers_id.push carrier_id;
       end
       
       carriers_id.each do |s|
         notification =  Notifications.new;
-        notification.user_Id = s;
+        notification.users_id = s;
         user = Users.find_by_id(user_id).username
     
         requests.each do |t|
-          if (t.carrier_Id == s)
+          if (t.carriers_id == s)
             notification.description = user +" "+ "deleted his trip, please try to find another carrier!";
             notification.save;
           end
@@ -80,10 +80,10 @@ class EditPackagesController < ApplicationController
   def  update
     @current_user_id = 1
     @current_package = Packages.find(params[:id])
-    @current_user_request = Requests.find(:all, :conditions => {:sender_Id => @current_user_id}) #waiting for the package id
+    @current_user_request = Requests.find(:all, :conditions => {:senders_id => @current_user_id, :packages_id => @current_package.id})
     @current_user_request.each do |t|
       @is_accepted = t.accept
-      @carrier_id = t.carrier_Id
+      @carrier_id = t.carriers_id
       end
     @destination = params[ :required_destination]
     @description = params[ :required_description ]
@@ -100,7 +100,7 @@ class EditPackagesController < ApplicationController
     if (@destination == nil or @expiry_date == nil or @description == nil or @origin == nil or @package_value == nil or @carrying_price == nil or @receiver_address == nil or @receiver_email == nil or @receiver_mob_number == nil or @weight == nil or !(is_numeric(@package_value)) or !(is_numeric(@carrying_price)) or !(is_numeric(@weight)) or !(is_numeric(@receiver_mob_number)))
       @data_validated = false
     end  
-    if(@current_user_id == @current_package.sender_Id && @is_accepted != true && @data_validated == true) # && data_validated == true && @is_accepted != true
+    if(@current_user_id == @current_package.sender_Id && @is_accepted != true && @data_validated == true)
       @package_id = @current_package.id
       @current_package.destroy
       @package = Packages.new
@@ -115,7 +115,7 @@ class EditPackagesController < ApplicationController
       @package.receiverMobNumber = params[ :required_num_mobile ]
       @package.receiverEmail = params[ :required_email ]
       @package.weight = params[ :required_num_weight ]
-      @package.sender_Id = @current_user_id
+      @package.senders_id = @current_user_id
       @package.save
       notification(@carrier_id)
     end
