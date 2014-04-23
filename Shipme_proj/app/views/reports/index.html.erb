@@ -1,0 +1,37 @@
+<!--This view is intended to show to the admin all created reports that are saved in the database-->
+<!--Author: Ahmed Samouka -->
+
+<h1>Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description,</th>
+      <th>verified,</th>
+      <th>reporter_Id,</th>
+      <th>reported_Id,</th>
+      <th>package_Id,</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @view_reportes.each do |v| %>
+      <tr>
+        <td><%= v.description %></td>
+        <td><%= v.verified%></td>
+        <td><%= v.reporter_Id %></td>
+        <td><%= v.reported_Id %></td>
+        <td><%= v.package_Id %></td>
+        
+        <td><a href = 'sendMail?id=<%=v.reported_Id%>' >Send please verify Email</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+

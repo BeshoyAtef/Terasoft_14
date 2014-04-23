@@ -1,18 +1,33 @@
 ShipmeProj::Application.routes.draw do
+#get "create_packages/index"
+ #post "create_packages/index"
+ get "create_packages/new"
+ #post "/create_packages/new"
+ get "create_packages/index" 
+ get "create_packages/show_package" 
+ post "packages/index"
+ get "reports/index"  
+ get "reports/sendMail"
 #HEAD
 #HEAD
-  resources :add_trips
-
- resources :create_packages
+#resources :add_trips
+resources :reports
+resources :create_packages
+#get ':controller((/:create_packages#index(.:format))'''
+#post ':controller((/:create_packages#index(.:format))'''
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
   root 'homepage#index'
+       'create_packages#index'
+       'create_packages#new'
+       'packages#index'
+  # You can have the root of your site routed with "root"
+
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+   #root_path get 'create_packages/:id' => 'create_packages#index'
+  #   get 'create_packages/:format'=> 'create_packages#index'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
