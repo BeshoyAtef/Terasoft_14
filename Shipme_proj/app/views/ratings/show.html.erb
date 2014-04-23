@@ -1,0 +1,53 @@
+<h1>Ratings#show</h1>
+<p>Find me in app/views/ratings/show.html.erb</p>
+<!--The path is added to ensure the images are loaded. The first rating block is set to read-only so the user can’t click on that and change the rating. The average rating is loaded from the method which is defined below. -->
+<!--Author: Rana T. Labib -->
+<!--
+<script>
+  $('#star').raty({
+    readOnly: true,
+    rating: <%= @package.average_rating %>,
+    path: '/assets/images'
+  });
+
+  $('#user_star').raty({
+    rating: <%= @rating.rating %>,
+    path: '/assets/images',
+    click: function(rating, evt) {
+      $.ajax({
+        url: '/ratings/' + <%= @rating.id %>,
+        type: 'PATCH',
+        data: { rating: rating }
+      });
+    }
+  });
+</script>
+-->
+<!--This part is to view the rating of the package carrier -->
+<!--Author: Rana T. Labib -->
+
+<p>Averate rating</p>
+<div id="star"></div>
+
+<p>Your rating</p>
+<div id="user_star"></div>
+
+<script>
+$('#star').raty({
+  readOnly: true,
+  rating: <%= @package.average_rating %>,
+  path: '/assets/images'
+});
+
+$('#user_star').raty({
+  rating: <%= @rating.rating %>,
+  path: '/assets/images',
+  click: function(rating, evt) {
+    $.ajax({
+      url: '/ratings/' + <%= @rating.id %>,
+      type: 'PATCH',
+      data: { rating: rating }
+    }).done(function (data){});
+  }
+});
+</script>

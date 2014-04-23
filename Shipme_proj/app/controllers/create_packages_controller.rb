@@ -72,6 +72,7 @@ class CreatePackagesController < ApplicationController
       params.require(:create_package).permit(:destination, :description, :weight, :origin, :Expiry_Date, :value, :receiverAddress, :receivermobile, :receiverMail)
     end
 
+  
     def rate_package
       @rating = Rating.where(package_id: @package.id, user_id: @current_user.id).
       first 

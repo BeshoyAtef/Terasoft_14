@@ -4,6 +4,7 @@ ShipmeProj::Application.routes.draw do
   resources :add_trips
 
   resources :create_packages
+
   # The route for updating ratings
   resources :ratings, only: :update
 

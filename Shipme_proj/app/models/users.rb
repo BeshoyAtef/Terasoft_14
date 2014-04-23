@@ -9,4 +9,7 @@ class Users < ActiveRecord::Base
 
 	has_many :ratings
     has_many :packages
+
+    ajaxful_rateable :scores => [:behavior]
+  	ajaxful_rater
 end
