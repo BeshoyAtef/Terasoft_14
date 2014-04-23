@@ -1,7 +1,28 @@
 ShipmeProj::Application.routes.draw do
+  get "handling_requests/index"
+  
+  get "handling_requests/show"
+   get "handling_requests/show_package"
+  
+  get "handling_requests/accept"
+  get "handling_requests/reject"
+
+
+ post "handling_requests/accept"
+ post "handling_requests/reject"
+
+
+  
+
+
+
 #HEAD
 #HEAD
   resources :add_trips
+  resources :handling_requests 
+
+
+  
 
  resources :create_packages
 
@@ -10,6 +31,12 @@ ShipmeProj::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'homepage#index'
+       'handling_requests#index'
+       'handling_requests#accept'
+       'handling_requests#reject'
+       'handling_requests#show_package'
+       'handling_requests#show'       
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

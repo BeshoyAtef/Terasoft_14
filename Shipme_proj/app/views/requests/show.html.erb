@@ -1,0 +1,22 @@
+<h3>Accept/Reject Request</h3>
+
+<p id="notice"><%= notice %></p>
+
+
+<%= form_for(:request, :url => {:action => 'accept', :id => @request.id}) do |f| %>
+
+		<%= f.submit "Accept Request" %>
+
+
+<% end %>
+
+<%= form_for(:request, :url => {:action => 'reject', :id => @request.id}) do |f| %>
+
+		<%= f.submit "Reject Request" %>
+
+
+<% end %>
+
+
+
+

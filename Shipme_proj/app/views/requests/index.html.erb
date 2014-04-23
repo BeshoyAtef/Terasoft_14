@@ -1,0 +1,73 @@
+    <html>
+        <body>
+          <h1> Pending requests </h1>
+  
+
+            <% @users.each do |user| %>
+            
+            
+
+                                                                                                                  
+                <% user.each do |n| %>
+                <li>
+                  
+                  
+                  
+
+                <th> <%= link_to n.username %> sent you a request of a package</th>
+      
+                </li>
+  
+    
+                <%end %>
+
+            <%end%>
+        <% @requests.to_a.each do |request| %>
+    
+            <td class="actions">
+                <th><%= link_to("Respond to request", {:action => 'show', :id =>  request.id}) %></th>  
+
+                <br>
+            </td>
+   
+        <%end%>
+  
+
+        </body>
+    </html>
+
+
+
+
+
+
+        
+
+
+     
+
+            
+
+
+
+
+
+        
+
+
+     
+
+
+
+
+
+
+        
+
+
+     
+
+
+
+
+        
