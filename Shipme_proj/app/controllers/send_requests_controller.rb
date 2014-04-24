@@ -4,26 +4,33 @@ class SendRequestsController < ApplicationController
   #input : params[:id].
   #Author:  Manar A. Eltayeb.
 
-  def  requests
-
-       package = Packages.new
-       package.id = params[:id]
-
-       @requests_count = Requests.find( :all, :conditions => { :packages_id => package.id} ).count 
+ def  requests
        
-       if @requests_count < 3
+    @requests_count = Requests.find( :all, :conditions => { :packages_id => params[:pid]} ).count 
+       
+    if @requests_count < 3
 
         request = Requests.new
-        request.carriers_id = 1
-        request.senders_id= params[:id]
-        request.packages_id = package.id
-        request.accept = nil
+        request.carriers_id = params[ :cid ]
+        request.senders_id= cookies[:user_id ]
+        request.packages_id = params[ :pid ]
+        request.accept = false
         request.save
-
-        
-       end
+    end
       
   end
   
+
+  #This method is counting the number of sent requests.
+  #input:params[:pid].
+  #output: number of packages.
+  #Author: Manar A. Eltayeb.
+
+  def  sendrequest
+       
+    @requests_count = Requests.find( :all, :conditions => { :packages_id => params[:pid]} ).count 
+
+
+  end
 end
 

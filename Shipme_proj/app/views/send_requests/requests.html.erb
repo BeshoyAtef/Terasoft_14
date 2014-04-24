@@ -5,14 +5,28 @@
 
 </script>
 
- <!-- This button Send to send to a carrier request for a certain package-->
+
+<!-- This button Send to send to a carrier request for a certain package-->
  <!-- Author: Manar A. Eltayeb -->
 	
+<% if @requests_count < 3%>
+<h2>
+ you can send more requests
+<form action="requests" >
+<input type=hidden value=<%=params[:pid]%> name="pid">
+<input type=hidden value=<%=params[:cid]%> name="cid">
+<input type=hidden value=<%=cookies[:user_id]%> name="user_id">
+<input type = submit value= "send more requests">
+</form>
+<%else %>
+<font color="red">
 
-<%= button_to 'Send', "/send_requests/requests?id=params[:id]" %>
+you cannot send requests
+
+<%end%>
 
 
-<% if @requests_count < 3 && @requests_count != 0  %>
+<% if @requests_count < 3   %>
 
      <p> sent successfully :) </p>
 
@@ -23,3 +37,4 @@
   
 
 <% end %>
+
