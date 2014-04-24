@@ -1,6 +1,8 @@
 ShipmeProj::Application.routes.draw do
-#HEAD
-#HEAD
+ 
+  resources :ideas
+
+  resources :users
   resources :add_trips
 
  resources :create_packages
