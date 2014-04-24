@@ -1,0 +1,25 @@
+<%= javascript_include_tag "jquery", "jquery_ujs" %>
+<h1>requests</h1>
+<script type="text/javascript">
+
+
+</script>
+
+ <!-- This button Send to send to a carrier request for a certain package-->
+ <!-- Author: Manar A. Eltayeb -->
+	
+
+<%= button_to 'Send', "/send_requests/requests?id=params[:id]" %>
+
+
+<% if @requests_count < 3 && @requests_count != 0  %>
+
+     <p> sent successfully :) </p>
+
+ 
+ <% elsif  @requests_count >= 3  %>
+  <p2> you are not allowed to send more requests! </p2>
+
+  
+
+<% end %>

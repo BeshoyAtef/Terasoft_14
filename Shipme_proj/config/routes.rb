@@ -1,4 +1,13 @@
 ShipmeProj::Application.routes.draw do
+  get "send_requests/requests"
+
+  get "/send_requests/requests" => 'send_requests#requests', :as => 'Send_button'
+  post "/send_requests/requests"
+  get "send_requests/count_requests"
+  post "/send_requests/count_requests"
+  get "send_requests/sent"
+  post "/send_requests/sent"
+  
 #HEAD
 #HEAD
   resources :add_trips
