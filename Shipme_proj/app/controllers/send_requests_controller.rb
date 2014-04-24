@@ -24,7 +24,7 @@ class SendRequestsController < ApplicationController
   #This method is counting the number of sent requests.
   #input:params[:pid].
   #output: number of packages.
-  #Author: Manar A. Eltayeb.
+  #Author: Manar A. ElTayeb.
 
   def  sendrequest
        
