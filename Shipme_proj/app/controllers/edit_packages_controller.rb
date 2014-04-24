@@ -45,7 +45,7 @@ class EditPackagesController < ApplicationController
     
         requests.each do |t|
           if (t.carriers_id == s)
-            notification.description = user +" "+ "deleted his trip, please try to find another carrier!";
+            notification.description = user +" "+ "edited his/her package, please try to check it again!";
             notification.save;
           end
         end
@@ -100,24 +100,23 @@ class EditPackagesController < ApplicationController
     if (@destination == nil or @expiry_date == nil or @description == nil or @origin == nil or @package_value == nil or @carrying_price == nil or @receiver_address == nil or @receiver_email == nil or @receiver_mob_number == nil or @weight == nil or !(is_numeric(@package_value)) or !(is_numeric(@carrying_price)) or !(is_numeric(@weight)) or !(is_numeric(@receiver_mob_number)))
       @data_validated = false
     end  
-    if(@current_user_id == @current_package.senders_id && @is_accepted == 0 && @data_validated == true)
+    if(@current_user_id == @current_package.senders_id && @is_accepted != 1 && @data_validated == true)
       @package_id = @current_package.id
-      @current_package.destroy
-      @package = Packages.new
-      @package.id = @package_id
-      @package.destination = params[ :required_destination ]
-      @package.description = params[ :required_description ]
-      @package.origin = params[ :required_origin ]
-      @package.packageValue = params[ :required_num_value ]
-      @package.expiryDate = params[ :required_expirydate ]
-      @package.carryingPrice = params[ :required_num_price ]
-      @package.receiverAddress = params[ :required_address ]
-      @package.receiverMobNumber = params[ :required_num_mobile ]
-      @package.receiverEmail = params[ :required_email ]
-      @package.weight = params[ :required_num_weight ]
-      @package.senders_id = @current_user_id
-      @package.save
-      notification(@carrier_id)
+      @current_package.id = @package_id
+      @current_package.destination = params[ :required_destination ]
+      @current_package.description = params[ :required_description ]
+      @current_package.origin = params[ :required_origin ]
+      @current_package.packageValue = params[ :required_num_value ]
+      @current_package.expiryDate = params[ :required_expirydate ]
+      @current_package.carryingPrice = params[ :required_num_price ]
+      @current_package.receiverAddress = params[ :required_address ]
+      @current_package.receiverMobNumber = params[ :required_num_mobile ]
+      @current_package.receiverEmail = params[ :required_email ]
+      @current_package.weight = params[ :required_num_weight ]
+      @current_package.senders_id = @current_user_id
+      notification(@current_user_id)
+      @current_package.save
+      
     end
     redirect_to :action =>'index'     
   end
