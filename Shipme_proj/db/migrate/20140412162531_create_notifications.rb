@@ -1,10 +1,14 @@
 class CreateNotifications < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :notifications do |t|
       t.string :description
-      t.integer :user_Id
+      t.belongs_to :users
 
       t.timestamps
     end
+  end
+
+  def self.down
+    drop_table :notifications
   end
 end
