@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
  #This method is viewing the trips 
- #input: ID Integar
- #Hagar Essam
+ #input: ID Integer
+ #Author :Hagar Essam
 
   def index
     @add_trips = Trips.find(:all , :conditions => { :users_Id => params[ :sid]})
@@ -20,23 +20,23 @@ class TripsController < ApplicationController
   end
 
 #This method is deleting trips
-#input: id Integar
-#Hagar Essam
+#input: id Integer
+#Author :Hagar Essam
 
   def deletetrips
     @trip = Trips.find (params[:id])
      if @trip.delete
-      notification (params[:id])
+      notification (cookies[ :user_id])
    else
 
   end
   end
   #this method send a  message to the user once the trip is deleted
-  #Hagar Essam
+  #Author :Hagar Essam
 
-  def notification (user_Id)
-    requests=Requests.find(:all,:conditions => {:carrier_Id => users_id})
-     If(requests != nil)
+  def notification (user_id)
+    requests=Requests.find(:all,:conditions => {:carriers_id => user_id})
+     if(requests != nil)
      senders_id = Array.new
      requests.each do |t| 
      sender_id = t.senders_id;
@@ -47,7 +47,7 @@ class TripsController < ApplicationController
   notification.users_id=s;
   user=users.find_by_id(user_id).username
   requests.each do |t|
-    if (t.senders_id==s)
+    if (t.senders_id == s)
       notification.description=user+""+"deleted his trip please try to find another carrier";
      notification.save;
  end
@@ -57,7 +57,7 @@ return;
 end
 end
 
-
+end
 
 
 
