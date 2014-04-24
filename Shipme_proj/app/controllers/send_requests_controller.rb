@@ -6,6 +6,8 @@ class SendRequestsController < ApplicationController
 
  def  requests
        
+  @requests_count = Requests.find( :all, :conditions => { :packages_id => params[:pid]} ).count
+       
     if @requests_count < 3
 
         request = Requests.new
