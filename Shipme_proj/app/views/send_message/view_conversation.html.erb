@@ -1,0 +1,31 @@
+ <!--This view is intended to add  a list of the conversation between 2 users-->
+<!--Author: Madeleine Aziz Saad -->
+
+<h1>Conversation</h1>
+
+<p>
+
+<ul>
+	  <% @conv.each do |l| %>
+	  <li>
+<%
+  @user= Users.find(:all,
+    :conditions => {:id=> l.sender_Id},  
+    ) %>
+    <% @user.each do |m| %>
+<%= m.username %>
+    <%end%>
+
+	  : &nbsp  &nbsp &nbsp &nbsp &nbsp
+
+	  <%=l.description %>
+        &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <%=l.created_at %>
+	  </li>
+	  <br>
+	  <%end%>
+<%= form_tag("/send_message/send_now/", :method => "post") %>
+
+<%=link_to 'send_message',{:controller => 'send_message', :action =>'construct_message'}%>
+</form>
+</p>
