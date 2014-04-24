@@ -1,0 +1,25 @@
+<!--This view is intended to add a button to reset the password by an email -->
+<!--Author: John W.Ghali -->
+<script>
+
+function checkrequired(which)
+{
+    for (i=0;i<which.length;i++)
+    {
+		if(which.elements[i].value.length == 0)
+		{
+				alert("Please enter a valid email, then try again!")
+				return false
+		}
+	}
+}
+</script>
+<form onSubmit="return checkrequired(this)"action='forgot_mail'>
+
+mail: <input type ="text" name="mail"><br>
+
+<input type ='submit' value='Reset my password'>
+
+</form>
+<br><br><br><br>
+<h3><a href='signin'> Login </a> | <a href='signup'> Signup </a></h3>
