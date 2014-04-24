@@ -4,7 +4,7 @@ class CreatePackagesController < ApplicationController
   # GET /create_packages
   # GET /create_packages.json
   def index
-    @create_packages = CreatePackage.all
+    @create_packages = Packages.all
   end
 
   # GET /create_packages/1
@@ -14,7 +14,7 @@ class CreatePackagesController < ApplicationController
 
   # GET /create_packages/new
   def new
-    @create_package = CreatePackage.new
+    @create_package = Packages.new
   end
 
   # GET /create_packages/1/edit
@@ -24,7 +24,7 @@ class CreatePackagesController < ApplicationController
   # POST /create_packages
   # POST /create_packages.json
   def create
-    @create_package = CreatePackage.new(create_package_params)
+    @create_package = Packages.new(create_package_params)
 
     respond_to do |format|
       if @create_package.save
@@ -64,11 +64,11 @@ class CreatePackagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_create_package
-      @create_package = CreatePackage.find(params[:id])
+      @create_package = Packages.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def create_package_params
-      params.require(:create_package).permit(:destination, :description, :weight, :origin, :Expiry_Date, :value, :receiverAddress, :receivermobile, :receiverMail)
+      params.require(:packages).permit(:destination, :description, :weight, :origin, :expiryDate, :value, :receiverAddress, :receiverMobNumber, :receiverEmail)
     end
 end

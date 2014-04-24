@@ -1,0 +1,6 @@
+<% @lis.each do |c| %>
+<li><%= c.destination%>
+	<%= c.location %>
+	<a href='/edit_trips/edit?id=<%=c.id%>&'> edit</a>
+</li>
+<%end%>

@@ -1,0 +1,16 @@
+  <!--This view is intended to view the details of the user's packages-->
+<!--Author: Youssef A. Saleh -->
+  <% @current_user_packages.each do |c| %>
+    <li>DESCRIPTION:<%= c.description%>
+	    DESTINATION:<%= c.destination %>
+	    ORIGIN:<%= c.origin %>
+		VALUE:<%= c.packageValue %>
+		EXPIRY DATE:<%= c.expiryDate %>
+		PRICE:<%= c.carryingPrice %>
+		REC. ADDRESS:<%= c.receiverAddress %>
+		REC. MOBILE:<%= c.receiverMobNumber %>
+		REC. EMAIL:<%= c.receiverEmail %>
+		WEIGHT:<%= c.weight %>
+	    <a href='/edit_packages/edit_package?id=<%=c.id%>&'>Edit Package Details</a>
+    </li>
+  <%end%>

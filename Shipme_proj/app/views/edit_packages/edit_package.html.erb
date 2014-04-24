@@ -1,0 +1,57 @@
+<!--This view is intended to add a a label 'Edit Package Details' and take the parameters for the new details as well as it sets some restrictions and popup messages to the user-->
+<!--Author: Youssef A. Saleh -->
+ <t1 class="Edit packages">
+ <head>
+ <script>
+ function checkrequired(which){
+ var pass=2
+ if (document.images){
+   for (i=0;i<which.length;i++){
+      var tempobj=which.elements[i]
+      if (tempobj.name.substring(0,8) == "required"){
+	    if (tempobj.name.substring(0,12)=="required_num"){
+	      if (isNaN(tempobj.value)){
+		    pass = 1
+		    break
+		  }
+	    }
+		  if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+            pass = 0  
+		    break
+          }
+        }
+      }
+    }
+  if (pass == 0){
+  alert("One or more of the required elements are not completed. Please complete them, then submit again! YOUR PACKAGE WAS NOT EDITED!")
+  return;
+  }
+  if (pass == 1){
+  alert("Please insert integer values in the value, weight, price, and mobile number fields, P.S. Your Package was NOT edited!")
+  return;
+  }
+  else {
+	  alert("Your Package was successfully edited! HOWEVER, IF YOU FOUND THAT YOUR PACKAGE WAS NOT EDITED THEN, YOUR Carrying REQUEST WAS ACCEPTED BY A CARRIER AND CAN'T BE EDITED!!")
+  return;}
+  }
+
+ </script>
+ </head>
+ <body>
+   <form onSubmit="checkrequired(this);" action= "update" >
+         Destination: <input type="text" name="required_destination"><br>
+		 Description: <input type="text" name="required_description"><br>
+		 Expiry Date: <input type="date_select" name="required_expirydate"><br>
+		 Weight: <input type="number" name="required_num_weight"><br>
+		 Value: <input type="number" name="required_num_value"><br>
+ 		 Carrying Parice: <input type="number" name="required_num_price"><br>
+		 Receiver Address: <input type="text" name="required_address"><br>
+		 Receiver Mobile Number: <input type="text" name="required_num_mobile"><br>
+		 Receiver Email: <input type="text" name="required_email"><br>
+		 Origin: <input type="text" name="required_origin"><br>
+		 <input type=hidden value =<%=params[:id]%> name='id'>
+		 <input type="submit" value="Edit Packages">
+	</form>
+
+ </body>
+ </t1>
