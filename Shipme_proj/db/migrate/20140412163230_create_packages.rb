@@ -1,5 +1,5 @@
 class CreatePackages < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :packages do |t|
       t.date :expiryDate
       t.string :description
@@ -10,17 +10,19 @@ class CreatePackages < ActiveRecord::Migration
       t.string :receiverEmail
       t.boolean :receivedByCarrier
       t.boolean :finalDelivery
-      t.date :creationDate
       t.float :weight
       t.string :type
       t.float :carryingPrice
       t.float :packageValue
       t.float :rating
-      t.integer :sender_Id
-      t.integer :carrier_Id
-      t.integer :package_Id
+      t.belongs_to :senders
+      t.belongs_to :carriers
 
       t.timestamps
     end
+  end
+
+  def self.down
+    drop_table :packages
   end
 end
