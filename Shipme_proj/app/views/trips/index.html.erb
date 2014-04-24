@@ -1,0 +1,17 @@
+<h2>
+	
+
+
+<% @add_trips.each do |c| %>
+<li> <%= c.id %>
+     <%= c.location%>
+     <%= c.destination %>
+     <%= c.maxWeight %>
+     <%= c.travelDate%>
+<%#= c.user_Id %>
+     <a href="deletetrips?id=<%=c.id%>">delete</a>
+
+<%end%>
+
+
+</h2>
