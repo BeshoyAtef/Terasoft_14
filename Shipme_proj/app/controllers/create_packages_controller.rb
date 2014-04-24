@@ -3,8 +3,13 @@ class CreatePackagesController < ApplicationController
 
   # GET /create_packages
   # GET /create_packages.json
-  def index
-    @create_packages = CreatePackage.all
+  #This method finds all the packages.
+  #The attributes of packages.
+  #This method returns all the packages.
+  #Author: Abdelrahman Y. Seoudy.
+  
+  def  index
+    @c = Packages.find(:all)
   end
 
   # GET /create_packages/1

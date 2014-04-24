@@ -3,9 +3,22 @@ class DeleteController < ApplicationController
   #There is no attributes for this method
   #This method doesnt return nothing
   #Author: Abdelrahaman Y. Seoudy
-  def delete
+
+  def  delete
   	
-  	@c = Packages.find(params[:id])
-  	@c.delete
+  	 @c = Packages.find(params[:id])
+  	 if(@c.receivedByCarrier == true)
+	
+		  @n = Notifications.new
+		  @n.description = @c.description + " was removed"
+		  @n.users_id = @c.carriers_id
+		  @n.save
+	   end
+  	
+  	 @c.delete
+
   end
+
+
+
 end
