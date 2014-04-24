@@ -4,7 +4,7 @@ class UserController < ApplicationController
 #The method is sigining up
 #Input: username string- email string- encrypted password string- mobilenumber int
 #Return: When the signup is true it redirects me to page create showing a sucessfully signup and when it is false it pops out something wrong
-#Author: John
+#Author: John W.ghali
 
     def signup
     end
@@ -13,9 +13,9 @@ class UserController < ApplicationController
 #The method is redirecting to the signin
 #Author: John W.Gahli
 
-    def signin2
-	redirect_to :action => "signin" ,:controller => "user"
-    end
+	def signin2
+		redirect_to :action => "signin" ,:controller => "user"
+  end
 
 
 #The method is saving the input to the database
@@ -53,11 +53,11 @@ class UserController < ApplicationController
 #Return: It redirects to the homepage
 #Author: John W.ghali
 
-    def signin
-	    if cookies[ :user_id ] != nil
-	        redirect_to :action => "index" ,:controller => "homepage"
-	    end
-    end
+ 	def signin
+	  if cookies[ :user_id ] != nil
+	    redirect_to :action => "index" ,:controller => "homepage"
+	  end
+  end
 
 
 #The method is comparing the input with the database
@@ -99,7 +99,7 @@ end
 			if (v.email == params[ :mail ])
 	       @salout = "An email will be sent with your password to " + v.email + " in a few minutes"
 			end
-	Admin.forgot_mail(params[ :mail ])
+	  Admin.forgot_mail(params[ :mail ])
 	
    end
  end
