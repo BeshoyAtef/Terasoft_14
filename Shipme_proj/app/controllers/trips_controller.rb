@@ -1,4 +1,4 @@
-class TripsController < ApplicationController
+ class TripsController < ApplicationController
 
 #This method adds the attributes of the failure scenario to the database.
 #creditCard - integer, mobileNumber - integer, idNumber - integer.
@@ -18,8 +18,9 @@ class TripsController < ApplicationController
       redirect_to :action => 'newtrips'
     else 
       redirect_to :action => 'complete'
+    end
   end
-  end
+
 
 #This method creates add trip and also check if the user didnt add his/her creditcard/mobile number/id number.
 #Destination - string, location - string, maxWeight - float, travelDate - date.
