@@ -1,4 +1,4 @@
- class TripsController < ApplicationController
+class TripsController < ApplicationController
 
 #This method adds the attributes of the failure scenario to the database.
 #creditCard - integer, mobileNumber - integer, idNumber - integer.
