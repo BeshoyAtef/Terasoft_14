@@ -1,0 +1,20 @@
+<div class="trips list">
+<h2>Trips</h2>
+<table class="listing" summary="Trip list">
+<tr class="header">
+<th>Destination</th>
+<th>Location</th>
+<th>Travelling Date</th>
+<th>Weight</th>
+</tr>
+<% @trip.to_a.each do |add_trip| %>
+      <tr>
+        <td><%= add_trip.Location %></td>
+        <td><%= add_trip.Destination %></td>
+        <td><%= add_trip.TravellingDate %></td>
+        <td><%= add_trip.Weight %></td>
+      </tr>
+      <% end %>
+      </table>
+      </div>
+     
