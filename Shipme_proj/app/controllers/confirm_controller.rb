@@ -1,4 +1,4 @@
-class ConfirmController < ApplicationController
+ class ConfirmController < ApplicationController
 
 #This method checks the attributes of packages and set the receivedByCarrier to true to confirm taking the package.
 #description - string, expiryDate - date, destination - string, origin - string, receiverAddress - string, receiverMobNumber - integer, receiverEmail - string, receivedByCarrier - boolean, finalDelivery - boolean, weight - float, type - string, carryingPrice - float, packageValue - float, rating - float.
