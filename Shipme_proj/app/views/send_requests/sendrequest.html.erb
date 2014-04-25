@@ -1,0 +1,21 @@
+<!--This view is saving params id and add the send button. -->
+<!--Author: Manar A. ElTayeb. -->
+
+<% if @requests_count < 3%>
+<h2>
+<font color="red">
+ you can send requests
+<form action="requests" >
+<input type=hidden value=<%=params[ :pid ]%> name="pid" >
+<input type=hidden value=<%=params[ :cid ]%> name="cid">
+<input type=hidden value=<%=cookies[ :user_id ]%> name="user_id">
+<input type = submit value= "send">
+</form>
+ <%else %>
+<font color="red">
+
+you cannot send requests
+
+<%end%>
+
+</font>
