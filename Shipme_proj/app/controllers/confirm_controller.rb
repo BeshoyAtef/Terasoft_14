@@ -1,4 +1,5 @@
- class ConfirmController < ApplicationController
+class ConfirmController < ApplicationController
+
 
 #This method checks the attributes of packages and set the receivedByCarrier to true to confirm taking the package.
 #description - string, expiryDate - date, destination - string, origin - string, receiverAddress - string, receiverMobNumber - integer, receiverEmail - string, receivedByCarrier - boolean, finalDelivery - boolean, weight - float, type - string, carryingPrice - float, packageValue - float, rating - float.
@@ -6,7 +7,7 @@
 #Author: Ahmed H. Nasser.
   
   def  confirm
-    @comp = Packages.find( params[:id] )
+    @comp = Packages.find(params[:id])
     @new = Packages.new
     @new.id = @comp.id
     @new.description = @comp.description
@@ -26,16 +27,14 @@
     @new.save
   end
 
-#This method makes the user enter the carrier_id and the receivedByCarrier should be still false to show all the pending packages to be confirmed.
+
+#This method checks if the logged in user is the same as the carriers_id and the receivedByCarrier should be still false to show all the pending packages to be confirmed.
 #carriers_id - integer, receivedByCarrier - boolean.
-#This method returns all the packeges still waiting for confirmation.
+#This method returns all the packges still waiting for confirmation.
 #Author: Ahmed H. Nasser.
  
   def  list
-    @p = params[:id]
-  	@con = Packages.find( :all,  :conditions => [' carriers_id = ? AND receivedByCarrier = ? ' ,@p,false ] )
+    @p = cookies[:user_id]
+  	@con = Packages.find( :all , :conditions => [ ' carriers_id = ? AND receivedByCarrier = ? ' , @p , false ] )
   end
-
-  def  input
-  end
-  end
+end
