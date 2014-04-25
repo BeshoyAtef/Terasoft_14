@@ -1,0 +1,9 @@
+ <!--This view is intended to add a text field for the reciever name , and the decription of the message and a button for sending message-->
+<!--Author: Rehab A. ElShahawy -->
+<form action="new_message" >
+	<input type="hidden" value=<%= cookies[ :user_id ]%> name="id">
+	<h3 class="title-2"> Send to: </h3> <input type="text" name="username">
+	<h3 class="title-1"> Type your message here: </h3><input type="text" name="text">
+
+	<input name="send" type="submit" value="Send">
+</form>
