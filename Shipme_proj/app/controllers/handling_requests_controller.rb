@@ -116,7 +116,7 @@ class HandlingRequestsController < ApplicationController
          packages.each do |package|	
 	   if ((request.senders_id == sender) && (request.accept == true) && (request.packages_id==package.id))
    	     notification.description = user +" "+ "accepted your request";
-           elsif ((request.senders_id == s) && (request.accept == false) && (request.packages_id==package.id)) 
+           elsif ((request.senders_id == sender) && (request.accept == false) && (request.packages_id==package.id)) 
 	     notification.description = user +" "+ "rejected your request";
            end
 	   notification.save;
