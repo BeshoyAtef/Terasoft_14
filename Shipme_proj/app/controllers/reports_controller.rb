@@ -14,6 +14,6 @@ class ReportsController < ApplicationController
     @rep.packages_id = params[ :requiredPackageNo ]
     	if @rep.save
     		redirect_to :action => 'index'
-		end
+	end
   end
 end
