@@ -24,7 +24,7 @@ class TripsController < ApplicationController
 
   end
   end
-  #this method send a  message to the user once the trip is deleted
+  #this method send a  message to the user when the trip is deleted
   #input : user_id Integer
   #Returns :@notifications(Notifications model)
   #Author :Hagar E. Aly
