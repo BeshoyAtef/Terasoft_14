@@ -1,4 +1,6 @@
 ShipmeProj::Application.routes.draw do
+ 
+  get "notification/index"
  get "user/signup"
  get "user/signin"
  get "user/forgot"
@@ -8,11 +10,24 @@ ShipmeProj::Application.routes.draw do
  get "user/used"
  get "homepage/index"
  get "user/logout"
+   get "handling_requests/index"
+  
+  get "handling_requests/show"
+   get "handling_requests/show_package"
+  
+  get "handling_requests/accept"
+  get "handling_requests/reject"
+
+
+ post "handling_requests/accept"
+ post "handling_requests/reject"
+
 
 #HEAD
 #HEAD
 resources :add_trips
 resources :create_packages
+resources :handling_requests
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
