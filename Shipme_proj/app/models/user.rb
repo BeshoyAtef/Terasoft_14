@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	validates_length_of :mobileNumber, :minimum => 10
+	validates_length_of :mobileNumber, :is => 10
  validates_length_of :creditCard, :is => 5 
  validates_length_of :idNumber, :is => 5 
 	has_many :messages
