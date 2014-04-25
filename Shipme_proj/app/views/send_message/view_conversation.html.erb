@@ -6,20 +6,20 @@
 <p>
 
 <ul>
-	  <% @conv.each do |l| %>
-	  <li>
+<% @conv.each do |l| %>
+<li>
 <%
   @user= Users.find(:all,
     :conditions => {:id=> l.sender_Id},  
     ) %>
-    <% @user.each do |m| %>
-<%= m.username %>
-    <%end%>
+      <% @user.each do |m| %>
+      <%= m.username %>
+      <%end%>
 
-	  : &nbsp  &nbsp &nbsp &nbsp &nbsp
+      : &nbsp  &nbsp &nbsp &nbsp &nbsp
 
 	  <%=l.description %>
-        &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
       <%=l.created_at %>
 	  </li>
 	  <br>
