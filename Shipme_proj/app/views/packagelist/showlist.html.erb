@@ -1,0 +1,20 @@
+<!-- This view is intended to show the list of all packages by a certain user -->
+<!-- Author: Omar A. Abdel-fatah -->
+
+<h1>Packagelist#showlist</h1>
+<p><html>
+<body>
+
+<table width="500">
+<tr>
+<td colspan="2" style="background-color:#ffffff;">
+<h1>List of all packages you have: </h1></p>
+<%	@list.each do |c| %>
+<%@users.each do |u|%>
+<%if u.id == c.carriers_id %>
+<h2><%= u.username%>
+ <a href="viewpackage ?id=<%=c.id%>"> <input type=submit value="view">  </a></h2> <br>
+<%end%>
+
+<%end%>
+<%end%>
