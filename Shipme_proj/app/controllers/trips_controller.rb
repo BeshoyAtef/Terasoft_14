@@ -5,14 +5,29 @@ class TripsController < ApplicationController
 #This method return the attributes entered in the database.
 #Author: Ahmed H. Nasser.
 
-  def  CompleteUser
-    @comp = Users.find(params[:id])
-    @com = @comp.id
-    @comp.destroy
+  def  complete_user
+
     @complete = Users.new
+    @comp = Users.find(cookies[ :user_id ])
+    @complete.id = @comp.id
     @complete.creditCard = params[:requiredcrdtcardnum]
     @complete.mobileNumber = params[:requiredmobnum]
     @complete.idNumber = params[:requiredidnum]
+    @complete.encrypted_password = @comp.encrypted_password
+    @complete.username = @comp.username
+    @complete.admin = @comp.admin
+    @complete.idVerify = @comp.idVerify
+    @complete.averageRating = @comp.averageRating
+    @complete.reset_password_token = @comp.reset_password_token
+    @complete.reset_password_sent_at = @comp.reset_password_sent_at
+    @complete.remember_created_at = @comp.remember_created_at
+    @complete.sign_in_count = @comp.sign_in_count
+    @complete.current_sign_in_at = @comp.current_sign_in_at
+    @complete.last_sign_in_at = @comp.last_sign_in_at
+    @complete.current_sign_in_ip = @comp.current_sign_in_ip
+    @complete.last_sign_in_ip = @comp.last_sign_in_ip
+    @complete.created_at = @comp.created_at
+    @comp.destroy
     if @complete.save
 
       redirect_to :action => 'newtrips'
@@ -27,8 +42,8 @@ class TripsController < ApplicationController
 #This method returns the values inserted to the database.
 #Author: Ahmed H. Nasser.
 
-  def  Create
-    @userId = Users.find(:all).last().id
+  def  create
+    @userId = Users.find(cookies[ :user_id ])
 	  @ver = Users.find(@userId)
     if (@ver[:creditCard]== nil)
       redirect_to :action => 'complete' , :id => @userId
