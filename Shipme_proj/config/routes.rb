@@ -13,8 +13,6 @@ get "edit_packages/update"
 
   # You can have the root of your site routed with "root"
   root 'homepage#index'
-       'edit_packages#index'
-       'edit_packages#edit_package'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
