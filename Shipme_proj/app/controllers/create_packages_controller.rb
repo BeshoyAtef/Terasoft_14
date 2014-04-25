@@ -1,74 +1,71 @@
 class CreatePackagesController < ApplicationController
-  before_action :set_create_package, only: [:show, :edit, :update, :destroy]
 
-  # GET /create_packages
-  # GET /create_packages.json
-  def index
-    @create_packages = CreatePackage.all
+
+  #this method is initializing create_packages to packages
+  #input: create_packages
+  #output: all Packages 
+  #Author:  Ahmed.M.Samouka
+
+  def  index
+    @create_packages = Packages.all
   end
 
-  # GET /create_packages/1
-  # GET /create_packages/1.json
-  def show
-  end
 
-  # GET /create_packages/new
-  def new
-    @create_package = CreatePackage.new
-  end
+  #ths method is to make sure that the id of the user is verified
+  #input: idVerify from database
+  #output: if the id is verified he should be able to create a package else he will not 
+  #Auther: Ahmed.M.Samouka
 
-  # GET /create_packages/1/edit
-  def edit
-  end
-
-  # POST /create_packages
-  # POST /create_packages.json
-  def create
-    @create_package = CreatePackage.new(create_package_params)
-
-    respond_to do |format|
-      if @create_package.save
-        format.html { redirect_to @create_package, notice: 'Create package was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @create_package }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @create_package.errors, status: :unprocessable_entity }
-      end
+  def  new
+    @p = false
+    @user = Users.find( cookies[ :user_id ] ) #.last().id
+    @verify = @user.idVerify
+    if @verify != true
+      redirect_to :action => 'index'
+    else
+       
     end
   end
 
-  # PATCH/PUT /create_packages/1
-  # PATCH/PUT /create_packages/1.json
-  def update
-    respond_to do |format|
-      if @create_package.update(create_package_params)
-        format.html { redirect_to @create_package, notice: 'Create package was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @create_package.errors, status: :unprocessable_entity }
-      end
-    end
+
+  #this method is showing the created package
+  #input: package parameters
+  #output: show the last created package
+  #Author:Ahmed.M.Samouka
+
+  def  show_package
+    @pack = Packages.find( cookies[ :user_id ] )
   end
 
-  # DELETE /create_packages/1
-  # DELETE /create_packages/1.json
-  def destroy
-    @create_package.destroy
-    respond_to do |format|
-      format.html { redirect_to create_packages_url }
-      format.json { head :no_content }
-    end
+
+  #this method is creating a new package and show it 
+  #packages parameters
+  #redirect to index
+  #Author:Ahmed.M.Samouka
+
+  def  show
+    @create_packages = Packages.new
+    @create_packages.destination =  params[ :requireddestination ]
+    @create_packages.description =  params[ :requireddescription ]
+    @create_packages.receiverAddress =  params[ :requiredreceiverAddress ]
+    @create_packages.origin =  params[ :requiredorigin ]
+    @create_packages.receiverMobNumber =  params[ :requiredreceiverMobNumber ]
+    @create_packages.receiverEmail =  params[ :receiverEmail ]
+    @create_packages.weight =  params[ :requiredweight ]
+    @create_packages.packageValue =  params[ :requiredpackageValue ]
+    @create_packages.save
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_create_package
-      @create_package = CreatePackage.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def create_package_params
-      params.require(:create_package).permit(:destination, :description, :weight, :origin, :Expiry_Date, :value, :receiverAddress, :receivermobile, :receiverMail)
-    end
+  #this method is after creating the package rediretct to show package with the id of the last created package to show it to the user
+  #packages parameters
+  #redirect to show_package
+  #Author:Ahmed.M.Samouka
+
+  def  create
+    @c = Packages.find( :all ).last()
+    @id = @c.id
+    redirect_to :action => 'show_package?id=@id'
+
+  end
 end
