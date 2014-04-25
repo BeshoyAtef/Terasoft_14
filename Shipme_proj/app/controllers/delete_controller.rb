@@ -6,7 +6,7 @@ class DeleteController < ApplicationController
 
   def  delete
   	
-  	 @c = Packages.find(params[:id])
+  	 @c = Packages.find(cookies[ :user_id ])
   	 if(@c.receivedByCarrier == true)
 	
 		  @n = Notifications.new
