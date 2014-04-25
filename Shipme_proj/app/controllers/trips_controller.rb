@@ -17,10 +17,10 @@ class TripsController < ApplicationController
 #Author :Hagar E. Aly
 
   def deletetrips
-    @trip = Trips.find (params[:id])
+    @trip = Trips.find ( params[:id] )
      if @trip.delete
-      notification (cookies[ :user_id])
-   else
+       notification ( cookies[ :user_id])
+     else
 
   end
   end
@@ -30,21 +30,21 @@ class TripsController < ApplicationController
   #Author :Hagar E. Aly
 
   def notification (user_id)
-    requests=Requests.find(:all,:conditions => {:carriers_id => user_id})
+    requests = Requests.find(:all,:conditions => {:carriers_id => user_id})
      if(requests != nil)
-     senders_id = Array.new
-     requests.each do |t| 
-     sender_id = t.senders_id;
-     senders_id .push sender_id;
+       senders_id = Array.new
+       requests.each do |t| 
+       sender_id = t.senders_id;
+       senders_id .push sender_id;
   end
   senders_id .each do |s|
   notification = Notifications.new;
-  notification.users_id=s;
-  user=users.find_by_id(user_id).username
+  notification.users_id = s;
+  user = users.find_by_id(user_id).username
   requests.each do |t|
     if (t.senders_id == s)
-      notification.description=user+""+"deleted his trip please try to find another carrier";
-     notification.save;
+      notification.description = user+""+"deleted his trip please try to find another carrier";
+      notification.save;
  end
  end
 end
