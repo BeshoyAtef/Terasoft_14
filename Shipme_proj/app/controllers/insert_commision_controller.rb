@@ -2,7 +2,7 @@ class InsertCommisionController < ApplicationController
 
 
 #This method creates new table 
-#Author : Ahmed Tarek
+#Author : Ahmed T. Mohamed
 
   def new
     @configurations  = Configurations.new
@@ -10,7 +10,7 @@ class InsertCommisionController < ApplicationController
 
 
 #This method add the parameters submited to the table
-#Author : Ahmed Tarek
+#Author : Ahmed T. Mohamed
 
   def create      
     @configurations  = Configurations.new( configurations_params )
@@ -19,7 +19,7 @@ class InsertCommisionController < ApplicationController
 
 
 #This method permit the parameters to be added
-#Author : Ahmed Tarek
+#Author : Ahmed T. Mohamed
 
  private
   def configurations_params
