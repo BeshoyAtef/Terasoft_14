@@ -28,7 +28,8 @@ var pass=true
 </script>
 
 </head><body>
-<form onSubmit="return checkrequired(this)" action= "reports" >
+<%#=@all%>
+<form onSubmit="return checkrequired(this)" action= "CreateReport" >
 <form  action= 'createReport' >
 Package Number: <input type="text" name="requiredPackageNo"><br>
 Report: <br><TEXTAREA Name="requiredReport" ROWS=10 COLS=35></TEXTAREA><br>
