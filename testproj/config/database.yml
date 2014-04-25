@@ -1,0 +1,26 @@
+development:
+  adapter: mysql2
+  database: development
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+  username: root
+  password: root
+test:
+  adapter: mysql2
+  database: test
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+  username: root
+  password: root
+
+production:
+  adapter: mysql2
+  database: production
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+  username: root
+  password: root
+ 
