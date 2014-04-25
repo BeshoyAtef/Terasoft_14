@@ -1,0 +1,52 @@
+<!--This view is intended to show the last created Package to the user who created it-->
+ <!--Author: Ahmed M. Samouka -->
+
+<%# @pack.each do |c|%>
+<%c = @pack%>
+	
+  <div class="field">
+     destination : <%= c.destination%>  
+  </div>
+  <br>
+
+  <div class="field">
+     description : <%= c.description%>
+  </div>
+  <br>
+
+  <div class="field">
+     weight : <%= c.weight%>
+  </div>
+  <br>
+
+  <div class="field">
+     origin : <%= c.origin%>
+  </div>
+  <br>
+
+  <div class="field">
+     packageValue : <%= c.packageValue%>
+  </div>
+  <br>
+
+  <div class="field">
+     expiryDate : <%= c.expiryDate%>
+  </div>
+  <br>
+
+  <div class="field">
+     receiverAddress : <%= c.receiverAddress%>
+  </div>
+  <br>
+
+    <div class="field">
+     receiverMobNumber : <%= c.receiverMobNumber%>
+  </div>
+  <br>
+    <div class="field">
+     receiverEmail : <%= c.receiverEmail%>
+  </div>
+  <br>
+
+  <a href='index'> back</a>
+<%#end%>
