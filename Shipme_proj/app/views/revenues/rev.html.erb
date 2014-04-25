@@ -1,0 +1,13 @@
+<!-- This view is intended to show the amountTransfer-->
+<!-- Author: Abdelrahman Y. Seoudy -->
+
+<h1>the revenue to all database
+<br>
+<%=@total%>
+
+	<% @pay.each do |c| %>
+	<% if c.users_id == @cred %>
+	<li>	<%= c.amountTransfer %></li><br>
+	<%end%>
+<%end%>
+</h1>
