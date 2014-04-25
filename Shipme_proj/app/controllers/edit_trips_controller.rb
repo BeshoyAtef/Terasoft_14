@@ -7,10 +7,9 @@ class EditTripsController < ApplicationController
   # Author: Youssef A. Saleh
 
   def index
-    @current_user_id = cookies[: user_id ]
+    @current_user_id = cookies[ :user_id ]
     @current_user_trips = Trips.find(:all, :conditions => {:users_id => @current_user_id})
   end
-
 
   #This method displays the form and the layout
   # no parameters because it just displays the form
