@@ -1,4 +1,4 @@
-class ConfirmController < ApplicationController
+ class ConfirmController < ApplicationController
 
 
 #This method checks the attributes of packages and set the receivedByCarrier to true to confirm taking the package.
