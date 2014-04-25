@@ -1,9 +1,21 @@
 ShipmeProj::Application.routes.draw do
-#HEAD
-#HEAD
-  resources :add_trips
+  get "send_message/send_now"
+  get "send_message/view_conversation"
+  get "send_message/send"
+  get "homepage/index"
 
- resources :create_packages
+  post'/send_message/send_now/', to: 'send_message#send_now'
+  get '/send_message/construct_message/', to: 'send_message#construct_message'
+
+  #get "send_messages/send"
+#HEAD
+
+#HEAD
+  #resources :add_trips
+ #resources :create_packages
+ resources :messages
+ resources :homepage
+ resources :send_messages
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -60,3 +72,4 @@ ShipmeProj::Application.routes.draw do
   #     resources :products
   #   end
 end
+
