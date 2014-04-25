@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
 
   # showing the records in details that is already created .It contain mobileNumber(integer),crediCard(integer) and id(integer) 
-  # output the record that needed to be seen
+  # return idNumber integer creditCard integer  mobileNumber integer
   # Authord :Mariam .S. Elsanady
 
   def  show
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
 
   # Create new user information. 
-  #Input is mobileNumber(integer(10)),crediCard(integer(5)) and id(integer(5)) 
+  #Inputs are idNumber integer creditCard integer  mobileNumber integer
   # Authord :Mariam .S. Elsanady
 
   def  new
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
    
   # This method is active when the user click on create so it will save his information and redirect to new page . 
-  #output is the User was successfully created with all inputs
+  #return is idNumber integer creditCard integer  mobileNumber integer
   # Authord :Mariam .S. Elsanady
 
   def  create
