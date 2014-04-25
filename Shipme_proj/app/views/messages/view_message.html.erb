@@ -1,0 +1,36 @@
+<!--This view is intended to show the list of messages recievsed by a certain user -->
+<!--Author: Rehab A. ELShahawy -->
+<h3 class="title-2"> My Messages </h3>
+<br>
+<br>
+ <!--This loop is intended to find the last message recieved from a certain user -->
+	<% @messages_recieved.each do |c|%>
+
+		<% c.shift%>
+
+		<% b = c.first(1).last().last() %>
+	<!--This loop is intended to find the username of the message sender to view the names instead of the ids-->
+		<%@users.each do |u|%>
+		
+			<%if u.id == b.senders_id%>
+				<!--This link is intended to redirect the user to the full conversation, by passing two paramters (sid,rid) to view_conversation method -->
+		 		<a href = "../send_message/view_conversation?sid = <%=b.senders_id%> & rid=<%= b.receivers_id %>"> <%=u.username%> </a> 
+		 		&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
+				<%= b.description %>
+				<br>
+				<br>
+				<br>
+			<%end%>
+		<%end%>
+<%end%>
+<br>
+<br>
+<br>   
+
+ <!--This view is intended to add a button for sending a new message-->
+	<nav id="navigation" class="style-2">
+	<div class="left-corner"></div>
+	<div class="right-corner"></div>
+	<ul class="menu" id="responsive">
+    <%@sender_id=cookies[ :user_id ]%>
+    <li><a href="new_message?id=<%=@sender_id%>" id="current"><i class="halflings white envelope"></i> Send New Messages</a></li>
