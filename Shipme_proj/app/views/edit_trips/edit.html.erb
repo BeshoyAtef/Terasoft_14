@@ -32,7 +32,7 @@
   return;
   }
   else {
-	  alert("Your Trip was successfully edited! However, if you entered one or more blank fields it will not be edited!")
+	  alert("Your Trip was successfully edited! However, if you entered one or more blank fields/wrong date format it will not be edited!")
   return;}
   }
 	
@@ -42,7 +42,7 @@
   	<form onSubmit="return checkrequired(this)"   action= "update" >
 			Destination: <input type="text" name="required_destination"><br>
 			Location: <input type="text" name="required_location"><br>
-			Travelling Date: <input type="date" name="required_traveldate"><br>
+			Travelling Date(mm/dd/yyyy): <input type="date" name="required_traveldate"><br>
 			Weight <input type="number" name="required_num_weight"><br>
 			<input type=hidden value =<%=params[:id]%> name='id'>
 			<input type="submit" value="Edit Trip Trips">
