@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
  #This method is viewing the trips 
- #input: ID Integer
- # returns @add_trips -array[trips]
+ #input: id Integer
+ #Returns :@add_trips -array[trips]
  #Author :Hagar E. Aly
 
   def index
@@ -25,7 +25,8 @@ class TripsController < ApplicationController
   end
   end
   #this method send a  message to the user once the trip is deleted
-  #input : usser_id Integer
+  #input : user_id Integer
+  #Returns :@notifications(Notifications model)
   #Author :Hagar E. Aly
 
   def notification (user_id)
