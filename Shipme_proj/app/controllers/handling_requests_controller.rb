@@ -56,13 +56,13 @@ class HandlingRequestsController < ApplicationController
       other_requests = Array.new
       request = Requests.find(:all, :conditions => {:senders_id => request.senders_id})
       other_requests.push request
-      if(other_requests!=nil)
-        other_requests.each do |other_request|
-          other_request.each do |other|
-	    if((other.accept == nil || other.accept == false) && other.carriers_id != request.carriers_id && other.packages_id == request.packages_id)   
-	      other.destroy
-	    end
-	  end
+        if(other_requests!=nil)
+          other_requests.each do |other_request|
+            other_request.each do |other|
+	            if((other.accept == nil || other.accept == false) && other.carriers_id != request.carriers_id && other.packages_id == request.packages_id)   
+	              other.destroy
+	            end
+	          end
         end	
       end	
     end
