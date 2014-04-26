@@ -1,0 +1,13 @@
+<h1>Conversation</h1>
+
+<p>
+
+<ul>
+	  <% @conv.each do |l| %>
+	  <li><%=l.description%></li>
+	  <%end%>
+<%= form_tag("/send_message/send_now/", :method => "post") %>
+
+<%=link_to 'send_message',{:controller => 'send_message', :action =>'construct_message'}%>
+</form>
+</p>
