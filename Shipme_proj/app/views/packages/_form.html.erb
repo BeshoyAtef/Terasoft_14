@@ -1,0 +1,81 @@
+<%= form_for(@package) do |f| %>
+  <% if @package.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h2>
+
+      <ul>
+      <% @package.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :expiryDate %><br>
+    <%= f.text_field :expiryDate %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
+  </div>
+  <div class="field">
+    <%= f.label :origin %><br>
+    <%= f.text_field :origin %>
+  </div>
+  <div class="field">
+    <%= f.label :receiverAddress %><br>
+    <%= f.number_field :receiverAddress %>
+  </div>
+  <div class="field">
+    <%= f.label :receiverMobNumber %><br>
+    <%= f.text_field :receiverMobNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :receiverEmail %><br>
+    <%= f.check_box :receiverEmail %>
+  </div>
+  <div class="field">
+    <%= f.label :receivedByCarrier %><br>
+    <%= f.check_box :receivedByCarrier %>
+  </div>
+  <div class="field">
+    <%= f.label :finalDelivery %><br>
+    <%= f.text_field :finalDelivery %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.text_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :carryingPrice %><br>
+    <%= f.text_field :carryingPrice %>
+  </div>
+  <div class="field">
+    <%= f.label :packageValue %><br>
+    <%= f.text_field :packageValue %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.text_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :senders_id %><br>
+    <%= f.text_field :senders_id %>
+  </div>
+  <div class="field">
+    <%= f.label :carriers %><br>
+    <%= f.text_field :carriers %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,15 +1,19 @@
 class Users < ActiveRecord::Base
-	has_many :messages, :class_name => "Users", :foreign_key => "user_Id"
-	has_many :notifications, :class_name => "Users", :foreign_key => "user_Id"
-	has_many :packages, :class_name => "Users", :foreign_key => "user_Id"
-	has_many :payment, :class_name => "Users", :foreign_key => "user_Id"
-	has_many :reports, :class_name => "Users", :foreign_key => "user_Id"
-	has_many :requests, :class_name => "Users", :foreign_key => "user_Id"
-	has_many :trips, :class_name => "Users", :foreign_key => "user_Id"
+	has_many :messages
+	has_many :notifications
+	has_many :packages
+	has_many :payment
+	has_many :reports
+	has_many :requests
+	has_many :trips
+	has_many :senders, :through => :requests
+	has_many :carriers, :through => :requests
+	has_many :reporter, :through => :reports
+	has_many :reported, :through => :reports
+	has_many :senders, :through => :packages
+	has_many :carriers, :through => :packages
+	has_many :senders, :through => :messages
+	has_many :receivers, :through => :messages
 
-	has_many :ratings
-    has_many :packages
-
-    ajaxful_rateable :scores => [:behavior]
-  	ajaxful_rater
+	seems_rateable_rater
 end

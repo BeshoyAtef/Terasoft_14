@@ -1,0 +1,59 @@
+<html>
+<body>
+
+<table width="500">
+<tr>
+
+<h1>create packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Destination</th>
+      <th>Description</th>
+      <th>Weight</th>
+      <th>Origin</th>
+      <th>Expiry date</th>
+      <th>Value</th>
+      <th>Receiveraddress</th>
+      <th>Receivermobile</th>
+      <th>Receivermail</th>
+      <th>Rate</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @packages.each do |package| %>
+      <tr>
+        <td><%= package.destination %></td>
+        <td><%= package.description %></td>
+        <td><%= package.weight %></td>
+        <td><%= package.origin %></td>
+        <td><%= package.expiryDate %></td>
+        <td><%= package.packageValue %></td>
+        <td><%= package.receiverAddress %></td>
+        <td><%= package.receiverMobNumber %></td>
+        <td><%= package.receiverEmail %></td>
+        <td><%= package.rating %></td>
+        <td><%= rating_for package, :static => false, :dimension => :quality %></td>        
+         
+      
+        <td><%= link_to 'Show', package %></td>
+
+
+
+  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Create package', new_package_path %>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

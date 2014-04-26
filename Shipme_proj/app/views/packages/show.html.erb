@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Expirydate:</strong>
+  <%= @package.expiryDate %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @package.description %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @package.destination %>
+</p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @package.origin %>
+</p>
+
+<p>
+  <strong>Receiveraddress:</strong>
+  <%= @package.receiverAddress %>
+</p>
+
+<p>
+  <strong>Receivermobnumber:</strong>
+  <%= @package.receiverMobNumber %>
+</p>
+
+<p>
+  <strong>Receiveremail:</strong>
+  <%= @package.receiverEmail %>
+</p>
+
+<p>
+  <strong>Receivedbycarrier:</strong>
+  <%= @package.receivedByCarrier %>
+</p>
+
+<p>
+  <strong>Finaldelivery:</strong>
+  <%= @package.finalDelivery %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @package.weight %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @package.type %>
+</p>
+
+<p>
+  <strong>Carryingprice:</strong>
+  <%= @package.carryingPrice %>
+</p>
+
+<p>
+  <strong>Packagevalue:</strong>
+  <%= @package.packageValue %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @package.rating %>
+</p>
+
+<p>
+  <strong>Senders:</strong>
+  <%= @package.cookies[:user_id] %>
+</p>
+
+<p>
+  <strong>Carriers:</strong>
+  <%= @package.carriers %>
+</p>
+
+<%= link_to 'Edit', edit_package_path(@package) %> |
+<%= link_to 'Back', packages_path %>

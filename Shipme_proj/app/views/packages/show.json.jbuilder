@@ -1,0 +1,1 @@
+json.extract! @package, :id, :expiryDate, :description, :destination, :origin, :receiverAddress, :receiverMobNumber, :receiverEmail, :receivedByCarrier, :finalDelivery, :weight, :type, :carryingPrice, :packageValue, :rating, :senders_id, :carriers, :created_at, :updated_at
