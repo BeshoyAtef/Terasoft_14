@@ -12,7 +12,7 @@ class HandlingRequestsController < ApplicationController
       @user = Users.find(:all, :conditions => {:id => request.senders_id})
       @users.push @user
      end
-   end
+  end
 
 
   #This method show request in the view to accept or reject it
@@ -54,7 +54,7 @@ class HandlingRequestsController < ApplicationController
   def  accept_helper(requests)
     requests.each do|request|
       other_requests = Array.new
-      request = Requests.find(:all, :conditions => {:senders_id => t.senders_id})
+      request = Requests.find(:all, :conditions => {:senders_id => request.senders_id})
       other_requests.push request
       if(other_requests!=nil)
         other_requests.each do |other_request|
