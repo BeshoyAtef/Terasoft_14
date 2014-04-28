@@ -1,0 +1,19 @@
+<h2>
+<!--This view is for showing the trips attributes-->
+<!--Author :Hagar E. Aly -->
+	<% @add_trips.each do |c| %>
+<li> <%= c.id %>
+     <%= c.location%>
+     <%= c.destination %>
+     <%= c.maxWeight %>
+     <%= c.travelDate%>
+<%#= c.user_Id %>
+
+   <!--This link is leading to the deleete trip page-->
+   <!--Author :Hagar Essam-->
+     <a href ="deletetrips?id=<%=c.id%>">delete</a>
+
+<%end%>
+
+
+</h2>
