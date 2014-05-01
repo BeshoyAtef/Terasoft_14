@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+class PaymentsController < ApplicationController
   def index
   end
 
