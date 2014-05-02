@@ -1,33 +1,29 @@
+
 class MessagesController < ApplicationController
-
-#This method gets all messages sent to a certain user 
-#Returns @messages_recieved-array[Messages]
-#Input params[:id]
-#Author Rehab A.ElShahawy
-
-  def view_message
-      @messages_recieved= Messages.find(:all, :conditions => {:receivers_id => cookies[ :user_id ]}).group_by{ |t| t.senders_id }
-      @users = Users.find(:all)
-    
+  
+  def new
+   Messages.send_new_message(cookies[ :user_id ],params[:username],params[:text])
   end
 
-#This method allow users to send messages 
-#Input params[:id],params[:username],params[:text]
-#Author Rehab A.ElShahawy
+  def show
+    @messages_received = Messages.get_last_message (cookies[ :user_id ])
+    @users = Users.all_users
+  end
 
-  def new_message
-      message = Messages.new
-      message.senders_id = cookies[ :user_id ]
-      @users = Users.find(:all)
-      @users.each do |u|
-        if(u.username == params[:username])
-          message.receivers_id =u.id
-        end
-      end
+  def list 
+  $sender_Id= params.shift.last() 
+  $receiver_Id = params.shift.last() 
+  @conv= Messages.get_conversation($sender_Id, $receiver_Id)
+   
+  end 
 
-      message.description=params[:text]
-      message.save
+  def update 
+   $description= params[:text] 
+   @msg = Messages.send_message($receiver_Id,$sender_Id,$description) 
+   redirect_to(:action => 'list') 
+  end
 
+  def create
   end
 
 end
