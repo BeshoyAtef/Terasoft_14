@@ -1,9 +1,28 @@
 class RequestsController < ApplicationController
- def delreq  #delrejectedrequests
- 	Request.all.each do|r|
- 		if r.accept == false
- 			r.destroy
- 		end
- 	end
-  end 
+  def index
+  end
+
+  def new
+  end
+
+  def create
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def list
+  end
+
+  def show
+  end
+
+  def delete
+  end
+
+  def destory
+  end
 end
