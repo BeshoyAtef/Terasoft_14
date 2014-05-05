@@ -1,2 +1,17 @@
-<h1>Packages#index</h1>
-<p>Find me in app/views/packages/index.html.erb</p>
+<!--This view is intended to view the details of the user's packages-->
+<!--Author: Youssef A. Saleh -->
+
+<% @current_user_packages.each do |c| %>
+	<li>Description:<%= c.description%>
+			Destination:<%= c.destination%>
+			Origin:<%= c.origin %>
+			Package Value:<%= c.packageValue %>
+			Expiry Date:<%= c.expiryDate %>
+			Carrying Price:<%= c.carryingPrice %>
+			Reciever Address:<%= c.receiverAddress %>
+			Reciever Mobile:<%= c.receiverMobNumber %>
+			Reciever E-Mail:<%= c.receiverEmail %>
+			Package Weight:<%= c.weight %>
+		<a href='/packages/edit?id=<%=c.id%>&'> edit</a>
+	</li>
+<%end%>
