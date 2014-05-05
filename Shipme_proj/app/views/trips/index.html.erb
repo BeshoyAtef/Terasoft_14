@@ -1,2 +1,11 @@
-<h1>Trips#index</h1>
-<p>Find me in app/views/trips/index.html.erb</p>
+<!--This view is intended to view the details of the user's packages-->
+<!--Author: Youssef A. Saleh -->
+
+<% @current_user_trips.each do |c| %>
+	<li>Destination:<%= c.destination%>
+			Location:<%= c.location %>
+			travelDateling date:<%= c.travelDate %>
+			Max weight:<%= c.maxWeight %>
+			<a href='/trips/edit?id=<%=c.id%>&'> edit</a>
+	</li>
+<%end%>
