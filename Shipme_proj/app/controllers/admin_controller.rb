@@ -15,6 +15,7 @@ class AdminController < ApplicationController
   end
 
   def list
+    @packages = Packages.view_shipments
   end
 
   def show

@@ -6,4 +6,8 @@ class Packages < ActiveRecord::Base
 	has_one :reports
 	has_many :requests
 
+	def self.view_shipments
+	  @packages = Packages.find( :all, :conditions => {:finalDelivery => true}, :order => "created_at ASC" )
+    end
+
 end
