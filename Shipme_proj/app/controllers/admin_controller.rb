@@ -1,4 +1,6 @@
 class AdminController < ApplicationController
+  require 'will_paginate/array'
+
   def index
   end
 
@@ -14,8 +16,11 @@ class AdminController < ApplicationController
   def update
   end
 
+
   def list
-    @packages = Packages.view_shipments
+
+    @packages = Packages.view_shipments_paginated( params[:page] )
+
   end
 
   def show

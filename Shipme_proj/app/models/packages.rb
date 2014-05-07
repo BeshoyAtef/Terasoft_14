@@ -1,4 +1,5 @@
 class Packages < ActiveRecord::Base
+	require 'will_paginate/array'
 
 	belongs_to :sender, :class_name => "Users"
 	belongs_to :carrier, :class_name => "Users"
@@ -6,8 +7,10 @@ class Packages < ActiveRecord::Base
 	has_one :reports
 	has_many :requests
 
-	def self.view_shipments
+ 
+	def self.view_shipments_paginated(page)
 	  @packages = Packages.find( :all, :conditions => {:finalDelivery => true}, :order => "created_at ASC" )
+	  @packages = @packages.paginate( :page => page , :per_page => 10 ) 
     end
 
 end

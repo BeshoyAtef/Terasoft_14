@@ -75,8 +75,9 @@
   </table>
 
   <br>
-    <%= link_to("<< Back ", {:action => 'list'}, :class => 'admin') %>
+    <%= link_to("<< Back ", {:action => 'index'}, :class => 'admin') %>
   </br>
 
+  <%=will_paginate @packages%> 
   </body>
-  </html>
+ </html>
