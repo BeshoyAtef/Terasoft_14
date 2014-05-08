@@ -1,7 +1,8 @@
 class PackagesController < ApplicationController
   def index
     @current_user_id = cookies[:user_id]
-    @current_user_packages = Packages.find(:all, :conditions => {:senders_id => @current_user_id})
+    #@current_user_packages = Packages.find(:all, :conditions => {:senders_id => @current_user_id})
+    @current_user_packages = Packages.find_user_packages(@current_user_id)
   end
 
   def new
@@ -13,10 +14,39 @@ class PackagesController < ApplicationController
   def edit
   end
 
+  def  notification (user_id)
+    #requests=Requests.find(:all, :conditions => {:senders_id => user_id})
+    @current_user_id = cookies[:user_id]
+    requests = Requests.requests_for_notification(@current_user_id)
+    if(requests != nil)
+      carriers_id = Array.new
+      requests.each do |t|
+      carrier_id = t.carriers_id;
+      carriers_id.push carrier_id;
+      end
+      
+      carriers_id.each do |s|
+        notification =  Notifications.new;
+        notification.users_id = s;
+        user = Users.find_by_id(user_id).username
+    
+        requests.each do |t|
+          if (t.carriers_id == s)
+            notification.description = user +" "+ "edited his/her package, please try to check it again!";
+            notification.save;
+          end
+        end
+      end          
+    end
+  end
+
   def update
     @current_user_id = cookies[:user_id]
-    @current_package = Packages.find(params[ :id ])
-    @current_user_request = Requests.find(:all, :conditions => {:senders_id => @current_user_id, :packages_id => @current_package.id})
+    #@current_package = Packages.find(params[ :id ])
+    @current_package = Packages.find_current_package(params[ :id ])
+    @current_package.each do |package|
+      @current_user_request = Requests.current_user_requests(@current_user_id,package.id)
+    end
     @current_user_request.each do |t|
       @is_accepted = t.accept
       @carrier_id = t.carriers_id
@@ -37,7 +67,7 @@ class PackagesController < ApplicationController
       data_validated = false
     end 
 
-    if( @is_accepted != true && data_validated == true)
+    if(@is_accepted != true && data_validated == true)
       # @package_id = @current_package.id
       # @current_package.id = @package_id
       # @current_package.destination = params[ :required_destination ]
@@ -53,7 +83,7 @@ class PackagesController < ApplicationController
       # @current_package.senders_id = @current_user_id
       # @current_package.save
       Packages.edit_the_package(@current_package, @destination, @description, @origin, @package_value, @expiry_date, @carrying_price, @receiver_address, @receiver_mob_number, @receiver_email, @weight, @current_user_id)
-      #notification(@current_user_id)
+      notification(@current_user_id)
     end
     redirect_to :action =>'index'     
   end

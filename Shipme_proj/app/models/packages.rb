@@ -6,18 +6,30 @@ class Packages < ActiveRecord::Base
 	has_one :reports
 	has_many :requests
 	def self.edit_the_package(current_package, destination, description, origin, package_value, expiry_date, carrying_price, receiver_address, receiver_mob_number, receiver_email, weight, user_id)
-		current_package.destination = destination
-    current_package.description = description
-    current_package.origin = origin
-    current_package.packageValue = package_value
-    current_package.expiryDate = expiry_date
-    current_package.carryingPrice = carrying_price
-    current_package.receiverAddress = receiver_address
-    current_package.receiverMobNumber = receiver_mob_number
-    current_package.receiverEmail = receiver_email
-    current_package.weight = weight
-    current_package.senders_id = user_id
-    current_package.save	
+		current_package.each do |package|
+			package.destination = destination
+    	package.description = description
+    	package.origin = origin
+    	package.packageValue = package_value
+    	package.expiryDate = expiry_date
+    	package.carryingPrice = carrying_price
+    	package.receiverAddress = receiver_address
+    	package.receiverMobNumber = receiver_mob_number
+    	package.receiverEmail = receiver_email
+    	package.weight = weight
+    	package.senders_id = user_id
+    	package.save	
+  	end
+	end
+
+	def self.find_current_package(id)
+		current_package = Packages.find(:all, :conditions => {:id => id})
+		return current_package
+	end
+
+	def self.find_user_packages(user_id)
+		current_packages = Packages.find(:all, :conditions => {:senders_id => user_id})
+		return current_packages
 	end
 
 end
