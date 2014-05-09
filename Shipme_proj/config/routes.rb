@@ -99,6 +99,7 @@ ShipmeProj::Application.routes.draw do
   get "requests/show"
   get "requests/delete"
   get "requests/destory"
+  get "homepage/list"
   #old routes
  get "user/signup"
  get "user/signin"

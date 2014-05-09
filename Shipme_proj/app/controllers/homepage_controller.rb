@@ -9,4 +9,7 @@ class HomepageController < ApplicationController
 
  	end	
 
+ 	def list
+ 	end
+
 end
