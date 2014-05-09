@@ -14,5 +14,15 @@ class Users < ActiveRecord::Base
 	has_many :carriers, :through => :packages
 	has_many :senders, :through => :messages
 	has_many :receivers, :through => :messages
+	
+
+	#this methods should get users where id is verified or not
+	#Inputs: cookies[:user_id]
+    #Returns: @verification
+    #Author: Youssef S.Barakat
+
+	def self.get_users_verify (user_id)
+		@verification = Users.find_by_id(user_id).idVerify
+	end
 
 end
