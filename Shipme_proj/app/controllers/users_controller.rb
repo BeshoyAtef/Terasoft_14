@@ -15,6 +15,10 @@ class UsersController < ApplicationController
   end
 
   def list
+      def list
+    @package = Users.packages_find
+    @trip = Users.trips_find
+    @users =  Users.users_find
   end
 
   def show

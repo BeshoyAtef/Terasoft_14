@@ -1,2 +1,21 @@
-<h1>Users#list</h1>
-<p>Find me in app/views/users/list.html.erb</p>
+<p><html>
+<body>
+
+<table width="500">
+<tr>
+<td colspan="2" style="background-color:#ffffff;">
+<h1>List matching carriers: </h1></p>
+<%@trip.each do |trip| %>
+<%@package.each do |package|%>
+<%if package.destination == trip.destination && package.weight ==  trip.maxWeight %>
+
+<%@users.each do |user| %>
+     <%if trip.users_id == user.id%>
+<h2><%= user.username %>
+
+ <a href="../requests/index" > <input type=submit value="open">  </a></h2> <br>
+ <%end%>
+ <%end%>
+ <%end%>
+ <%end%>
+ <%end%>

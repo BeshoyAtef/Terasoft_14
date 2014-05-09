@@ -15,4 +15,15 @@ class Users < ActiveRecord::Base
 	has_many :senders, :through => :messages
 	has_many :receivers, :through => :messages
 
+	def self.packages_find
+		@packages = Packages.find(:all)
+	end
+	def self.users_find
+		@user = Users.find(:all)
+	end
+	def self.trips_find
+		@trips = Trips.find(:all)
+	end
+
+
 end
