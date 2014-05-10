@@ -14,7 +14,14 @@ class AdminController < ApplicationController
   def update
   end
 
+
+#This method count number of rows in table Users
+#@users - int
+#Author : Ahmed T. Mohamed
+
   def list
+    @users  = Users.counter
+    render :action => :users
   end
 
   def show

@@ -15,4 +15,8 @@ class Users < ActiveRecord::Base
 	has_many :senders, :through => :messages
 	has_many :receivers, :through => :messages
 
+  def self.counter
+    @users = Users.count
+    return @users
+  end
 end
