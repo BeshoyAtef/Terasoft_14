@@ -1,2 +1,24 @@
-<h1>Messages#new</h1>
-<p>Find me in app/views/messages/new.html.erb</p>
+
+<form onsubmit="return pop_message()" action="new"
+ method="get" >
+ <input type="hidden" value= <%= cookies[ :user_id ]%> name="id">
+<h3 class="title-2"> Send to: </h3>   <input type="text" name="username">
+<h3 class="title-1"> Type your message here: </h3><input type="text" name="text">
+ <% if $flag == true%>
+<script>
+function pop_message() {
+ alert("message sent successfully");
+}
+</script>
+<% elsif $flag == false%>
+<script>
+function pop_message() {
+ alert("sorry ! you can't send messages to this user");
+}
+</script>
+<% $flag==nil%>
+<%end%>
+<input name="send" type="submit" value="Send">
+</form>
+
+

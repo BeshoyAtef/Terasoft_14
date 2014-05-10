@@ -1,2 +1,32 @@
-<h1>Messages#show</h1>
-<p>Find me in app/views/messages/show.html.erb</p>
+<!--This view is intended to show the list of messages recievsed by a certain user -->
+<!--Author: Rehab A. ELShahawy -->
+<h3 class="title-2"> My Messages </h3>
+<br>
+<br>
+ <!--This loop is intended to find the last message recieved from a certain user -->
+	<% @messages_received.each do |c|%>
+
+		<% c.shift%>
+
+		<% b = c.first(1).last().last() %>
+	<!--This loop is intended to find the username of the message sender to view the names instead of the ids-->
+		<%@users.each do |u|%>
+		
+			<%if u.id == b.senders_id%>
+				<!--This link is intended to redirect the user to the full conversation, by passing two paramters (sid,rid) to view_conversation method -->
+		 		&nbsp&nbsp &nbsp&nbsp <a href = "list?sid = <%=b.senders_id%> & rid=<%= b.receivers_id %>"> <%=u.username%> </a> 
+		 		&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
+				<%= b.description %>
+				<br>
+				<br>
+				<br>
+			<%end%>
+		<%end%>
+<%end%>
+<br>
+<%= will_paginate @messages%>
+<br>
+<br>   
+ <!--This view is intended to add a button for sending a new message-->
+	 <form action="new">
+      <input name="send" type="submit" value="Send new message">
