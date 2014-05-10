@@ -1,5 +1,8 @@
 class AdminController < ApplicationController
   def index
+  render layout: false
+  @packages = Packages.find(:all, :conditions => {:finalDelivery => true}).count 
+  
   end
 
   def new
