@@ -91,6 +91,7 @@ ShipmeProj::Application.routes.draw do
   get "requests/show"
   get "requests/delete"
   get "requests/destory"
+  get "homepage/list"
   get "user_log/sign_up"
   get "user_log/sign_in2"
   get "user_log/create"
