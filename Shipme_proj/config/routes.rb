@@ -1,4 +1,5 @@
 ShipmeProj::Application.routes.draw do
+
   #new routes
   get "admin/index"
   get "admin/new"
@@ -18,15 +19,6 @@ ShipmeProj::Application.routes.draw do
   get "messages/show"
   get "messages/delete"
   get "messages/destory"
-  get "authentication/index"
-  get "authentication/new"
-  get "authentication/create"
-  get "authentication/edit"
-  get "authentication/update"
-  get "authentication/list"
-  get "authentication/show"
-  get "authentication/delete"
-  get "authentication/destory"
   get "reports/index"
   get "reports/new"
   get "reports/create"
@@ -99,16 +91,17 @@ ShipmeProj::Application.routes.draw do
   get "requests/show"
   get "requests/delete"
   get "requests/destory"
-  #old routes
- get "user/signup"
- get "user/signin"
- get "user/forgot"
- get "user/create"
- get "user/in"
- get "user/forgot_mail"
- get "user/used"
+  get "user_log/sign_up"
+  get "user_log/sign_in2"
+  get "user_log/create"
+  get "user_log/sign_in"
+  get "user_log/in"
+  get "user_log/forgot_mail"
+  get "user_log/forget"
+  get "user_log/log_out"
+  get "user_log/used" 
+   #old routes
  get "homepage/index"
- get "user/logout"
  get "compareprices/compare"
  get "send_requests/requests" 
  get "/send_requests/requests" => 'send_requests#requests', :as => 'Send_button' 
@@ -136,7 +129,7 @@ ShipmeProj::Application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root 'user#signin2'
+  root 'user_log#sign_in2'
        
   # You can have the root of your site routed with "root"
 
