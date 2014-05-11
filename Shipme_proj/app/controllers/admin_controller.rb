@@ -16,6 +16,11 @@ class AdminController < ApplicationController
   def update
   end
 
+  #This method is listing the packages done per month through pages.
+  #amount - page
+  #Returns array of packages done/month
+  #Author:  Rana M. Elberishy.
+
 
   def list
 
