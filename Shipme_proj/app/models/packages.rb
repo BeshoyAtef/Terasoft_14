@@ -9,8 +9,15 @@ class Packages < ActiveRecord::Base
 
  
 	def self.view_shipments_paginated(page)
+
 	  @packages = Packages.find( :all, :conditions => {:finalDelivery => true}, :order => "created_at ASC" )
 	  @packages = @packages.paginate( :page => page , :per_page => 10 ) 
-    end
 
+	end
+
+	def self.generate_shipments_graph
+		Packages.group_by_month(:created_at).count
+	end
+
+    
 end
