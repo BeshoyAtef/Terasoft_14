@@ -6,4 +6,9 @@ class Packages < ActiveRecord::Base
 	has_one :reports
 	has_many :requests
 
+
+	def self.generate_shipments_graph
+		Packages.group_by_month(:created_at).count
+	end
+
 end
