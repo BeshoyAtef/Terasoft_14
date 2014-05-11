@@ -7,6 +7,10 @@ class Packages < ActiveRecord::Base
 	has_one :reports
 	has_many :requests
 
+  #This method is listing the packages done per month through pages.
+  #amount - page
+  #Returns array of packages done/month
+  #Author:  Rana M. Elberishy.
  
 	def self.view_shipments_paginated(page)
 
