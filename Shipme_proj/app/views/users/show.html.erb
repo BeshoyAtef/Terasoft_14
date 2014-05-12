@@ -1,2 +1,50 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%@user.each do |user|%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<%= stylesheet_link_tag 'profile.css' %>
+	
+</head>
+
+<body>
+	
+	<div id="content" class="clearfix">
+		<section id="left">
+			<div id="userStats" class="clearfix">
+				
+				
+				<div class="data">
+					<h1><%= user.username %></h1>
+					<h3>Email:  <%= user.email%></h3>
+					<h4>Mobile Number: <%= user.mobileNumber%></h4>
+					<div class="socialMediaLinks">
+					</div>
+					<div class="sep"></div>
+					<ul class="numbers clearfix">
+						<li><b>Rating</b><strong><%= user.averageRating%></strong></li>
+						<%end%>
+					</ul>
+			
+			<ul class="bolbol">
+			<h1>About Me:</h1>
+			<p>...........................................................<br>............................................................<br>...........................................................</p>
+			</ul>
+			</div>
+			</div>
+		</section>
+		
+		<section id="right">
+			<div class="gcontent">
+				<div class="head"><h1>Trips</h1></div>
+				<div class="boxy">
+					<p>...............</p>
+					
+
+	
+		</section>
+	</div>
+
+</body>
+
+</html>

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user=Users.get_user(cookies[:user_id])
   end
 
   def delete

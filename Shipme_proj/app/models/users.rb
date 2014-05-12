@@ -14,7 +14,10 @@ class Users < ActiveRecord::Base
 	has_many :carriers, :through => :packages
 	has_many :senders, :through => :messages
 	has_many :receivers, :through => :messages
-
+	
+ def self.get_user(user_id)
+ 	@user=Users.find(:all,:conditions => {:id => user_id})
+ end
 
 #The method is saving the input to the database
 #Input: username string- email string- encrypted password string- mobilenumber int
