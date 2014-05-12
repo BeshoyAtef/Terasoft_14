@@ -72,6 +72,7 @@ ShipmeProj::Application.routes.draw do
   get "trips/show"
   get "trips/delete"
   get "trips/destory"
+  post"trips/destory"
   get "packages/index"
   get "packages/new"
   get "packages/create"
@@ -81,6 +82,7 @@ ShipmeProj::Application.routes.draw do
   get "packages/show"
   get "packages/delete"
   get "packages/destory"
+  post"packages/destory"
   get "users/index"
   get "users/new"
   get "users/create"
@@ -147,7 +149,7 @@ ShipmeProj::Application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root 'user_log#sign_in2'       
+  root 'homepage#index'       
   # You can have the root of your site routed with "root"
 
 

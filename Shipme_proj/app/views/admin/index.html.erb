@@ -1,2 +1,206 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShipmeProj</title>
+
+
+
+
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<%= stylesheet_link_tag 'style.css' %>
+<%= stylesheet_link_tag 'colors/blue.css' %>
+<%= javascript_include_tag "jquery.min.js" %>
+<%= javascript_include_tag "jquery-ui.min.js" %>
+<%= javascript_include_tag "jquery.flexslider.js" %>
+<%= javascript_include_tag "jquery.selectnav.js" %>
+<%= javascript_include_tag "jquery.twitter.js" %>
+<%= javascript_include_tag "jquery.modernizr.js" %>
+<%= javascript_include_tag "jquery.easing.1.3.js" %>
+<%= javascript_include_tag "jquery.contact.js" %>
+<%= javascript_include_tag "jquery.isotope.min.js" %>
+<%= javascript_include_tag "jquery.jcarousel.js" %>
+<%= javascript_include_tag "jquery.fancybox.min.js" %>
+<%= javascript_include_tag "jquery.layerslider.min.js" %>
+<%= javascript_include_tag "custom.js" %>
+<!-- <%= javascript_include_tag "google_analytics_auto.js" %> -->
+
+
+
+
+
+
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper2">
+<!-- 960 Container -->
+<div class="container">
+
+  <!-- Header -->
+  <header id="header">
+
+    <!-- Logo -->
+    <div class="ten columns">
+      <div id="logo">
+        <h1><a href="#"><%= image_tag("logo.png", :alt => "ShipMe logo") %>
+        </a></h1>
+        <!--<div id="tagline">Text_test</div>!-->
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <!-- Social / Contact -->
+    <div class="six columns">
+
+      <!-- Social Icons -->
+      <ul class="social-icons">
+        <li class="twitter"><a href="https://twitter.com/">Twitter</a></li>
+        <li class="facebook"><a href="https://www.facebook.com/">Facebook</a></li>
+      </ul>
+
+      <div class="clearfix"></div>
+
+      <!-- Contact Details -->
+      
+
+      <div class="clearfix"></div>
+
+
+      <!-- Search -->
+      <% if cookies[:user_id] == nil %>
+       <nav class="top-search">
+       <form action="../user_log/sign_in" >
+      <input name="send" type="submit" value="Login">
+      </form>
+      </nav>
+      <% end %>
+
+
+
+    <% if cookies[:user_id] != nil %>
+      <nav class="top-search">
+       <form action="../user_log/log_out" >
+      <input name="send" type="submit" value="Logout">
+      </form>
+      </nav>
+      <% end %>
+
+    </div>
+  </header>
+  <!-- Header / End -->
+
+  <div class="clearfix"></div>
+
+</div>
+<!-- 960 Container / End -->
+</div>
+
+<!-- Wrapper / Start -->
+<div id="wrapper">
+
+<!-- Header
+================================================== -->
+<div id="top-line"></div>
+
+
+
+<!-- Navigation
+================================================== -->
+<nav id="navigation" class="style-2">
+
+<div class="left-corner"></div>
+<div class="right-corner"></div>
+
+<ul class="menu" id="responsive">
+
+<li><a href="#"><i class="halflings white pencil"></i>Statistics</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../admin/list">Shipments/month</a></li>
+      <li><a href="../payments/list">Revenues/month</a></li>
+      <li><a href="../admin/show">Users/month</a></li>
+    
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+  <li><a href="#"><i class="halflings white file"></i> Graphs</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="elements.html">Shipments/month</a></li>
+      <li><a href="pricing-tables.html">Revenues/month</a></li>
+      <li><a href="typography.html">Users/month</a></li>
+   
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+  <li><a href="#"><i class="halflings white pencil"></i> Claims</a>
+    <!-- Second Level / Start -->
+    <!-- Second Level / End -->
+  </li>
+  <li><a href="#"><i class="halflings white pencil"></i> Verify Users National IDs</a></li>
+
+</nav>
+
+<div class="clearfix"></div>
+<div class="container">
+
+  <!-- Recent News -->
+  <div class="eight columns">
+    
+    
+  <!-- Testimonials -->
+  <div class="eight columns">
+
+    <h3 class="margin-1 title-2">Testimonials <span>/ What Our Clients Say</span></h3>
+
+    <!-- Testimonial Rotator -->
+    <section class="flexslider testimonial-slider">
+      <ul class="slides">
+        <li class="testimonial">
+          <div class="testimonials">"The only way to describe the shipment was extremely professional.."</div>
+          <div class="testimonials-bg"></div>
+          <div class="testimonials-author">Michael</div>
+        </li>
+
+        <li class="testimonial">
+          <div class="testimonials">"Shipme was so helpful and I can not thank you enough. The packages arrived safely, you saved me alot of money"</div>
+          <div class="testimonials-bg"></div>
+          <div class="testimonials-author">Ahmed</div>
+        </li>
+
+        <li class="testimonial">
+          <div class="testimonials">"my package was delivered on time by one of Shipme users, Thanks to Shipme for choosing their users wisely"</div>
+          <div class="testimonials-bg"></div>
+          <div class="testimonials-author">Salma</div>
+        </li>
+
+        <li class="testimonial">
+          <div class="testimonials">"i delivered a package for someone on Shipme, he didn't confrim the delivery so i didn't take my money back, i reported him , and thanks to Shipme i have my money back now" </div>
+          <div class="testimonials-bg"></div>
+          <div class="testimonials-author">Ramy</div>
+        </li>
+      </ul>
+    </section>
+    <!-- Testomonial Rotator / End -->
+
+  </div>
+
+</div>
+<!-- 960 Container / End -->
+
+</div>
+<!-- Content / End -->
+
+</div>
+<!-- Wrapper / End -->
+
+

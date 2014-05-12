@@ -60,14 +60,20 @@ class UserLogController < ApplicationController
           if( v.encrypted_password == params[ :password ])
             cookies[ :user_id ] = v.id
             cookies[ :username ] = v.username
-            redirect_to :action => "index" ,:controller => "homepage"
+            #this if condition redirect the user after logging in to the right home page
+            #if the user is an admin redirects to admin homepage otherwise redirects to normal homepage
+            #Author: Rehab A.Elshahawy
+             if(v.admin == true)
+              redirect_to :action => "index" ,:controller => "admin"
+              else
+              redirect_to :action => "index" ,:controller => "homepage"
             return
           end
         end
     end
   end
 end
-
+end 
 
 #The method is resting the password to the user
 #Input: email string
