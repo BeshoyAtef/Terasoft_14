@@ -29,8 +29,9 @@ class UserLogController < ApplicationController
     end
     if(@approve == false)
         redirect_to :action => 'used'
+    else
+    @user=Users.create(params[:email],params[:username],params[:password],params[:mobilenum])
     end
-    @user=Users.create(params[:email],params[:username],params[:password],params[:mobilenum])     
   end
 
 
