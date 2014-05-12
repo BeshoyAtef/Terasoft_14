@@ -21,19 +21,20 @@ class Users < ActiveRecord::Base
 #Return: When the signup is true it redirects me to a sucessfully signup
 #Author: John W.Ghali
 
-	def self.create(email,username,password,mobilenum)
-	  @user = Users.new
-		@user.email=email
-		@user.username=username
-		@user.encrypted_password=password
-		@user.mobileNumber=mobilenum 
-		@user.save
-	end
+  def self.create(email,username,password,mobilenum)
+    @user = Users.new
+    @user.email=email
+    @user.username=username
+    @user.encrypted_password=password
+    @user.mobileNumber=mobilenum 
+    @user.save
+  end
 
 
 #The method find users
 #Author: John W.Ghali
-	def self.find_users
-	  @users=Users.find(:all)
-	end	
+
+   def self.find_users
+     @users=Users.find(:all)
+   end	
 end
