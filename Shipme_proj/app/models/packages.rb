@@ -1,5 +1,9 @@
 class Packages < ActiveRecord::Base
 
+  require 'rubygems'
+  require 'googlecharts'
+  require 'gchart'
+
 	belongs_to :sender, :class_name => "Users"
 	belongs_to :carrier, :class_name => "Users"
 	has_many :payment

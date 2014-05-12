@@ -1,2 +1,4 @@
 <h1>Admin#show</h1>
 <p>Find me in app/views/admin/show.html.erb</p>
+<%= pie_chart Packages.group_by_month.try((:created_at)).count %>
+
