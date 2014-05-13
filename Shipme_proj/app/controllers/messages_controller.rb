@@ -11,16 +11,16 @@ class MessagesController < ApplicationController
   end
 
   def list 
-  $sender_Id= params.shift.last() 
-  $receiver_Id = params.shift.last() 
-  @conv= Messages.get_conversation($sender_Id, $receiver_Id)
+    $sender_Id= params.shift.last() 
+    $receiver_Id = params.shift.last() 
+    @conv= Messages.get_conversation($sender_Id, $receiver_Id)
    
   end 
 
   def update 
-   $description= params[:text] 
-   @msg = Messages.send_message($receiver_Id,$sender_Id,$description) 
-   redirect_to(:action => 'list') 
+     $description= params[:text] 
+     @msg = Messages.send_message($receiver_Id,$sender_Id,$description) 
+     redirect_to(:action => 'list') 
   end
 
   def create
