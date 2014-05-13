@@ -33,8 +33,8 @@ class Trips < ActiveRecord::Base
        @trip.travelDate=date
        @trip.users_id=user_id 
        @trip.save
-        @flag=true
-        return @flag
+       @flag=true
+       return @flag
     end
 	
 end
