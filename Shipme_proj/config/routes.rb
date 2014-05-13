@@ -1,4 +1,5 @@
 ShipmeProj::Application.routes.draw do
+ 
   #new routes
   get "admin/index"
   get "admin/new"
@@ -112,7 +113,10 @@ ShipmeProj::Application.routes.draw do
   get "user_log/log_out"
   get "user_log/used" 
   get "packages/confirm_delivery"
-
+  get "send_sms/send"
+  get "send_sms/message"
+  get "send_sms/test"
+  post "send_sms/message"
   #old routes
  get "user/signup"
  get "user/signin"
