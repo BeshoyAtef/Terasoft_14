@@ -1,2 +1,62 @@
-<h1>Trips#list</h1>
-<p>Find me in app/views/trips/list.html.erb</p>
+<!-- This view  intends to show  trips of a user-->
+<!-- Author: Hagar E. Aly -->
+
+<% if !flash[:notice].blank? %>
+<div class = "notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+ <h3 class ="title-2">MY TRIPS</h3>
+<head>
+<style>
+table,th,td
+{
+border:1px solid white;
+border-collapse:collapse;
+}
+th,td
+{
+padding:5px;
+}
+</style>
+</head>
+<body>
+
+<br>
+
+<table style="margin-left:10px" class="table table-hover">
+<tr>
+<tr style="background-color:#989898">
+  <th>Destination</th>
+  <th>Location</th>   
+  <th>Weight</th>
+  <th>Travelling Date</th>
+</tr>
+<tbody>
+ <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.destination %></td>
+      <td><%= trip.location %></td>
+      <td><%= trip.maxWeight %></td>
+      <td><%= trip.travelDate %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => trip.id}, :class => 'action show') %>
+      </td>
+      <td class ="actions">
+        <%= link_to("Edit", {:action => 'edit', :id => trip.id}, :class => 'action edit') %>
+        </td>
+      <td class ="actions">
+        <%= link_to("Delete",{:action => 'delete', :id => trip.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</body>
+</style>
+</head>
+<br>
+
+<%= link_to("Add new trip", {:action => 'new'}, :class => 'action new') %>
+
+
