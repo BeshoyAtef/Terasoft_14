@@ -26,10 +26,6 @@
 						<%end%>
 					</ul>
 			
-			<ul class="bolbol">
-			<h1>About Me:</h1>
-			<p>...........................................................<br>............................................................<br>...........................................................</p>
-			</ul>
 			</div>
 			</div>
 		</section>
@@ -38,7 +34,13 @@
 			<div class="gcontent">
 				<div class="head"><h1>Trips</h1></div>
 				<div class="boxy">
-					<p>...............</p>
+				<% @trip.each do |trips| %>
+				<h5>Destination:  <%= trips.destination%></h5>
+				<h5>Location:  <%= trips.location%></h5>
+				<h5>Travel Date:  <%= trips.travelDate%></h5>
+				<h5>Created At:  <%= trips.created_at%></h5>
+				<% end %>
+				<%=will_paginate @trip%>
 					
 
 	

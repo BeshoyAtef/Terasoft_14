@@ -1,0 +1,8 @@
+#content { display: block; width: 850px; margin: 0 auto;  }
+#left { display: block; width: 560px; float: left; overflow: hidden; margin-right: 20px; }
+#right { display: block; width: 240px; float: left; overflow: hidden; }
+
+#userStats { display: block; width: auto; background-color: #f9f9f9; border: 8px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 12px; }
+#userStats .data .sep { clear: both; margin-top: 10px; width: 320px; height: 1px; border: 5px solid #ccc; -moz-border-radius: 0px;; border-bottom: 0px solid #ccc; margin-bottom: 0; }
+#userStats .data ul.numbers li strong { color: #434343; display: block; font-size: 3.4em; line-height: 1.1em; font-weight: bold; }
+#userStats .data .bolbol { margin-top: 0px; width: 460px; height: 1px; border: 0px solid #ccc; -moz-border-radius: 0px;; border-bottom: 160px solid #ccc; margin-bottom: 15px; }
