@@ -10,7 +10,6 @@ class Reports < ActiveRecord::Base
   #Author : Mohamed A.Gheith. 
   
   def self.create_report(reporter_id,reported_username,description,package_id)
-  
     report = Reports.new
     report.reporters_id = reporter_id 
     report.description = description
