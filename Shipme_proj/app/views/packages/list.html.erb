@@ -1,2 +1,80 @@
-<h1>Packages#list</h1>
-<p>Find me in app/views/packages/list.html.erb</p>
+ <!--This view is intended to show all created packages ny the logged in user with show delete edit hyper links to make the user able to see or edit or delete his package.-->
+ <!--Author: Ahmed M. Samouka. -->
+<h3 class="title-2" > My Packages </h3>
+<html>
+<head>
+<style>
+table,th,td
+{
+border:1px solid white;
+border-collapse:collapse;
+}
+th,td
+{
+padding:5px;
+}
+</style>
+</head>
+<body>
+
+<table  syle="margin-left:10px" class="table table-hover">
+<tr>
+<tr style="background-color:#989898">
+  <th>Destination</th>
+  <th>Description</th>   
+  <th>Weight</th>
+  <th>origin</th>
+  <th>value</th>   
+  <th>expiry date</th>
+  <th>Receiveraddress</th>
+  <th>Receiver mobile</th>   
+  <th>Receiver Email</th>
+</tr>
+<tbody>
+  <% @create_packages.each do |create_packages| %>
+<tr>
+  <td><%= create_packages.destination %></td>
+
+ 
+  <td><%= create_packages.description %></td>
+
+  <td><%= create_packages.weight %></td>
+
+  <td><%= create_packages.origin %></td>
+
+  <td><%= create_packages.packageValue %></td>
+ 
+  <td><%= create_packages.expiryDate %></td>
+ 
+  <td><%= create_packages.receiverAddress %></td>
+
+  <td><%= create_packages.receiverMobNumber %></td>
+
+  <td><%= create_packages.receiverEmail %></td>
+  <td class ="actions">
+        <%= link_to("Show",{:action => 'show', :id =>create_packages.id}, :class => 'action show') %>
+  </td>
+  <td class ="actions">
+         <%= link_to("Edit",{:action => 'edit', :id =>create_packages.id}, :class => 'action edit') %>
+  </td>
+   <td class ="actions">
+         <%= link_to("Delete",{:action => 'delete', :id =>create_packages.id}, :class => 'action delete') %>
+  </td>
+   <td class ="actions">
+         <%= link_to("confirm delivery",{:action => 'confirm_delivery', :id =>create_packages.id}, :class => 'action confirm_delivery') %>
+  </td>
+ </tr>
+  <% end %>
+ </tbody>
+ </table>
+ </body>
+ </style>
+ </head>
+ </html>
+<br>
+
+<a href='new'> create new package</a>
+
+
+
+
