@@ -24,17 +24,31 @@ class Trips < ActiveRecord::Base
  #destination - string, location - string, maxWeight - float, travelDate - date, users_id - int.
  #Author: Ahmed H. Nasser.
     
-    def self.create_trip (destination,location,weight,date,user_id)
-       @flag=false
-       @trip = Trips.new
-       @trip.destination=destination
-       @trip.location=location
-       @trip.maxWeight=weight
-       @trip.travelDate=date
-       @trip.users_id=user_id 
-       @trip.save
-       @flag=true
-       return @flag
-    end
-	
+  def self.create_trip (destination,location,weight,date,user_id)
+    @flag=false
+    @trip = Trips.new
+    @trip.destination=destination
+    @trip.location=location
+    @trip.maxWeight=weight
+    @trip.travelDate=date
+    @trip.users_id=user_id 
+    @trip.save
+    @flag=true
+    return @flag
+  end
+
+
+  # This method edits a trip
+  # trip - trip, destination - string, location - string, maximum - int, travel - date, user - int.
+  # Author: Youssef A. Saleh.
+
+  def self.edit_the_trip(trip,destination,location,maximum,travel,user)
+    trip.destination = destination
+    trip.location = location
+    trip.maxWeight = maximum
+    trip.travelDate = travel
+    trip.users_id = user
+    trip.save
+  end
+
 end
