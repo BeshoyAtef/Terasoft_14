@@ -12,7 +12,14 @@ class Packages < ActiveRecord::Base
 
 
 	def self.generate_shipments_graph
-		Packages.group_by_month(:created_at).count
+
+	@packages = Packages.find( :all, :conditions => {:finalDelivery => true} )
+	@packages_months = @packages.group_by { |package| package.created_at}
+  @package_count =@packages_months.count
+
 	end
+
+
+
 
 end

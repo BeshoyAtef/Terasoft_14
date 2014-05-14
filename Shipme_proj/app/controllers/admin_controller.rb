@@ -23,9 +23,11 @@ class AdminController < ApplicationController
   end
 
   def show
-    #packages.self.generate_shipments_graph
-    Gchart.pie(:title => 'Shipments', :size => '400x200',
-              :data => [10, 45, 45], :labels => ["April", "May", "June"] )
+    @packages = Packages.generate_shipments_graph
+    #Gchart.pie(:title => 'Shipments', :size => '400x200',:data => [10, 45, 45], :labels => ["April", "May", "June"] )
+  
+    #@gchart =Packages.pie_chart_for_shipments
+    #Packages.chart_data(params [:chart_data])
   end
 
   def delete

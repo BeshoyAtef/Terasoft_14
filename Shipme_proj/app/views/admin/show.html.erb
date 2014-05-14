@@ -1,4 +1,9 @@
 <h1>Admin#show</h1>
-<p>Find me in app/views/admin/show.html.erb</p>
-<%= pie_chart Packages.group_by_month.try((:created_at)).count %>
+<p>admin view</p>
 
+    <% @packages_months.to_a.each do |month, package| %>  
+    <h2><%= month.strftime("%B %Y") %></h2>  
+      <% packages.to_a.each do |package| %>  
+        <p><b><%= package.description %></b> due at <%= package.created_at.to_date.to_s(:long) %></p>  
+      <% end %>  
+    <% end %>  
