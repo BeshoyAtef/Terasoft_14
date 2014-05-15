@@ -21,12 +21,23 @@ class Messages < ActiveRecord::Base
       message.save
   end 
 
+
+#This method gets the conversation between the user signed in and another user 
+#Input params[:receivers_id, :sender_id]
+#Returns @messages_sent[Messages]
+#Author Madeleine Aziz Saad
+
   def self.get_conversation(user1_id, user2_id) 
 	@messages_sent= Messages.find(:all,:conditions => ["senders_id = ? and 
 		receivers_id = ? or senders_id = ? and receivers_id = ? ",
 		user1_id,user2_id,user2_id,user1_id],:order => 'created_at' )
 		 end 
-		 
+	
+#This method adds a message in table messages
+#Input params[:receivers_id, :sender_id, :description]
+#Returns @msg[Messages]
+#Author Madeleine Aziz Saad
+
   def self.send_message(user1_id, user2_id, description)
 	 @msg = Messages.new(:receivers_id => user1_id,:senders_id => user2_id, 
 	 	:description => description) 
