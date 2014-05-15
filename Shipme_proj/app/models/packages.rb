@@ -7,7 +7,7 @@ require 'will_paginate/array'
 	has_one :reports
 	has_many :requests
 
-	#This method is called by method list in the controller.
+    #This method is called by method list in the controller.
     #input: senders_id, logged in user_id.
     #output: initialize the logged in user_id to the senders_id.
     #Author:  Ahmed M.Samouka.
@@ -45,10 +45,8 @@ require 'will_paginate/array'
    #Author:  Rana M. Elberishy.
  
     def self.view_shipments_paginated(page)
-
       @packages = Packages.find( :all, :conditions => {:finalDelivery => true}, :order => "created_at ASC" )
       @packages = @packages.paginate( :page => page , :per_page => 10 ) 
-
     end
 
 end
