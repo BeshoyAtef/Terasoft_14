@@ -25,6 +25,7 @@ class AdminController < ApplicationController
   end
   
   def chart
+    @package_count = Packages.generate_shipments_graph
     render layout: false
   end
   

@@ -147,11 +147,11 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['January', 2],
-          ['February',     5],
-          ['March',      7],
-          ['April',  2],
-          ['Mai', 12]
+          ['January', <%= @package_count %>],
+          ['February',     <%= @package_count %>],
+          ['March',      <%= @package_count %>],
+          ['April',  <%= @package_count %>],
+          ['Mai', <%= @package_count %>]
          
         ]);
 
