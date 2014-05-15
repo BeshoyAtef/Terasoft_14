@@ -16,6 +16,7 @@ class AdminController < ApplicationController
 
   def update
   end
+  
 
   #This method is listing the packages done per month through pages.
   #amount - page
@@ -23,7 +24,6 @@ class AdminController < ApplicationController
   #Author:  Rana M. Elberishy.
 
   def list
-
     @packages = Packages.view_shipments_paginated( params[:page] )
     render layout: false
   end
