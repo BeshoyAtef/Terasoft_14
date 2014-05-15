@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 #Author: Mariam S. elSandy.
 
   def  update
-    Users.complete_profile(cookies[:user_id],params[:creditCard],params[:idNumber])
+    Users.complete_profile(cookies[ :user_id ],params[ :creditCard ],params[ :idNumber ])
   end
 
   def list
