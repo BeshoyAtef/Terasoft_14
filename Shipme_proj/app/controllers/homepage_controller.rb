@@ -18,6 +18,10 @@ class HomepageController < ApplicationController
 
  	def list
  	end
+ 	
+ 	
+# This method show the site's instructions and precausions.
+# Author: Hagar E. Aly
 
  	def instructions
  	end
