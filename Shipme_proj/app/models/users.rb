@@ -34,7 +34,20 @@ class Users < ActiveRecord::Base
 #The method find users
 #Author: John W.Ghali
 
-   def self.find_users
-     @users=Users.find(:all)
-   end	
-end
+  def self.find_users
+    @users=Users.find(:all)
+  end	
+
+
+#This method is intended to insert the inforamation that is added by the user. 
+#Input:mobileNumber,idNumber,Creditcard-integer.  
+#Author: Mariam S. elSandy.
+
+  def  self.complete_profile(user_id,creditcard,id_num)
+    @user=Users.find_by_id(user_id)
+    if Users.exists?(:id => user_id)
+    @user.update(:creditCardNumber => creditcard,:idNumber=> id_num)
+    @user.save
+ end
+ end
+ end
