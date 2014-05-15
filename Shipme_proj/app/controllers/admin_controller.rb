@@ -19,8 +19,8 @@ class AdminController < ApplicationController
   
 
   #This method is listing the packages done per month through pages.
-  #amount - page
-  #Returns array of packages done/month
+  #amount - page.
+  #Returns array of packages done/month.
   #Author:  Rana M. Elberishy.
 
   def list
