@@ -63,5 +63,11 @@ class PackagesController < ApplicationController
   end
 
   def confirm_delivery
-  end  
+     Packages.update_package_finaldelivery(params[:id])
+  end
+
+  def confirm_finaldelivery
+    @con=Packages.confirm_finaldelivery(cookies[:user_id])
+  end
+  
 end
