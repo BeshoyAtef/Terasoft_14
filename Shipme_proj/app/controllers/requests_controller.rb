@@ -6,6 +6,12 @@ class RequestsController < ApplicationController
   end
 
   def create
+     @requests_count = Requests.find( :all, :conditions => { :packages_id => params[:pid]} ).count
+    @already = Requests.where(carriers_id: params[:cid] , packages_id: params[:pid] ).exists?
+   if( @requests_count < 3 && @already == false  )
+
+       Requests.send_requests( params[:cid] ,cookies[:user_id], params[:pid] )
+   end
   end
 
   def edit
@@ -24,5 +30,9 @@ class RequestsController < ApplicationController
   end
 
   def destory
+  end
+
+  def createhelper
+    @requests_counter = Requests.find( :all, :conditions => { :packages_id => params[:pid]} ).count
   end
 end

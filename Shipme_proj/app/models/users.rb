@@ -37,4 +37,23 @@ class Users < ActiveRecord::Base
    def self.find_users
      @users=Users.find(:all)
    end	
+
+    #This method is finding all the packages in the database.
+	#return all the packages.
+	#Author : Manar A. Eltayeb.
+
+
+   def self.packages_find
+		@packages = Packages.find(:all)
+	end
+
+
+
+    #This method is finding all the users in the database.
+	#return all the users.
+	#Author : Manar A. Eltayeb.
+
+	def self.trips_find
+		@trips = Trips.find(:all)
+	end
 end
