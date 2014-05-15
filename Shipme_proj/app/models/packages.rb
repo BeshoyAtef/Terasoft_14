@@ -37,4 +37,30 @@ class Packages < ActiveRecord::Base
         $package_id=@create_packages.id
    end
 
+   def self.update_package_finaldelivery(package_id)
+     @comp = Packages.find(package_id)
+     @new = Packages.new
+     @new.id = @comp.id
+     @new.description = @comp.description
+     @new.expiryDate = @comp.expiryDate
+     @new.destination = @comp.destination
+     @new.origin = @comp.origin
+     @new.receiverAddress = @comp.receiverAddress
+     @new.receiverMobNumber = @comp.receiverMobNumber
+     @new.receiverEmail = @comp.receiverEmail
+     @new.finalDelivery = true
+     @new.weight = @comp.weight
+     @new.carryingPrice = @comp.carryingPrice
+     @new.packageValue = @comp.packageValue
+     @new.rating = @comp.rating
+     @new.senders_id = @comp.senders_id
+     @new.receivedByCarrier = true
+     @comp.destroy
+     @new.save
+     end
+ 
+     def self.confirm_finaldelivery(user_id)
+         @con = Packages.find( :all , :conditions => [ ' senders_id = ? AND finalDelivery = ? ' , user_id , false ] )
+   end
+
 end

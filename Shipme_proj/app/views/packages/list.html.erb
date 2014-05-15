@@ -32,6 +32,8 @@ padding:5px;
 </tr>
 <tbody>
   <% @create_packages.each do |create_packages| %>
+  <% params[:pid] = create_packages.id %>
+
 <tr>
   <td><%= create_packages.destination %></td>
 
@@ -60,8 +62,11 @@ padding:5px;
    <td class ="actions">
          <%= link_to("Delete",{:action => 'delete', :id =>create_packages.id}, :class => 'action delete') %>
   </td>
+  <% if create_packages.finalDelivery == nil %>
+
    <td class ="actions">
-         <%= link_to("confirm delivery",{:action => 'confirm_delivery', :id =>create_packages.id}, :class => 'action confirm_delivery') %>
+         <%= link_to("confirm delivery",{:action => 'confirm_delivery', :pid =>create_packages.id}, :class => 'action rating') %>
+    <% end %>
   </td>
  </tr>
   <% end %>

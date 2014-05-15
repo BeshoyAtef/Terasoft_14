@@ -63,7 +63,7 @@ class PackagesController < ApplicationController
   # Author: Rana T. Labib.
 
   def rating
-    @packages = Packages.find(1)
+    @packages = Packages.find(params[:pid])
   end
 
 
@@ -72,7 +72,7 @@ class PackagesController < ApplicationController
   # Author: Rana T. Labib.
 
   def update_rating
-    @packages = Packages.find(1)
+    @packages = Packages.find(params[:pid])
     @packages.update(:rating => params[:rate])
   end
 
@@ -84,5 +84,12 @@ class PackagesController < ApplicationController
   end
 
   def confirm_delivery
-  end  
+    package = Packages.find_by_id(params[:pid])
+    package.update(:finalDelivery => 1) 
+    redirect_to :controller => 'packages', :action => 'rating', :pid => params[:pid]
+  end
+
+  def confirm_finaldelivery
+    @con=Packages.confirm_finaldelivery(cookies[:user_id])
+  end
 end
