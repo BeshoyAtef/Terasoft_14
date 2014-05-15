@@ -1,2 +1,233 @@
-<h1>Admin#list</h1>
-<p>Find me in app/views/admin/list.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShipmeProj</title>
+
+
+
+
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<%= stylesheet_link_tag 'style.css' %>
+<%= stylesheet_link_tag 'colors/blue.css' %>
+<%= javascript_include_tag "jquery.min.js" %>
+<%= javascript_include_tag "jquery-ui.min.js" %>
+<%= javascript_include_tag "jquery.flexslider.js" %>
+<%= javascript_include_tag "jquery.selectnav.js" %>
+<%= javascript_include_tag "jquery.twitter.js" %>
+<%= javascript_include_tag "jquery.modernizr.js" %>
+<%= javascript_include_tag "jquery.easing.1.3.js" %>
+<%= javascript_include_tag "jquery.contact.js" %>
+<%= javascript_include_tag "jquery.isotope.min.js" %>
+<%= javascript_include_tag "jquery.jcarousel.js" %>
+<%= javascript_include_tag "jquery.fancybox.min.js" %>
+<%= javascript_include_tag "jquery.layerslider.min.js" %>
+<%= javascript_include_tag "custom.js" %>
+<!-- <%= javascript_include_tag "google_analytics_auto.js" %> -->
+
+
+
+
+
+
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper2">
+<!-- 960 Container -->
+<div class="container">
+
+  <!-- Header -->
+  <header id="header">
+
+    <!-- Logo -->
+    <div class="ten columns">
+      <div id="logo">
+        <h1><a href="#"><%= image_tag("logo.png", :alt => "ShipMe logo") %>
+        </a></h1>
+        <!--<div id="tagline">Text_test</div>!-->
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <!-- Social / Contact -->
+    <div class="six columns">
+
+      <!-- Social Icons -->
+      <ul class="social-icons">
+        <li class="twitter"><a href="https://twitter.com/">Twitter</a></li>
+        <li class="facebook"><a href="https://www.facebook.com/">Facebook</a></li>
+      </ul>
+
+      <div class="clearfix"></div>
+
+      <!-- Contact Details -->
+      
+
+      <div class="clearfix"></div>
+
+
+      <!-- Search -->
+      <% if cookies[:user_id] == nil %>
+       <nav class="top-search">
+       <form action="../user_log/sign_in" >
+      <input name="send" type="submit" value="Login">
+      </form>
+      </nav>
+      <% end %>
+
+
+
+    <% if cookies[:user_id] != nil %>
+      <nav class="top-search">
+       <form action="../user_log/log_out" >
+      <input name="send" type="submit" value="Logout">
+      </form>
+      </nav>
+      <% end %>
+
+    </div>
+  </header>
+  <!-- Header / End -->
+
+  <div class="clearfix"></div>
+
+</div>
+<!-- 960 Container / End -->
+</div>
+
+<!-- Wrapper / Start -->
+<div id="wrapper">
+
+<!-- Header
+================================================== -->
+<div id="top-line"></div>
+
+
+
+<!-- Navigation
+================================================== -->
+<nav id="navigation" class="style-2">
+
+<div class="left-corner"></div>
+<div class="right-corner"></div>
+
+<ul class="menu" id="responsive">
+
+<li><a href="#"><i class="halflings white pencil"></i>Statistics</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../admin/list">Shipments/month</a></li>
+      <li><a href="../payments/list">Revenues/month</a></li>
+      <li><a href="../admin/show">Users/month</a></li>
+    
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+  <li><a href="#"><i class="halflings white file"></i> Graphs</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="elements.html">Shipments/month</a></li>
+      <li><a href="pricing-tables.html">Revenues/month</a></li>
+      <li><a href="typography.html">Users/month</a></li>
+   
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+  <li><a href="#"><i class="halflings white pencil"></i> Claims</a>
+    <!-- Second Level / Start -->
+    <!-- Second Level / End -->
+  </li>
+  <li><a href="#"><i class="halflings white pencil"></i> Verify Users National IDs</a></li>
+
+</nav>
+
+
+    <!--This view is  showing all shipments done ordered by creation date to show per month-->
+
+    <!--Author: Rana M. Elbrishy -->
+    
+  <head>
+  <style type="text/css">
+
+  body
+  {
+    
+  }
+
+  h1 
+  {
+    
+  }
+
+  p
+  {
+    font-family: "Times New Roman";
+    font-size: 20px;
+  }
+
+  table,th,td
+  {
+    border:1px solid black;
+    border-collapse:collapse
+  }
+
+  </style>
+  <title>Shipments done</title>
+  <table style="width:1000px">     
+  <tr>
+  <td colspan="12" style="background-color:#3ADF00;">
+
+  <p id="notice"><%= notice %></p>
+  <tbody>
+  <tr>
+    <th>Package no.</th>
+    <th>destination</th>
+    <th>description</th>
+    <th>weight</th>
+    <th>type</th>
+    <th>creationDate </th>
+    <th>expiryDate </th>
+    <th>packageValue</th>
+    <th>receiverAddress </th>
+    <th>receiverMobNumber</th>
+    <th>receiverEmail</th>
+    <th>rating</th>
+  </tr>
+
+      <% @packages.to_a.each do |package| %>
+      <tr>
+        <td><%= package.id%></td>
+        <td><%= package.destination %></td>
+        <td><%= package.description %></td>
+        <td><%= package.weight %></td>
+        <td><%= package.type %></td>
+        <td><%= package.expiryDate %></td>
+        <td><%= package.created_at %></td>
+        <td><%= package.packageValue %></td>
+        <td><%= package.receiverAddress %></td>
+        <td><%= package.receiverMobNumber %></td>
+        <td><%= package.receiverEmail %></td>
+        <td><%= package.rating %></td>
+      </tr>
+      <% end %>
+    </tr>
+    
+  </tbody>
+  </table>
+
+  <br>
+    <%= link_to("<< Back ", {:action => 'index'}, :class => 'admin') %>
+  </br>
+
+  <%=will_paginate @packages%> 
+  </body>
+ </html>
