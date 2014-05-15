@@ -23,7 +23,7 @@ class AdminController < ApplicationController
   end
 
   def show
-    @packages = Packages.generate_shipments_graph
+    @package_count = Packages.generate_shipments_graph
     #Gchart.pie(:title => 'Shipments', :size => '400x200',:data => [10, 45, 45], :labels => ["April", "May", "June"] )
   
     #@gchart =Packages.pie_chart_for_shipments

@@ -1,6 +1,7 @@
-<h1>Admin#show</h1>
-<p>admin view</p>
+<h3>Shipments done</h3>
 
+
+    <%= @package_count %> 
     <% @packages_months.to_a.each do |month, package| %>  
     <h2><%= month.strftime("%B %Y") %></h2>  
       <% packages.to_a.each do |package| %>  
