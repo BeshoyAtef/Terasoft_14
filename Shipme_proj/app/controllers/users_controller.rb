@@ -11,7 +11,13 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def update
+
+#This intended to insert and update the inforamation that is added by the user. 
+#Input:mobileNumber(integer),idNumber(integer),Creditcard(integer).  
+#Author: Mariam S. elSandy.
+
+  def  update
+    Users.complete_profile(cookies[:user_id],params[:creditCard],params[:idNumber])
   end
 
   def list
