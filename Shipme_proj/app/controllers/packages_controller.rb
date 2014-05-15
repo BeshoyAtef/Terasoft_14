@@ -47,6 +47,7 @@ class PackagesController < ApplicationController
     @create_packages=Packages.view_all_packages( senders_id )
   end
 
+
   #This method show specific packages choosen by the user.
   #input: package id.
   #output: show all the details of the packages.
@@ -55,6 +56,26 @@ class PackagesController < ApplicationController
   def show
     @pack = Packages.find( params[ :id ] ) 
   end
+
+
+  # This method is to get the rating of a package.
+  # input: package id.
+  # Author: Rana T. Labib.
+
+  def rating
+    @packages = Packages.find(1)
+  end
+
+
+  # This method is to update the package and insert the carrier's rating.
+  # Input: user(sender) id and package id.
+  # Author: Rana T. Labib.
+
+  def update_rating
+    @packages = Packages.find(1)
+    @packages.update(:rating => params[:rate])
+  end
+
 
   def delete
   end

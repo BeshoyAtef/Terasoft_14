@@ -112,7 +112,9 @@ ShipmeProj::Application.routes.draw do
   get "user_log/log_out"
   get "user_log/used" 
   get "packages/confirm_delivery"
-
+  get "packages/rating"
+  get "packages/update_rating"
+  post "packages/update_rating"
   #old routes
  get "user/signup"
  get "user/signin"
