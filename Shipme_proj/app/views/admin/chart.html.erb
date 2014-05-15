@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>ShipmeProj</title>
-
-
-
 
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
@@ -27,11 +20,6 @@
 <%= javascript_include_tag "jquery.layerslider.min.js" %>
 <%= javascript_include_tag "custom.js" %>
 <!-- <%= javascript_include_tag "google_analytics_auto.js" %> -->
-
-
-
-
-
 
 
   <%= csrf_meta_tags %>
@@ -150,58 +138,34 @@
 
 </nav>
 
-<div class="clearfix"></div>
-<div class="container">
-
-  <!-- Recent News -->
-  <div class="eight columns">
-    
-    
-  <!-- Testimonials -->
-  <div class="eight columns">
-
-    <h3 class="margin-1 title-2">Testimonials <span>/ What Our Clients Say</span></h3>
-
-    <!-- Testimonial Rotator -->
-    <section class="flexslider testimonial-slider">
-      <ul class="slides">
-        <li class="testimonial">
-          <div class="testimonials">"The only way to describe the shipment was extremely professional.."</div>
-          <div class="testimonials-bg"></div>
-          <div class="testimonials-author">Michael</div>
-        </li>
-
-        <li class="testimonial">
-          <div class="testimonials">"Shipme was so helpful and I can not thank you enough. The packages arrived safely, you saved me alot of money"</div>
-          <div class="testimonials-bg"></div>
-          <div class="testimonials-author">Ahmed</div>
-        </li>
-
-        <li class="testimonial">
-          <div class="testimonials">"my package was delivered on time by one of Shipme users, Thanks to Shipme for choosing their users wisely"</div>
-          <div class="testimonials-bg"></div>
-          <div class="testimonials-author">Salma</div>
-        </li>
-
-        <li class="testimonial">
-          <div class="testimonials">"i delivered a package for someone on Shipme, he didn't confrim the delivery so i didn't take my money back, i reported him , and thanks to Shipme i have my money back now" </div>
-          <div class="testimonials-bg"></div>
-          <div class="testimonials-author">Ramy</div>
-        </li>
-      </ul>
-    </section>
-    <!-- Testomonial Rotator / End -->
-
-  </div>
-
-</div>
-<!-- 960 Container / End -->
-
-</div>
-<!-- Content / End -->
-
-</div>
-<!-- Wrapper / End -->
 
 
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['January', 2],
+          ['February',     5],
+          ['March',      7],
+          ['April',  2],
+          ['Mai', 12]
+         
+        ]);
 
+        var options = {
+          title: 'Shipments Done',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  
+
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+ 
+</html>

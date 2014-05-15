@@ -15,7 +15,7 @@ class Packages < ActiveRecord::Base
 
 	 @packages = Packages.find( :all, :conditions => {:finalDelivery => true} )
 	 @packages_months = @packages.group_by { |package| package.created_at}
-   @package_count =@packages_months.count
+     @package_count =@packages_months.count
 
 	end
 

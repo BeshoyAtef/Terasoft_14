@@ -18,11 +18,16 @@ class AdminController < ApplicationController
   end
 
   def update
+    
   end
 
   def list
   end
-
+  
+  def chart
+    render layout: false
+  end
+  
   def show
     @package_count = Packages.generate_shipments_graph
     render layout: false
