@@ -25,7 +25,7 @@ class Notifications < ActiveRecord::Base
 
 
   #This methods should create in the notifications model
-  #Inputs: cookies[user_id], description
+  #Inputs: cookies[user_id]-int, description-string
   #Author: Youssef S.Barakat
 
   def  self.create( user_id,description )
@@ -37,7 +37,7 @@ class Notifications < ActiveRecord::Base
 
 
   #This methods should create in the notifications model
-  #Inputs: cookies[user_id]
+  #Inputs: cookies[user_id]-int
   #Author: Youssef S.Barakat
 
 	def  self.create_update( user_id )
@@ -47,7 +47,7 @@ class Notifications < ActiveRecord::Base
 
 
   #This methods should create in the notifications model
-  #Inputs: description
+  #Inputs: description-string
   #Author: Youssef S.Barakat
 
   def  self.create_up( description )
@@ -59,7 +59,7 @@ class Notifications < ActiveRecord::Base
 	
 
   #This methods should get all notifications in notifications model
-  #Inputs: cookies[user_id]
+  #Inputs: cookies[user_id]-int
   #Returns: @notifications
   #Author: Youssef S.Barakat
 
@@ -67,6 +67,11 @@ class Notifications < ActiveRecord::Base
 		@notifications = Notifications.find( :all, :conditions => {:users_id => user_id} )
 	end
 
+
+  #This methods should get packages if it is deleted or not
+  #Inputs: cookies[user_id]-int
+  #Returns: @notifications
+  #Author: Youssef S.Barakat
 
 	def  self.notify_delete_package( user_id)
     @requests = Requests.find( :all, :conditions => {:senders_id => user_id} )
@@ -93,7 +98,7 @@ class Notifications < ActiveRecord::Base
 
 
   #This methods should notify the sender that a trip he has requested and the carrier accepted it,was deleted
-  #Inputs:cookies[:user_id]
+  #Inputs:cookies[:user_id]-int
   #Returns:@notifications
   #Author: Youssef S.Barakat
 
@@ -125,6 +130,7 @@ class Notifications < ActiveRecord::Base
 
 
   #This methods should notify the user if there is any problem with his credit card amount
+  #Inputs: cookies[user_id]-int
   #Returns:@notifications
   #Author: Youssef S.Barakat
 
@@ -152,7 +158,7 @@ class Notifications < ActiveRecord::Base
 
 
   #This methods should notify one or 3 carriers if they received a request from a sender to carry a package
-  #Inputs:cookies[:user_id]
+  #Inputs:cookies[:user_id]-int
   #Returns:@notifications
   #Author: Youssef S.Barakat
 

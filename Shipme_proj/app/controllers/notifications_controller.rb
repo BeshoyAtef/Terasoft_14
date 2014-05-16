@@ -47,7 +47,7 @@ class NotificationsController < ApplicationController
 
 
   #This methods should notify the carrier that sender gave him a rating on a specific package
-  #Inputs: cookies[:user_id]
+  #Inputs: cookies[:user_id]-int
   #Returns: @notification(Notifications model)
   #Author: Youssef S.Barakat 
 
@@ -112,7 +112,7 @@ class NotificationsController < ApplicationController
 
 
   #This methods should notify the sender that his national id was verified
-  #Inputs: cookies[:user_id]
+  #Inputs: cookies[:user_id]-int
   #Returns: @notification(Notifications model)
   #Author: Youssef S.Barakat 
 
@@ -128,7 +128,7 @@ class NotificationsController < ApplicationController
 
 
   #This methods should notify the sender that a specific carrier accepted or rejected his request on a certain package
-  #Inputs: cookies[user_id]
+  #Inputs: cookies[user_id]-int
   #Returns: @notification(Notifications model)
   #Author: Youssef S.Barakat 
 
@@ -158,13 +158,13 @@ class NotificationsController < ApplicationController
 
 
   #This methods should notify the carrier that a package he has accepted to carry was deleted
-  #Inputs:cookies[:user_id]
+  #Inputs:cookies[:user_id]-int
   #Returns:@notifications
   #Author: Youssef S.Barakat
 
   def  notify_delete_package
-    @requests = Requests.find( :all, :conditions => {:senders_id => cookies[:user_id]} )
-    @packages = Packages.find( :all )
+    @requests = Requests.get_requests_delete_package(cookies[:user_id])
+    @packages = Packages.get_all_packages
     flag = true
     if( @requests != nil && @packages != nil )
       @packages.each do |t|
@@ -187,14 +187,14 @@ class NotificationsController < ApplicationController
 
 
   #This methods should notify the sender that a trip he has requested and the carrier accepted it,was deleted
-  #Inputs:cookies[:user_id]
+  #Inputs:cookies[:user_id]-int
   #Returns:@notifications
   #Author: Youssef S.Barakat
 
   def  notify_delete_trip
-    @requests = Requests.find( :all, :conditions => {:carriers_id => cookies[:user_id]} )
-    @trips = Trips.find( :all )
-    @packages = Packages.find( :all, :conditions => {:carriers_id => cookies[:user_id]} )
+    @requests = Requests.get_requests_delete_trip(cookies[:user_id])
+    @trips = Trips.get_all_trips
+    @packages = Packages.get_packages_trip(cookies[:user_id])
     flag = true
     if( @requests != nil && @trips != nil && @packages != nil )
       @packages.each do |t|
@@ -224,8 +224,8 @@ class NotificationsController < ApplicationController
 
   def  notify_credit_problem
     @user = Users.find_by_id( cookies[:user_id] ).creditCard
-    @amount = Payment.find( :all, :conditions => {:users_id => cookies[:user_id] } )
-    @packages = Packages.find( :all )
+    @amount = Payment.get_payments_credit(cookies[:user_id] )
+    @packages = Packages.get_all_packages
     if( @packages != nil && @amount != nil && @user != nil ) 
       @amount.each do |t|
         @packages.each do |s|
@@ -243,13 +243,13 @@ class NotificationsController < ApplicationController
 
 
   #This methods should notify one or 3 carriers if they received a request from a sender to carry a package
-  #Inputs:cookies[:user_id]
+  #Inputs:cookies[:user_id]-int
   #Returns:@notifications
   #Author: Youssef S.Barakat
 
   def  notify_carriers
-    @requests = Requests.find( :all, :conditions => {:senders_id => cookies[:user_id]} )
-    @packages = Packages.find( :all, :conditions => {:senders_id => cookies[:user_id]} )
+    @requests = Requests.get_requests_delete_package(cookies[:user_id])
+    @packages = Packages.get_packages_rating(cookies[:user_id])
     if( @requests != nil && @packages != nil )
       @requests.each do |t|
         @packages.each do |s|

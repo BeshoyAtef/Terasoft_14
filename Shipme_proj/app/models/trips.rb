@@ -51,4 +51,14 @@ class Trips < ActiveRecord::Base
     trip.save
   end
 
+
+  #This methods should get trips
+  #Inputs: cookies[:user_id]-int
+  #Returns: @trips
+  #Author: Youssef S.Barakat
+
+  def  self.get_all_trips( user_id )
+    @trips = Trips.find( :all )
+  end
+
 end

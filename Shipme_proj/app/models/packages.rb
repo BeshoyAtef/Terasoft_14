@@ -60,7 +60,7 @@ require 'will_paginate/array'
 
 
   #This methods should get all packages with a specific rating
-  #Inputs: cookies[user_id]
+  #Inputs: cookies[user_id]-int
   #Returns: @pack
   #Author: Youssef S.Barakat
 
@@ -88,7 +88,7 @@ require 'will_paginate/array'
 
 
   #This methods should get packages rated when received by receiver
-  #Inputs: cookies[:user_id]
+  #Inputs: cookies[:user_id]-int
   #Returns: @rating
   #Author: Youssef S.Barakat
 
@@ -98,7 +98,7 @@ require 'will_paginate/array'
 
 
   #this methods should get the specific carrier of a rated package when received by receiver 
-  #Inputs: cookies[:user_id]
+  #Inputs: cookies[:user_id]-int
   #Returns: @rate
   #Author: Youssef S.Barakat
 
@@ -108,7 +108,7 @@ require 'will_paginate/array'
 
 
   #This methods should get the rating packages rated when received by receiver
-  #Inputs: cookies[:user_id]
+  #Inputs: cookies[:user_id]-int
   #Returns: @rates
   #Author: Youssef S.Barakat
 
@@ -118,12 +118,22 @@ require 'will_paginate/array'
 
 
   #This methods should get packages accepted by a specific carrier
-  #Inputs: cookies[:user_id]
-  #Returns: @rating
+  #Inputs: cookies[:user_id]-int
+  #Returns: @packages
   #Author: Youssef S.Barakat
 
   def  self.get_packages_accept_reject( user_id )
     @packages = Packages.find( :all, :conditions => {:carriers_id => user_id} )
   end
+
+  #This methods should get packages when the trip is deleted
+  #Inputs: cookies[:user_id]-int
+  #Returns: @packages
+  #Author: Youssef S.Barakat
+
+  def  self.get_packages_trip( user _id )
+    @packages = Packages.find( :all, :conditions => {:carriers_id => user_id } )
+  end
+
 
 end
