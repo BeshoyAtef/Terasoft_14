@@ -96,8 +96,7 @@ require 'will_paginate/array'
     return current_package
   end
 
-  #This method finds if there is at least one package between a certain sender and
-  #a certain carrier , to make sure they can send messages to each other.
+  #This method finds if there is at least one package between a certain sender and a certain carrier , to make sure they can send messages to each other.
   #Input: sender_id,receiver_id-int.
   #Output: @packages-array of packages.
   #Author: Rehab A.Elshahawy.
