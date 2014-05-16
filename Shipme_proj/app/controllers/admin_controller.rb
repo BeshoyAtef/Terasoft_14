@@ -28,7 +28,14 @@ class AdminController < ApplicationController
     render layout: false
   end
 
+
+  #This method calls the method counter in Users model
+  #@users - int
+  #Author : Ahmed T. Mohamed
+
   def show
+    @users  = Users.counter
+    render :action => :users
   end
 
   def delete
