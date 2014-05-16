@@ -78,4 +78,14 @@ describe Packages do
     non_weighted_package = Packages.new(destination: 'whatever')
     expect(non_weighted_package).to_not be_valid
   end
+    
+#Author: Rehab A.Elshahawy
+it "only returns the packages the two users have in common,
+    other packages are not included" do
+  @package1=Packages.new(destination:'cairo',senders_id:'1',carriers_id:'5')
+  @package2=Packages.new(destination:'cairo',senders_id:'1',carriers_id:'2')
+  package_test=Packages.get_package_messages('1','2')
+  expect(package_test).to_not include @package1
+  
+end
 end

@@ -20,7 +20,7 @@ require 'will_paginate/array'
     #output: initialize the logged in user_id to the senders_id.
     #Author:  Ahmed M.Samouka.
 
-	def self.view_all_packages(user_id)
+	  def self.view_all_packages(user_id)
 	  @create_packages = Packages.find( :all ,:conditions => {:senders_id => user_id })
     end
 
@@ -95,4 +95,17 @@ require 'will_paginate/array'
     current_package = Packages.find(:all, :conditions => {:id => id})
     return current_package
   end
+
+  #This method finds if there is at least one package between a certain sender and a certain carrier , to make sure they can send messages to each other.
+  #Input: sender_id,receiver_id-int.
+  #Output: @packages-array of packages.
+  #Author: Rehab A.Elshahawy.
+
+  def self.get_package_messages(sender_id,receiver_id)
+    @packages= Packages.find(:all,:conditions => ["senders_id = ? and 
+    carriers_id = ? or senders_id = ? and carriers_id = ? ",
+    sender_id,receiver_id,receiver_id,sender_id])
+    return @packages
+  end 
+
 end

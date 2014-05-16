@@ -48,6 +48,7 @@ class Users < ActiveRecord::Base
     if Users.exists?(:id => user_id)
     @user.update(:creditCardNumber => creditcard,:idNumber=> id_num)
     @user.save
+    end
+  end
  end
- end
- end
+
