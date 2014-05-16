@@ -1,0 +1,45 @@
+<!-- This view is intended to enable the user to enter the attributes of add trip and also handle the empty spaces -->
+<!-- Author: Ahmed H. Nasser -->
+
+<t1 class="trips create">
+<head>
+<script>
+	function checkrequired(which){
+	var pass=true
+	if (document.images){
+	for (i=0;i<which.length;i++){
+		var tempobj=which.elements[i]
+		if (tempobj.name.substring(0,8)=="required"){
+			if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+				pass=false
+			break
+			}
+		}
+	}
+	}
+	if (!pass){
+		alert("One or more of the required elements are not completed. Please complete them, then submit again!")
+		return false
+	}
+	else
+		return true
+	}
+</script>
+</head>
+<body>
+<form onSubmit="return checkrequired(this)" action= "create" >
+	Destination: <input type="text" name="requireddestination"><br>
+	Location: <input type="text" name="requiredlocation"><br>
+	Travelling Date: <input type="date" name="requiredtraveldate"><br>
+	Weight <input type="number" name="requiredweight" min = "1" max = "10"><br>
+	<br>
+	<br>
+	<input type="submit" value="Add Trip">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+</form>
+</body>
+</t1>

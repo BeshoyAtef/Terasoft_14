@@ -15,10 +15,10 @@ class MessagesController < ApplicationController
   def edit
   end
 
+
 #This method sends a message.
 #user1_id - int, user2_id - int.
 #Author Madeleine A. Saad.
-
 
   def update 
      $description= params[:text] 
@@ -45,6 +45,7 @@ class MessagesController < ApplicationController
 
   def delete
   end
+
 
   def destory
   end
