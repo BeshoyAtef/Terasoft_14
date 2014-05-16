@@ -39,8 +39,7 @@ class Messages < ActiveRecord::Base
   end
 
 
-  #This method sends new messages,but first it calls the method get_package_messages to make sure that the sender and the reciever can have a conversation,it also loops on table users to find the id that corresponds to the receiver_username and 
-  #insert it in the database
+  #This method sends new messages,but first it calls the method get_package_messages to make sure that the sender and the reciever can have a conversation,it also loops on table users to find the id that corresponds to the receiver_username and insert it in the database
   #Input: sender_id,receiver_username,description-int
   #Return: $flag-boolean which tells if the record is inserted or not
   #Author: Rehab A.Elshahawy
