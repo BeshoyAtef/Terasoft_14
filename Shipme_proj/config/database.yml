@@ -11,7 +11,7 @@ development:
   timeout: 5000
   encoding: utf8
   username: root
-  password: your password
+  password: 
 test:
   adapter: mysql2
   database: test
@@ -19,7 +19,7 @@ test:
   timeout: 5000
   encoding: utf8
   username: root
-  password: your password
+  password: 
 
 production:
   adapter: mysql2
@@ -28,4 +28,4 @@ production:
   timeout: 5000
   encoding: utf8
   username: root
-  password: your password
+  password: 
