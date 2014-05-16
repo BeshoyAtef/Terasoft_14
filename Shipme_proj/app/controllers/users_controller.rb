@@ -20,7 +20,12 @@ class UsersController < ApplicationController
     Users.complete_profile(cookies[ :user_id ],params[ :creditCard ],params[ :idNumber ])
   end
 
+
+  #This method calls the method count in table users
+  #Author: Ahmed T. Mohamed
+
   def list
+    @users = Users.count
   end
 
   def show
