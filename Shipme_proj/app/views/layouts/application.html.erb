@@ -28,13 +28,7 @@
 <%= javascript_include_tag "custom.js" %>
 <!-- <%= javascript_include_tag "google_analytics_auto.js" %> -->
 
-
-
-
-
-
-
-  <%= csrf_meta_tags %>
+<%= csrf_meta_tags %>
 </head>
 <body>
 
@@ -60,11 +54,8 @@
 
       <!-- Social Icons -->
       <ul class="social-icons">
-        <li class="twitter"><a href="#">Twitter</a></li>
-        <li class="facebook"><a href="#">Facebook</a></li>
-        <li class="dribbble"><a href="#">Dribbble</a></li>
-        <li class="linkedin"><a href="#">LinkedIn</a></li>
-        <li class="rss"><a href="#">RSS</a></li>
+        <li class="twitter"><a href="https://twitter.com/">Twitter</a></li>
+        <li class="facebook"><a href="https://www.facebook.com/">Facebook</a></li>
       </ul>
 
       <div class="clearfix"></div>
@@ -74,10 +65,23 @@
 
       <div class="clearfix"></div>
 
-      <!-- Search -->
-      <nav class="top-search">
-        <li><a href="../user/logout"></i> Logout</a></li>
+
+      <!-- if conditions to show login or logout -->
+      <% if cookies[:user_id] == nil %>
+       <nav class="top-search">
+       <form action="../user_log/sign_in" >
+      <input name="send" type="submit" value="Login">
+      </form>
       </nav>
+      <% end %>
+
+    <% if cookies[:user_id] != nil %>
+      <nav class="top-search">
+       <form action="../user_log/log_out" >
+      <input name="send" type="submit" value="Logout">
+      </form>
+      </nav>
+      <% end %>
 
     </div>
   </header>
@@ -105,46 +109,41 @@
 <div class="left-corner"></div>
 <div class="right-corner"></div>
 
+
+
+ <% if cookies[:user_id] != nil %>
 <ul class="menu" id="responsive">
 
-  <li><a href="../notification/index" id="current"><i class="halflings white home"></i> Notifications</a></li>
-
-  <li><a href="#"><i class="halflings white file"></i> About </a>
-    <!-- Mega Menu / Start -->
-    <ul class="cols3">
-      <li class="col3">
-        <h4>About Shipme</h4>
-      </li>
-      <li class="col1">
-        <h5>Policy</h5>
-        <ol>
-  
-            <li><a href="about.html">Instructions & Precausions</a></li>
-          
-        </ol>
-      </li>
-      <li class="col1">
-        <h5>Prices</h5>
-        <ol>
-          <li><a href="../compareprices/compare">International Prices</a></li>
-        
-        </ol>
-      </li>
-      <li class="col1">
-        <h5>Paragraph</h5>
-        <p>This <a href="#">Mega Menu</a> can handle everything. Lists, paragraphs, forms...</p>
-      </li>
-    </ul>
-    <!-- Mega Menu / End -->
-  </li>
-
-  <li><a href="#"><i class="halflings white briefcase"></i> Package</a>
+ <li><a href="../homepage/index"><i class="halflings white home"></i>Home</a>
     <!-- Second Level / Start -->
     <ul>
-      <li><a href="elements.html">Create Pacakage</a></li>
-      <li><a href="icons.html">Edit Package</a></li>
-      <li><a href="pricing-tables.html">Delete Package</a></li>
-      <li><a href="typography.html">View Package</a></li>
+      <li><a href="../homepage/list">International Prices</a></li>
+      <li><a href="../homepage/instructions">Instructions</a></li>
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+<li><a href="#"><i class="halflings white home"></i>Profile</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../users/index">Search Profile</a></li>
+      <li><a href="../users/show">My profile</a></li>
+      <li><a href="../users/update">Complete profile</a></li>
+      <li><a href="../users/edit">Edit profile</a></li>
+      <li><a href="../notifications/list"> My Notifications</a></li>
+      <li><a href="../requests/list"> My Requests</a></li>
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+  <li><a href="#"><i class="halflings white briefcase"></i> Packages</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../packages/list">My Packages</a></li>
+        <li><a href="../packages/new">Add Pacakage</a></li>
+    
     </ul>
     <!-- Second Level / End -->
   </li>
@@ -152,9 +151,8 @@
   <li><a href="#"><i class="halflings white briefcase"></i> Trips </a>
     <!-- Second Level / Start -->
     <ul>
-      <li><a href="portfolio-2.html"> Add Trip</a></li>
-      <li><a href="portfolio-3.html"> Edit Trip</a></li>
-      <li><a href="portfolio-4.html"> Cancel Trip</a></li>
+      <li><a href="../trips/list"> My Trips</a></li>
+      <li><a href="../trips/new"> Add Trip</a></li>
     
     </ul>
     <!-- Second Level / End -->
@@ -164,15 +162,16 @@
   <li><a href="#"><i class="halflings white pencil"></i> Claims</a>
     <!-- Second Level / Start -->
     <ul>
-      <li><a href="blog-large-image.html">Place Claim</a></li>
+      <li><a href="../reports/new">Place Claim</a></li>
   
     </ul>
     <!-- Second Level / End -->
   </li>
 
-  <li><a href="../messages/view_message"><i class="halflings white envelope"></i> Messages</a></li>
+  <li><a href="../messages/show"><i class="halflings white envelope"></i> Messages</a></li>
 
 </ul>
+<% end %>
 </nav>
 <div class="clearfix"></div>
 
@@ -180,6 +179,64 @@
 <%= yield %>
 <%= stylesheet_link_tag 'switcher.css' %>
 <%= javascript_include_tag "switcher.js" %>
+<!-- Footer / Start -->
+
+<footer id="footer">
+  <!-- 960 Container -->
+  <div class="container">
+
+    <!-- About -->
+    <div class="four columns">
+      <%= image_tag("logo-footer.png", :id => "logo-footer") %>
+      </div>
+
+    <!-- Contact Details -->
+    <div class="four columns">
+      <h4>Contact Details</h4>
+      <ul class="contact-details-alt">
+        <li><i class="halflings white map-marker"></i> <p><strong>Address:</strong> 123 Seward Street, Oklahoma City, egypt</p></li>
+        <li><i class="halflings white user"></i> <p><strong>Phone:</strong> +2 000 000 110</p></li>
+        <li><i class="halflings white envelope"></i> <p><strong>Email:</strong> <a href="#">Shipme_mail@shipme.org</a></p></li>
+      </ul>
+    </div>
+
+    
+  <!-- 960 Container / End -->
+
+</footer>
+<!-- Footer / End -->
+
+
+<!-- Footer Bottom / Start  -->
+<footer id="footer-bottom">
+
+  <!-- 960 Container -->
+  <div class="container">
+
+    <!-- Copyrights -->
+    <div class="eight columns">
+      <div class="copyright">
+        © Copyright 2014 by <a href="#">Shipme</a>. All Rights Reserved.
+      </div>
+    </div>
+
+    <!-- Menu -->
+    <div class="eight columns">
+      <nav id="sub-menu">
+        <ul>
+          <li><a href="#">FAQ's</a></li>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+  <!-- 960 Container / End -->
+
+</footer>
+<!-- Footer Bottom / End -->
+
 
 </body>
 </html>

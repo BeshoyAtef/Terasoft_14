@@ -5,11 +5,10 @@ class MessagesController < ApplicationController
   def new
   end
 
+
   def create
   end
 
- #This method shows the message view.
- #Author: Madeleine A. Saad.
 
   def edit
   end
@@ -45,3 +44,4 @@ class MessagesController < ApplicationController
   def destory
   end
 end
+
