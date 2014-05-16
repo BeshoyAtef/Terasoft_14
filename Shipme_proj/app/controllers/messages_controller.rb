@@ -8,7 +8,7 @@ require 'will_paginate/array'
   end 
 
 #This method calls the send_new_message and pass to it three paramters.
-#Output: print-boolean which saves the output from send_new_message method.
+#Return: print-boolean which saves the output from send_new_message method.
 #Author: Rehab A.Elshahawy.
 
   def create
@@ -52,7 +52,7 @@ require 'will_paginate/array'
 
 #This method calls the get_last_message passing to it the logged in user_id,
 #it also calls the method all_users to get an array of all users
-#Output: @messages_received -array of messages, @users-array of users.
+#Return: @messages_received -array of messages, @users-array of users.
 #Author: Rehab A.Elshahawy.
 
   def show
