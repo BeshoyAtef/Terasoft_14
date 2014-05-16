@@ -96,6 +96,93 @@ require 'will_paginate/array'
     end	
 
 
+
+  #This methods should get all packages in packages model
+  #Returns: @delivery
+  #Author: Youssef S.Barakat
+
+  def  self.get_all_packages
+    @delivery = Packages.find(:all)
+  end
+
+
+  #This methods should get all packages with a specific rating
+  #Inputs: cookies[user_id]-int
+  #Returns: @pack
+  #Author: Youssef S.Barakat
+
+  def  self.get_packages_rating( user_id )
+    @pack = Packages.find( :all, :conditions => {:senders_id => user_id} )
+  end
+
+
+  #This methods should get packages received by the carrier
+  #Returns: @pack
+  #Author: Youssef S.Barakat
+
+  def  self.get_packages_payment
+    @pack  = Packages.find( :all,:conditions =>{:receivedByCarrier => true} )
+  end
+
+
+  #This methods should get packages received by the receiver
+  #Returns: @pack
+  #Author: Youssef S.Barakat
+
+  def  self.get_packages_final_payment
+    @pack = Packages.find( :all, :conditions => {:finalDelivery => true} )
+  end
+
+
+  #This methods should get packages rated when received by receiver
+  #Inputs: cookies[:user_id]-int
+  #Returns: @rating
+  #Author: Youssef S.Barakat
+
+  def  self.get_packages_find_rating( user_id )
+    @rating = Packages.find_by_id(user_id).finalDelivery
+  end
+
+
+  #this methods should get the specific carrier of a rated package when received by receiver 
+  #Inputs: cookies[:user_id]-int
+  #Returns: @rate
+  #Author: Youssef S.Barakat
+
+  def  self.get_packages_find_rate( user_id )
+    @rate = Packages.find_by_id( user_id ).carriers_id
+  end
+
+
+  #This methods should get the rating packages rated when received by receiver
+  #Inputs: cookies[:user_id]-int
+  #Returns: @rates
+  #Author: Youssef S.Barakat
+
+  def  self.get_packages_find_rates( user_id )
+    @rates = Packages.find_by_id( user_id ).rating
+  end
+
+
+  #This methods should get packages accepted by a specific carrier
+  #Inputs: cookies[:user_id]-int
+  #Returns: @packages
+  #Author: Youssef S.Barakat
+
+  def  self.get_packages_accept_reject( user_id )
+    @packages = Packages.find( :all, :conditions => {:carriers_id => user_id} )
+  end
+
+  #This methods should get packages when the trip is deleted
+  #Inputs: cookies[:user_id]-int
+  #Returns: @packages
+  #Author: Youssef S.Barakat
+
+  def  self.get_packages_trip( user _id )
+    @packages = Packages.find( :all, :conditions => {:carriers_id => user_id } )
+  end
+
+
   # This method edits a certain package.
   # is_accepted - int, curren_package - package, destination - int, description - int, origin - int, package_value - int, expiry_date - date, carrying_price - int, receiver_address - string, receiver_mob_number - string, receiver_email - string, weight - int, user_id - int.
   # Returns - boolean.
@@ -145,5 +232,6 @@ require 'will_paginate/array'
     sender_id,receiver_id,receiver_id,sender_id])
     return @packages
   end 
+
 
 end
