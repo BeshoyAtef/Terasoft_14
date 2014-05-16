@@ -10,13 +10,7 @@ class PackagesController < ApplicationController
   #Author:  Ahmed.M.Samouka
 
   def new
-    @p = false
-    @user = Users.find( cookies[ :user_id ] ) #.last().id
-    @verify = @user.idVerify
-    if @verify != true
       redirect_to :action => 'index'
-    else
-    end
   end
 
 
