@@ -50,4 +50,13 @@ class Users < ActiveRecord::Base
     @user.save
  end
  end
- end
+
+
+  #This method count number of rows in table users
+  #Author: Ahmed T. Mohamed
+
+  def self.counter
+    @users = Users.count
+    return @users
+  end
+end
