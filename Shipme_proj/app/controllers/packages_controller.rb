@@ -48,7 +48,7 @@ class PackagesController < ApplicationController
   # Author: Youssef A. Saleh.
 
   def update
-        @current_user_id = cookies[:user_id]
+    @current_user_id = cookies[:user_id]
     @current_package = Packages.find_current_package(params[ :id ])
     @current_package.each do |package|
       @current_user_request = Requests.current_user_requests(@current_user_id,package.id)
