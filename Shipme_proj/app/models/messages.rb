@@ -14,6 +14,7 @@ class Messages < ActiveRecord::Base
     user1_id,user2_id,user2_id,user1_id],:order => 'created_at' )
      end 
   
+  
 #This method adds a message in table messages.
 #user1_id - int, user2_id - int, description - string.
 #Author Madeleine A. Saad.

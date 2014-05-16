@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
   def create
   end
 
+
  #This method shows the message view.
  #Author: Madeleine A. Saad.
 
@@ -18,11 +19,13 @@ class MessagesController < ApplicationController
 #user1_id - int, user2_id - int.
 #Author Madeleine A. Saad.
 
+
   def update 
      $description= params[:text] 
      @msg = Messages.send_message($receiver_Id,$sender_Id,$description) 
      redirect_to(:action => 'list') 
   end
+
 
 #This method lists the conversation.
 #user1_id - int, user2_id - int.
@@ -35,6 +38,7 @@ class MessagesController < ApplicationController
     @conv= Messages.get_conversation($sender_Id, $receiver_Id)
    
   end 
+
 
   def show
   end
