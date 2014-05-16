@@ -2,9 +2,7 @@
 <!--Author: Madeleine Aziz Saad -->
 
 <h1>Conversation</h1>
-
 <p>
-
   <ul>
     <% @conv.each do |l| %>
     <li>
@@ -24,8 +22,6 @@
     <br>
     <%end%>
 <%= form_tag("/messages/update/", :method => "post") %>
-
 <%=link_to 'messages',{:controller => 'messages', :action =>'edit'}%>
-
   </form>
 </p>
