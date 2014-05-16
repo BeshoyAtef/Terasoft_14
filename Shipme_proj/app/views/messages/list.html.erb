@@ -6,27 +6,26 @@
 <p>
 
   <ul>
-	  <% @conv.each do |l| %>
-	  <li>
+    <% @conv.each do |l| %>
+    <li>
   <%
       @user= Users.find(:all,
-      :conditions => {:id=> l.senders_id},  
-      ) %>
+      :conditions => {:id=> l.senders_id},  ) %>
       <% @user.each do |m| %>
       <%= m.username %>
       <%end%>
 
-	: &nbsp  &nbsp &nbsp &nbsp &nbsp
+      : &nbsp  &nbsp &nbsp &nbsp &nbsp
 
-	  <%=l.description %>
+      <%=l.description %>
       &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
       <%=l.created_at %>
-	  </li>
-	  <br>
-	  <%end%>
+    </li>
+    <br>
+    <%end%>
 <%= form_tag("/messages/update/", :method => "post") %>
 
-<%=link_to 'messages',{:controller => 'messages', :action =>'create'}%>
+<%=link_to 'messages',{:controller => 'messages', :action =>'edit'}%>
 
   </form>
 </p>
