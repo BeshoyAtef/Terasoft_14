@@ -10,7 +10,13 @@ class PackagesController < ApplicationController
   #Author:  Ahmed.M.Samouka
 
   def new
-    redirect_to :action => 'index'
+    @p = false
+    @user = Users.find( cookies[ :user_id ] ) #.last().id
+    @verify = @user.idVerify
+    if @verify != true
+      redirect_to :action => 'index'
+    else
+    end
   end
 
 
@@ -50,11 +56,21 @@ class PackagesController < ApplicationController
     @pack = Packages.find( params[ :id ] ) 
   end
 
-  def delete
+  #This method finds all the packages by calling method (find_packages) in the model by passing the parameter  
+  #package_id - Integer.
+  #Author: Abdelrahaman Y. Seoudy.
+
+  def  delete
+    @package = Packages.find_package(params[:id])
   end
 
-  def destory
+  def  destory
+    @package = Packages.find_package(params[:id])
+    @package.destroy
+    flash[:notice] = "package Deleted successfully"
+    redirect_to(:action => 'list')
   end
+
 
   def confirm_delivery
   end  
