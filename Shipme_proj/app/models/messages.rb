@@ -27,10 +27,9 @@ class Messages < ActiveRecord::Base
    @msg.save 
   end
 
-#This method gets the last message recieved from each sender,
-#and groups them by the sender's id
+#This method gets the last message recieved from each sender,and groups them by the sender's id
 #Input: user_id-int
-#Output: @messages-array of messages
+#Return: @messages-array of messages
 #Author: Rehab A.Elshahawy
 
   def self.get_last_message(user_id) 
@@ -38,12 +37,10 @@ class Messages < ActiveRecord::Base
   end
 
 
-#This method sends new messages,but first it calls the method get_package_messages
-#to make sure that the sender and the reciever can have a conversation,it also loops 
-#on table users to find the id that corresponds to the receiver_username and 
+#This method sends new messages,but first it calls the method get_package_messages to make sure that the sender and the reciever can have a conversation,it also loops on table users to find the id that corresponds to the receiver_username and 
 #insert it in the database
 #Input: sender_id,receiver_username,description-int
-#Output: $flag-boolean which tells if the record is inserted or not
+#Return: $flag-boolean which tells if the record is inserted or not
 #Author: Rehab A.Elshahawy
 
   def self.send_new_message(sender_id, receiver_username, description) 
