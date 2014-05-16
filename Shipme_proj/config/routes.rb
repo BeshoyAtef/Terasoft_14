@@ -1,5 +1,11 @@
 ShipmeProj::Application.routes.draw do
   #new routes
+  get "packages/list_takingpackage"
+  get "requests/createhelper"
+  get "send_sms/send_sms"
+  get "send_sms/message"
+  get "send_sms/test"
+  get "admin/chart"
   get "admin/index"
   get "admin/new"
   get "admin/create"

@@ -6,13 +6,21 @@ require 'will_paginate/array'
 	has_many :payment
 	has_one :reports
 	has_many :requests
+  validates :origin, presence: true
+  validates :destination, presence: true
+  validates :packageValue, presence: true
+  validates :carryingPrice, presence: true
+  validates :receiverAddress, presence:true
+  validates :receiverMobNumber, presence:true
+  validates :weight, presence: true
+
 
     #This method is called by method list in the controller.
     #input: senders_id, logged in user_id.
     #output: initialize the logged in user_id to the senders_id.
     #Author:  Ahmed M.Samouka.
 
-	def self.view_all_packages(user_id)
+	  def self.view_all_packages(user_id)
 	  @create_packages = Packages.find( :all ,:conditions => {:senders_id => user_id })
     end
 
@@ -48,6 +56,7 @@ require 'will_paginate/array'
       @packages = Packages.find( :all, :conditions => {:finalDelivery => true}, :order => "created_at ASC" )
       @packages = @packages.paginate( :page => page , :per_page => 10 ) 
     end
+
 
 
   #This methods should get all packages in packages model
@@ -134,6 +143,57 @@ require 'will_paginate/array'
   def  self.get_packages_trip( user _id )
     @packages = Packages.find( :all, :conditions => {:carriers_id => user_id } )
   end
+
+
+  # This method edits a certain package.
+  # is_accepted - int, curren_package - package, destination - int, description - int, origin - int, package_value - int, expiry_date - date, carrying_price - int, receiver_address - string, receiver_mob_number - string, receiver_email - string, weight - int, user_id - int.
+  # Returns - boolean.
+  # Author: Youssef A. Saleh.
+
+  def self.edit_the_package(is_accepted, current_package, destination, description, origin, package_value, expiry_date, carrying_price, receiver_address, receiver_mob_number, receiver_email, weight, user_id)
+    if (is_accepted != true)
+      current_package.each do |package|
+        package.destination = destination
+        package.description = description
+        package.origin = origin
+        package.packageValue = package_value
+        package.expiryDate = expiry_date
+        package.carryingPrice = carrying_price
+        package.receiverAddress = receiver_address
+        package.receiverMobNumber = receiver_mob_number
+        package.receiverEmail = receiver_email
+        package.weight = weight
+        package.senders_id = user_id
+        package.save  
+      end
+      return true
+    else
+      return false
+    end
+  end
+
+
+  # This method finds a certain package by id
+  # id - int.
+  # Returns - current_package.
+  # Author: Youssef A. Saleh.
+
+  def self.find_current_package(id)
+    current_package = Packages.find(:all, :conditions => {:id => id})
+    return current_package
+  end
+
+  #This method finds if there is at least one package between a certain sender and a certain carrier , to make sure they can send messages to each other.
+  #Input: sender_id,receiver_id-int.
+  #Output: @packages-array of packages.
+  #Author: Rehab A.Elshahawy.
+
+  def self.get_package_messages(sender_id,receiver_id)
+    @packages= Packages.find(:all,:conditions => ["senders_id = ? and 
+    carriers_id = ? or senders_id = ? and carriers_id = ? ",
+    sender_id,receiver_id,receiver_id,sender_id])
+    return @packages
+  end 
 
 
 end
