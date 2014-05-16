@@ -22,4 +22,13 @@ class Reports < ActiveRecord::Base
     end
    report.save
   end
+
+
+  #This methods should get all reports
+  #Returns: @reports
+  #Author: Youssef S.Barakat
+
+  def  self.get__all_reports 
+    @reports = Reports.find( :all )
+  end
 end

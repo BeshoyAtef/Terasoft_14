@@ -50,4 +50,18 @@ class Users < ActiveRecord::Base
     @user.save
  end
  end
+
+
+  #This methods should get users where id is verified or not
+  #Inputs: cookies[:user_id]
+  #Returns: @verification
+  #Author: Youssef S.Barakat
+
+  def  self.get_users_verify( user_id )
+    @verification = Users.find_by_id( user_id ).idVerify
+  end
+
+  def  self.get_users_credit( user_id )
+    @user = Users.find( :all, :conditions => {:id => user_id } )
+  end
  end
