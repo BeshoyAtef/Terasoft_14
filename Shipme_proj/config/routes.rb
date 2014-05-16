@@ -1,4 +1,7 @@
 ShipmeProj::Application.routes.draw do
+  get "send_sms/send_sms"
+  get "send_sms/message"
+  get "send_sms/test"
   #new routes
   get "admin/index"
   get "admin/new"

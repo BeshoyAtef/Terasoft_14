@@ -1,7 +1,7 @@
 class SendSmsController < ApplicationController
 require 'twilio-ruby'
 
-#this method is made to send sms, by taking 2 inputs the method first intialize the connection with twillio the creare sms using the inputs  
+#this method is made to send sms, by taking 2 inputs the method first intialize the connection with twillio then create sms using the inputs  
 #Input: number string , text string
 #Returns: sends a sms 
 #Author: Omar A. Abdel-fatah
@@ -23,7 +23,7 @@ require 'twilio-ruby'
 #Author: Omar A. Abdel-fatah
 
   def  message
-  end 
+  end
 
 
 #this method test the sending sms with the given number
