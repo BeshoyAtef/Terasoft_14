@@ -115,4 +115,21 @@ class PackagesController < ApplicationController
 
   def confirm_delivery
   end  
+
+  #This method calls the method update_package from the model.
+  #This method confirms the package by the carrier
+  #Author: Ahmed H. Nasser.
+  
+  def  confirm
+    Packages.update_package(params[:id])
+  end
+
+
+  #This method calls the method confirm_package from the model.
+  #This method returns all the packges still waiting for confirmation.
+  #Author: Ahmed H. Nasser.
+ 
+  def  list_takingpackage
+    @con=Packages.confirm_package(cookies[:user_id]) 
+  end
 end
