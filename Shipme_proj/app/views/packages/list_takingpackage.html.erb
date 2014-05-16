@@ -1,0 +1,14 @@
+<!-- This view is intended to show all the packages waiting for confirmation -->
+<!-- Author: Ahmed H. Nasser -->
+
+<h3 class="title-2"> These are your packages </h3>
+
+<% @con.each do |c|%>
+
+
+<li>
+<%= c.description %> 
+<a href= 'confirm?id=<%=c.id%>'> confirm </a>
+</li>
+
+<%end%>
