@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
 
 #This method lists the conversation.
 #user1_id - int, user2_id - int.
-#Returns @conv - array.
+#Returns conv - array.
 #Author Madeleine A. Saad.
 
   def list 
