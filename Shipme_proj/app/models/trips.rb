@@ -13,7 +13,7 @@ class Trips < ActiveRecord::Base
 
 	 # this method is showing the selected trip.
 	 # Input :trip_id:Integer.
-   	# Author : Hagar E. Aly.
+   # Author : Hagar E. Aly.
 
 	def self.find_trip (trip_id)
 		@trip = Trips.find(trip_id)
@@ -70,5 +70,17 @@ class Trips < ActiveRecord::Base
     @trips=Trips.find(:all , :conditions => {:users_id => user_id})
     @trips=@trips.paginate(:page => page, :per_page => 1)
   end
+
+   # this method is deleting the selected trip.
+   # Input :trip_id:Integer.
+   # Author : Hagar E. Aly
+
+
+ def self.delete_trip(trip_id)
+  #@trip = Trips.find (:all )
+  @trip= Trips.find(trip_id)
+  @trip.destroy
+ end
+
 
 end
