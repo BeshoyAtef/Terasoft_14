@@ -2,7 +2,13 @@ class UsersController < ApplicationController
   def index
   end
 
-  def new
+
+  #This method calls the method count in table users.
+  #@users-int.
+  #Author: Ahmed T. Mohamed.
+
+  def graph
+     @users = Users.count
   end
 
   def create
