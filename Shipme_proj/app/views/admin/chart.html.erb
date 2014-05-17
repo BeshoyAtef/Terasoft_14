@@ -1,0 +1,29 @@
+<!--This view intented to show graph for shipments done.-->
+<!--Author: Rana M. Elbrishy.-->
+
+<html>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Shipments done'],
+          ['Mai', <%= @package_count %>]
+         
+        ]);
+
+        var options = {
+          title: 'Shipments Done',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  
+
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+ 
+</html>

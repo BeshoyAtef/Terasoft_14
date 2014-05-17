@@ -1,2 +1,13 @@
-<h1>Admin#show</h1>
-<p>Find me in app/views/admin/show.html.erb</p>
+<html>
+<h3>Shipments done</h3>
+
+    <%= @package_count %>  
+    <% @packages_months.to_a.each do |month, packages| %>  
+    <h2><%= month.strftime("%B %Y") %></h2>  
+    <% Packages.to_a.each do |package| %>  
+    <%= @package_count %> 
+
+      <% end %>  
+    <% end %>  
+</html>
+

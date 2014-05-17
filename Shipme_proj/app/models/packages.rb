@@ -1,6 +1,10 @@
 class Packages < ActiveRecord::Base
 require 'will_paginate/array'
 
+  require 'rubygems'
+  #require 'googlecharts'
+  #require 'gchart'
+
 	belongs_to :sender, :class_name => "Users"
 	belongs_to :carrier, :class_name => "Users"
 	has_many :payment
@@ -241,5 +245,16 @@ require 'will_paginate/array'
   def  self.find_package(package_id)
      @package = Packages.find(package_id)
   end 
+
+
+  #This method is counting the shipments done.
+  #Returns: @package_count-int.
+  #Author:  Rana M. Elberishy.
+  
+  def  self.generate_shipments_graph
+    @packages = Packages.find( :all, :conditions => {:finalDelivery => true} )
+	  @packages_months = @packages.group_by { |package| package.created_at}
+    @package_count = @packages_months.count
+	end
 
 end

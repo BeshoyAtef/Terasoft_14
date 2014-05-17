@@ -88,4 +88,12 @@ it "only returns the packages the two users have in common,
   expect(package_test).to_not include @package1
   
 end
+
+#Author: Rana M.Elbrishy
+it "should count the packages per month " do 
+  package = Packages.new(description: "laptop", finalDelivery: 'true')
+  package = Packages.new(description: "pens", finalDelivery: 'true')
+  package_count = Packages.generate_shipments_graph
+  expect(package_count == 2)
+  end 
 end
