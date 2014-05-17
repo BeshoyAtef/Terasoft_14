@@ -1,2 +1,17 @@
-<h1>Configurations#new</h1>
-<p>Find me in app/views/configurations/new.html.erb</p>
+<!--This view is for creating a form for configurations table.-->
+<!--Author: Ahmed T. Mohamed. -->
+
+
+  <html>  
+ 
+    
+    <%= form_for(:configurations, :url => {:action => 'create'}) do |f| %>
+
+    <h3 class = "title-2" > Enter comission </h3>
+
+    <%= f.text_field(:comission) %>
+    
+    <%= submit_tag("Enter") %>
+  
+    <% end %>
+  </html>
