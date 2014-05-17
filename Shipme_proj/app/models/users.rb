@@ -69,5 +69,22 @@ class Users < ActiveRecord::Base
   def  self.get_users_credit( user_id )
     @user = Users.find( :all, :conditions => {:id => user_id } )
   end
+
+   #This method is finding all the packages in the database.
+   #Returns: @packages - array.
+   #Author : Manar A. Eltayeb.
+
+    def  self.packages_find
+      @packages = Packages.find( :all )
+    end
+
+
+   #This method is finding all the trips in the database.
+   #Returns: @trips - array.
+   #Author : Manar A. Eltayeb.
+
+    def  self.trips_find
+      @trips = Trips.find( :all )
+    end
  end
 
