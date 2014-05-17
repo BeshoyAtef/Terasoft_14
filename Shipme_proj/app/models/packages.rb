@@ -178,8 +178,8 @@ require 'will_paginate/array'
   #Returns: @packages
   #Author: Youssef S.Barakat
 
-  def  self.get_packages_trip( user _id )
-    @packages = Packages.find( :all, :conditions => {:carriers_id => user_id } )
+  def  self.get_packages_trip(user_id)
+    @package = Packages.find( :all, :conditions => {:carriers_id => user_id } )
   end
 
 
@@ -232,6 +232,5 @@ require 'will_paginate/array'
     sender_id,receiver_id,receiver_id,sender_id])
     return @packages
   end 
-
 
 end
