@@ -75,43 +75,27 @@
       </nav>
       <% end %>
 
+
     <% if cookies[:user_id] != nil %>
       <nav class="top-search">
        <form action="../user_log/log_out" >
       <input name="send" type="submit" value="Logout">
       </form>
       </nav>
-      <% end %>
-
     </div>
   </header>
-  <!-- Header / End -->
 
+  <!-- if conditions to show different menu to admin and user -->
+   <!-- Author: Rehab A.Elshahawy -->
+    <% @user=Users.find(cookies[:user_id]) %>
+    <% if @user.admin == nil %>
   <div class="clearfix"></div>
-
-</div>
-<!-- 960 Container / End -->
-</div>
-
-<!-- Wrapper / Start -->
-<div id="wrapper">
-
-<!-- Header
-================================================== -->
-<div id="top-line"></div>
-
-
-
-<!-- Navigation
-================================================== -->
-<nav id="navigation" class="style-2">
+  <div id="wrapper">
+  <div id="top-line"></div>
+  <nav id="navigation" class="style-2">
 
 <div class="left-corner"></div>
 <div class="right-corner"></div>
-
-
-
- <% if cookies[:user_id] != nil %>
 <ul class="menu" id="responsive">
 
  <li><a href="../homepage/index"><i class="halflings white home"></i>Home</a>
@@ -171,10 +155,54 @@
   <li><a href="../messages/show"><i class="halflings white envelope"></i> Messages</a></li>
 
 </ul>
-<% end %>
 </nav>
 <div class="clearfix"></div>
+ 
+ <% elsif @user.admin == true %> 
 
+  <div class="clearfix"></div>
+  <div id="wrapper">
+  <div id="top-line"></div>
+  <nav id="navigation" class="style-2">
+
+<div class="left-corner"></div>
+<div class="right-corner"></div>
+<ul class="menu" id="responsive">
+
+<li><a href="#"><i class="halflings white pencil"></i>Statistics</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../admin/list">Shipments/month</a></li>
+      <li><a href="../payments/list">Revenues/month</a></li>
+      <li><a href="../admin/show">Users/month</a></li>
+    
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+  <li><a href="#"><i class="halflings white file"></i> Graphs</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../admin/chart">Shipments Graph</a></li>
+      <li><a href="../payments/list">Revenues Graph</a></li>
+      <li><a href="../users/list">Users Graph</a></li>
+   
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+  <li><a href="#"><i class="halflings white pencil"></i> Claims</a>
+    <!-- Second Level / Start -->
+    <!-- Second Level / End -->
+  </li>
+  <li><a href="#"><i class="halflings white pencil"></i> Verify Users National IDs</a></li>
+
+   <li><a href="../configurations/new"><i class="halflings white pencil"></i> Set Comission</a></li>
+</nav>
+
+<%end%>
+<%end%>
 
 <%= yield %>
 <%= stylesheet_link_tag 'switcher.css' %>
