@@ -1,9 +1,9 @@
 class Messages < ActiveRecord::Base
 	belongs_to :sender, :class_name => "Users"
 	belongs_to :receiver, :class_name => "Users"
-  validates :senders_id, presence: true
-  validates :receivers_id, presence: true
-  validates :description, presence: true
+  #validates :senders_id, presence: true
+  #validates :receivers_id, presence: true
+  #validates :description, presence: true
 
   #This method is showing a conversation .
   #user1_id - int, user2_id - int.
