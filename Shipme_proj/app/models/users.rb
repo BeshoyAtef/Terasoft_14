@@ -144,5 +144,62 @@ class Users < ActiveRecord::Base
    @user=Users.find(:all,:conditions => {:id => user_id})
   end
 
- end
+
+# this intended to verify the idNumber of the user by the admin and update database colum by 1 (true). 
+# Author: Mariam S. elSandy.
+
+  def  self.update_verify(user_id)
+    @user=Users.find(user_id)
+    @new=Users.new
+    @new.id=@user.id
+    @new.email=@user.email
+    @new.encrypted_password=@user.encrypted_password
+    @new.username=@user.username
+    @new.admin=@user.admin
+    @new.creditCard=@user.creditCard
+    @new.mobileNumber=@user.mobileNumber
+    @new.idNumber=@user.idNumber
+    @new.idVerify=true
+    @new.averageRating=@user.averageRating
+    @new.reset_password_token=@user.reset_password_token
+    @new.reset_password_sent_at=@user.reset_password_sent_at
+    @new.sign_in_count=@user.sign_in_count
+    @user.destroy
+    @new.save
+  end 
+
+
+# this intended to verify the idNumber of the user by the admin and update database colum by 0 (fasle).  
+# Author: Mariam S. elSandy.
+
+  def   self.update_unverify(user_id)
+    @user=Users.find(user_id)
+    @new=Users.new
+    @new.id=@user.id
+    @new.email=@user.email
+    @new.encrypted_password=@user.encrypted_password
+    @new.username=@user.username
+    @new.admin=@user.admin
+    @new.creditCard=@user.creditCard
+    @new.mobileNumber=@user.mobileNumber
+    @new.idNumber=@user.idNumber
+    @new.idVerify=false
+    @new.averageRating=@user.averageRating
+    @new.reset_password_token=@user.reset_password_token
+    @new.reset_password_sent_at=@user.reset_password_sent_at
+    @new.sign_in_count=@user.sign_in_count
+    @user.destroy
+    @new.save
+  end
+
+
+# this intended to list the idNumbers and usersname that isnot varified by the admin yet . 
+# input: 
+# output: list of idNumbers and username.
+# Author: Mariam S. elSandy 
+
+  def  self.verify_id
+    @user = Users.find(:all, :conditions => "users.idVerify IS NULL")
+  end
+end
 
