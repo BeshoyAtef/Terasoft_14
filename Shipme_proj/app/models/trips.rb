@@ -1,6 +1,6 @@
 class Trips < ActiveRecord::Base
 	belongs_to :users
-	
+	require "will_paginate/array"
 
   	# this method is showing all my trips.
   	# Input :user_id:Integer.
@@ -61,14 +61,26 @@ class Trips < ActiveRecord::Base
     @trips = Trips.find( :all )
   end
 
+
+  #This method separates each trip in the view in a single page.
+  #Input : user_id and page -int.
+  #Author : Salah K.Zalat.
+
+  def  self.get_trips(user_id,page)
+    @trips=Trips.find(:all , :conditions => {:users_id => user_id})
+    @trips=@trips.paginate(:page => page, :per_page => 1)
+  end
+
    # this method is deleting the selected trip.
    # Input :trip_id:Integer.
    # Author : Hagar E. Aly
+
 
  def self.delete_trip(trip_id)
   #@trip = Trips.find (:all )
   @trip= Trips.find(trip_id)
   @trip.destroy
  end
+
 
 end

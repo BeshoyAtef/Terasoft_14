@@ -136,6 +136,15 @@ class Users < ActiveRecord::Base
     end
 
 
+  #This method finds users.
+  #Input: user_id - int.
+  #Author: Salah K.Zalat.
+
+  def self.get_profile(user_id)
+   @user=Users.find(:all,:conditions => {:id => user_id})
+  end
+
+
 # this intended to verify the idNumber of the user by the admin and update database colum by 1 (true). 
 # Author: Mariam S. elSandy.
 
@@ -193,14 +202,4 @@ class Users < ActiveRecord::Base
     @user = Users.find(:all, :conditions => "users.idVerify IS NULL")
   end
 end
-  
-
-
- 
-
-
-
-
-
- 
 

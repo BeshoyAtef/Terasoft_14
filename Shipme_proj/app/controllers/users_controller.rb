@@ -70,7 +70,15 @@ class UsersController < ApplicationController
     @packages = Packages.find(:all , :conditions => { :id => $package_id})
   end
 
-  def show
+
+  #This method shows users with the given id and the trips with the given id.
+  #Input : user_id - int.
+  #Author: Salah K.Zalat.
+
+  def  show
+    $user_id=params[:id]
+    @user=Users.get_profile($user_id)
+    @trip=Trips.get_trips($user_id,params[:page])
   end
 
   def delete
