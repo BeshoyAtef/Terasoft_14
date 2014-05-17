@@ -233,4 +233,12 @@ require 'will_paginate/array'
     return @packages
   end 
 
+  #This method search for a certain package using the ID.  
+  #package_id - Integer.
+  #Author: Abdelrahaman Y. Seoudy.
+
+  def  self.find_package(package_id)
+     @package = Packages.find(package_id)
+  end 
+
 end
