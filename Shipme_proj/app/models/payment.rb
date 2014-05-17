@@ -19,4 +19,13 @@ class Payment < ActiveRecord::Base
 	def  self.get_payments_credit( user_id )
 		@amount = Payment.find( :all, :conditions => {:users_id => user_id} )
 	end
+	
+
+	#This method gives the payment controller a user id.
+	#user_id - Integer.
+	#Author:Abdelrahman Y. Seoudy. 
+
+	def  self.find_payments(user_id)
+        @payments = Payment.find(:all,:conditions => {:users_id => user_id})
+    end
 end
