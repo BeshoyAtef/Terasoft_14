@@ -201,5 +201,15 @@ class Users < ActiveRecord::Base
   def  self.verify_id
     @user = Users.find(:all, :conditions => "users.idVerify IS NULL")
   end
+
+
+  #This method count number of rows in table users.
+  #@users-int.
+  #Author: Ahmed T. Mohamed.
+
+  def self.counter
+    @users = Users.count
+    return @users
+  end
 end
 
