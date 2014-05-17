@@ -22,4 +22,17 @@ describe Users do
     non_password_user = User.new(encrypted_password: 'whatever')
     expect(non_password_user).to_not be_valid
   end
+
+it "is vaild when it list the ids equal to null" do
+smith = Users.new(username: 'smith', encrypted_password: '1221212',
+email: 'jsmith@example.com', mobileNumber: '112222', admin: 'null' , idNumber: '12234455', idVerify: 'null', averageRating: '122', creditCard: '122', creditCardNumber: '1333333333')
+samo = Users.new(username: 'smith', encrypted_password: '1221212',
+email: 'jsmith@example.com', mobileNumber: '112222', admin: 'null' , idNumber: '156', idVerify: 'null', averageRating: '122', creditCard: '122', creditCardNumber: '1333333333')
+lolo = Users.new(username: 'smith', encrypted_password: '1221212',
+email: 'jsmith@example.com', mobileNumber: '112222', admin: 'null' , idNumber: '156', idVerify: 'false', averageRating: '122', creditCard: '122', creditCardNumber: '1333333333')
+koko = Users.new(username: 'smith', encrypted_password: '1221212',
+email: 'jsmith@example.com', mobileNumber: '112222', admin: 'null' , idNumber: '12234455', idVerify: 'true', averageRating: '122', creditCard: '122', creditCardNumber: '1333333333')
+expect(Users.verify_id) == [12234455,156]
+end
+
 end
