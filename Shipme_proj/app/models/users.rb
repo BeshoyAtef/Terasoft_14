@@ -138,7 +138,7 @@ class Users < ActiveRecord::Base
 
   #This method count number of rows in table users.
   #@users - int.
-  #Author: Ahmed T. Mohamed.
+  #Author: Ahmed T. Mohamed. 
 
   def self.counter
     @users = Users.count

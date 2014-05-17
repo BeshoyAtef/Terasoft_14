@@ -30,7 +30,7 @@ class AdminController < ApplicationController
 
 
   #This method calls the method counter in Users model.
-  #@users - int.
+  #@users -int.
   #Author : Ahmed T. Mohamed.
 
   def show
