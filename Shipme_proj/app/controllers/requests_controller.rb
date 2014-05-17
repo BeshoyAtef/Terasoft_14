@@ -40,6 +40,7 @@ class RequestsController < ApplicationController
  #input: params[:pid] , params[:cid] , cookies[user_id] - integer.
  #output: number of packages - integer.
  #Author: Manar A. Eltayeb.
+ 
   def createhelper
     @requests_counter = Requests.find( :all, :conditions => { :packages_id => params[:pid]} ).count
   end
