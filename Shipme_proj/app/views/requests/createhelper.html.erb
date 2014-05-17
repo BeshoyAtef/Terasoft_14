@@ -1,0 +1,21 @@
+<!--This view is intended to show the user the HTML page of the send request. -->
+<!--Author:Manar A.Eltayeb.-->
+
+<% if @requests_counter < 3%>
+<h2>
+<font color="blue">
+ Are you sure you want to send request ?
+<form action="create" >
+<input type=hidden value=<%=params[ :pid ]%> name="pid" >
+<input type=hidden value=<%=params[ :cid ]%> name="cid">
+<input type=hidden value=<%=cookies[ :user_id ]%> name="user_id">
+<input type = submit value= "send">
+</form>
+ <%else %>
+<font color="blue">
+
+you cannot send requests
+
+<%end%>
+
+</font>

@@ -112,12 +112,30 @@ class PackagesController < ApplicationController
 
   def destory
   end
+  
 
+  #This method calls the method update_package_finaldelivery.
+  #This method confirm the package by the sender.
+  #Author: Ahmed H. Nasser.
+  
   def confirm_delivery
-  end  
+    package = Packages.find_by_id(params[:pid])
+    package.update(:finalDelivery => 1) 
+    redirect_to :controller => 'packages', :action => 'rating', :pid => params[:pid]
+  end
+  
+
+  #This method calls the method confirm_finalDelivery.
+  #This method returns all the packages still waiting for confirmation.
+  #Author: Ahmed H. Nasser.
+  
+  def confirm_finaldelivery
+    @con=Packages.confirm_finaldelivery(cookies[:user_id])
+  end
+  
 
   #This method calls the method update_package from the model.
-  #This method confirms the package by the carrier
+  #This method confirms the package by the carrier.
   #Author: Ahmed H. Nasser.
   
   def  confirm
@@ -131,5 +149,24 @@ class PackagesController < ApplicationController
  
   def  list_takingpackage
     @con=Packages.confirm_package(cookies[:user_id]) 
+  end
+
+
+  #This method is to get the rating of a package.
+  #input: package id.
+  #Author: Rana T. Labib.
+
+  def rating
+    @packages = Packages.find(params[:pid])
+  end
+
+
+  #This method is to update the package and insert the carrier's rating.
+  #Input: user(sender) id and package id.
+  #Author: Rana T. Labib.
+
+  def update_rating
+    @packages = Packages.find(params[:pid])
+    @packages.update(:rating => params[:rate])
   end
 end

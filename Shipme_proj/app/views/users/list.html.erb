@@ -1,2 +1,32 @@
-<h1>Users#list</h1>
-<p>Find me in app/views/users/list.html.erb</p>
+<!--This view is intended to show the user the list of carriers to the users.-->
+<!--Author: Manar A. Eltayeb. -->
+<p> <html>
+<body>
+
+<tr>
+<td colspan="2" style="background-color:#ffffff;">
+
+<h3 class="title-2">List matching carriers: </h3></p>
+
+        <%@packages.each do |p|%>
+	    <%@trip.each do |trip|%>
+	        <%if p.destination == trip.destination && trip.maxWeight >= p.weight && trip.travelDate <=p.expiryDate  %>
+				<%@users.each do |user| %>
+					<%if trip.users_id == user.id%>
+						<h2><%= user.username%>
+						<a href="../requests/createhelper?cid=<%=user.id%>&pid=<%=$package_id%>" > <input type=submit value="send">  </a>
+						</h2>
+						<br>
+ 					<%end%>
+                     
+ 				 <%end%>
+ 			<%end%>
+
+		<%end%>
+
+  <%end%>
+
+
+ 
+
+

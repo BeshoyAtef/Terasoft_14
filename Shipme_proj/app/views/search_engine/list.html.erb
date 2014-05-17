@@ -1,0 +1,12 @@
+<h3 class="title-2">&nbsp&nbsp Your Search Results</h3>
+<br>
+<br>
+
+	<% @all_users.each do |g|%>
+	
+		<a href = "../users/show?id=<%= g.id %> ">  &nbsp  &nbsp  <%= g.username%> </a>
+		<br>
+		<br>
+		<br>
+	<%end%>
+<br>

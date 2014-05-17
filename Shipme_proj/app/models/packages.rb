@@ -1,18 +1,18 @@
 class Packages < ActiveRecord::Base
-require 'will_paginate/array'
+#require 'will_paginate'
 
 	belongs_to :sender, :class_name => "Users"
 	belongs_to :carrier, :class_name => "Users"
 	has_many :payment
 	has_one :reports
 	has_many :requests
-  validates :origin, presence: true
-  validates :destination, presence: true
-  validates :packageValue, presence: true
-  validates :carryingPrice, presence: true
-  validates :receiverAddress, presence:true
-  validates :receiverMobNumber, presence:true
-  validates :weight, presence: true
+  #validates :origin, presence: true
+  #validates :destination, presence: true
+  #validates :packageValue, presence: true
+  #validates :carryingPrice, presence: true
+  #validates :receiverAddress, presence:true
+  #validates :receiverMobNumber, presence:true
+  #validates :weight, presence: true
 
 
     #This method is called by method list in the controller.
@@ -233,4 +233,51 @@ require 'will_paginate/array'
     return @packages
   end 
 
+  
+  #This method checks the attributes of packages and set the receivedByCarrier to true to confirm taking the package.
+  #description - string, expiryDate - date, destination - string, origin - string, receiverAddress - string, receiverMobNumber - integer,       receiverEmail - string, receivedByCarrier - boolean, finalDelivery - boolean, weight - float, type - string, carryingPrice - float, packageValue - float, rating - float, senders_id - integer.
+  #This method confirms the package by the carrier
+  #Author: Ahmed H. Nasser.
+
+  def self.update_package_finaldelivery(package_id)
+    @comp = Packages.find(package_id)
+    @new = Packages.new
+    @new.id = @comp.id
+    @new.description = @comp.description
+    @new.expiryDate = @comp.expiryDate
+    @new.destination = @comp.destination
+    @new.origin = @comp.origin
+    @new.receiverAddress = @comp.receiverAddress
+    @new.receiverMobNumber = @comp.receiverMobNumber
+    @new.receiverEmail = @comp.receiverEmail
+    @new.finalDelivery = true
+    @new.weight = @comp.weight
+    @new.carryingPrice = @comp.carryingPrice
+    @new.packageValue = @comp.packageValue
+    @new.rating = @comp.rating
+    @new.senders_id = @comp.senders_id
+    @new.receivedByCarrier = true
+    @comp.destroy
+    @new.save
+  end
+   
+
+  #This method checks if the logged in user is the same as the senders_id and the finaldelivery should be still false to show all the pending packages to be confirmed.
+  #senders_id - integer, finalDelivery - boolean.
+  #This method returns all the packges still waiting for confirmation.
+  #Author: Ahmed H. Nasser.
+  
+  def self.confirm_finaldelivery(user_id)
+    @con = Packages.find( :all , :conditions => [ ' senders_id = ? AND finalDelivery = ? ' , user_id , false ] )
+  end
+
+  #This method is counting the shipments done.
+  #Returns: @package_count-int.
+  #Author:  Rana M. Elberishy.
+  
+  def  self.generate_shipments_graph
+    @packages = Packages.find( :all, :conditions => {:finalDelivery => true} )
+    @packages_months = @packages.group_by { |package| package.created_at}
+    @package_count = @packages_months.count
+  end
 end

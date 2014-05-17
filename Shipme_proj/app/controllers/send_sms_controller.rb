@@ -6,7 +6,7 @@ require 'twilio-ruby'
   #Returns: sends a sms.
   #Author: Omar A. Abdel-fatah.
 
-  def  send_sms( number,text )
+  def self.send_sms( number,text )
     account_sid = "AC9ec4b58090b478bc49c58aa6f3644cc7"
     auth_token = "79ba8ebb0bf8377302f735f853cd7006"
     client = Twilio::REST::Client.new account_sid, auth_token

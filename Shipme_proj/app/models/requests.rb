@@ -172,5 +172,32 @@ class Requests < ActiveRecord::Base
     end
      
     end  
+
+
+  #This method is inserting the request sent by the user in the database.
+  #carrier_id , sender_id , package_id - integer.
+  #Author:Manar A. Eltayeb.
+
+  def self.send_requests ( carrier_id , sender_id , package_id )
+    @requests_count = Requests.find( :all, :conditions => { :packages_id => package_id} ).count
+    @already = Requests.where(carriers_id: carrier_id , packages_id: package_id ).exists?
+    if(@requests_count < 3 && @already == false)
+      request = Requests.new
+      request.carriers_id = carrier_id
+      request.senders_id= sender_id
+      request.packages_id = package_id
+      request.accept = nil
+      request.save
+    end
+  end
+
+
+  #This method is counting the number of requests sent on a certain package.
+  #Input:packages_id - integer.
+  #Return:@request_counter - integer.
+  #Author:Manar A. Eltayeb.
+
+  def self.count_requests ( packages_id )
+    @requests_counter = Requests.find( :all, :conditions => { :packages_id => packages_id} ).count 
   end
 end
