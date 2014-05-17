@@ -88,4 +88,13 @@ it "only returns the packages the two users have in common,
   expect(package_test).to_not include @package1
   
 end
+
+#Author: Ahmed H.Nasser
+it "Returns the package if only the user id is equal to sender id and final delivery is false" do
+@user = Users.new(username:'ahmed',encrypted_password:'1234')
+@package1 = Packages.new(finalDelivery: false,senders_id: @user.id)
+@package2 = Packages.new(finalDelivery: false,senders_id: '10')
+package_test = Packages.confirm_finaldelivery(@user.id)
+expect(package_test).to_not include @package2
+end
 end
