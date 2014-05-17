@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
   end
 
 
-   #This method to check the creditcard amount to withdraw pack value from it and to update table payments.
+  #This method to check the creditcard amount to withdraw pack value from it and to update table payments.
   #Inputs: creditcard int , carryingprice int , id int , packvalue int. 
   #Outputs: id int , value_payments int , amountWithdraw int.
   #Author : Mario M. Wadiee.
@@ -20,12 +20,11 @@ class PaymentsController < ApplicationController
   def update
     sid = params[:sid]
     cid = params[:cid]
-     @pack.to_a.each do|p|
+    @pack.to_a.each do|p|
     @p = Packages.get_packages_payments(sid,cid)
     @sender = Users.get_sender_payments(sid)
     @carry = Users.get_carrier_payments(cid)
     @sender.to_a.each do|s| 
-     
     if (s.creditCard - ( @p.carryingPrice * Configurations.find(:all).last().comission)) < 0
       @salout = "your sender credit card balance is not enough"
       redirect_to :action => 'notify', :salout => @salout
@@ -33,16 +32,16 @@ class PaymentsController < ApplicationController
     else
       @saleout2 = "your credit card is accepted"
       redirect_to :action => 'withdraw', :salout => @salout2
-  end
-    @carry.to_a.each do|c|
+    end
+      @carry.to_a.each do|c|
     
     if c.creditCard - p.packageValue<0
        @salout = "your carrier credit card balance is not enough" 
        redirect_to :action => 'notify', :salout => @salout 
        return
        else
-      @saleout2 = "your credit card is accepted"
-      redirect_to :action => 'withdraw', :salout => @salout2
+       @saleout2 = "your credit card is accepted"
+       redirect_to :action => 'withdraw', :salout => @salout2
     end
     @value = s.creditCard - ( p.carryingPrice * Configurations.find(:all).last().comission)
     Users.update_creditcard(@sender,@value)
@@ -61,7 +60,6 @@ class PaymentsController < ApplicationController
     @carry.save
   end
   end
-  
   end
 
   def list
