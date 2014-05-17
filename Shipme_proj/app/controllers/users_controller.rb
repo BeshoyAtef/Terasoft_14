@@ -8,7 +8,45 @@ class UsersController < ApplicationController
   def create
   end
 
+
+  #This method checks if enetered data is an integer.
+  #input: no.
+  #output: no.
+  #Author : Mohamed A.Gheith.
+
+  def is_numeric?(obj) 
+   obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
+  end
+
+
+   #This method updates entered data from text field into database.
+   #input : Credicard number -Integer, Mobile number -Integer , Password -string.
+   #Returns data updated in database.
+   #Author : Mohamed A.Gheith.
+
   def edit
+
+    @edit = Users.find(cookies[ :user_id ])
+    @e = Users.find(cookies[ :user_id ])
+      if params[ :password ].present?
+        @e.update( :encrypted_password => params[ :password ])
+      end 
+      if params[ :creditcard ].present? 
+        @e.update( :creditCardNumber => params[ :creditcard ])
+      end
+      if params[ :mobilenumber ].present? 
+        @e.update( :mobileNumber => params[ :mobilenumber ])
+      end
+      if params[ :password ]!=params[ :confirmPassword ]
+        flash[ :notice ] ="password doesn't match"
+        redirect_to( :action => index)
+      elsif (is_numeric?(params[ :creditcard])==false && params[:creditcard].present?) 
+        flash[ :notice ] ="please enter a number in the credit number"
+        redirect_to( :action => index)
+       elsif (is_numeric?(params[:mobilenumber])==false &&  params[:mobilenumber].present?)
+         flash[ :notice ] ="please enter a number in the mobile number"
+        redirect_to( :action => index )
+      end 
   end
 
 

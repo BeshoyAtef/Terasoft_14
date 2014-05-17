@@ -104,5 +104,36 @@ class Users < ActiveRecord::Base
     def  self.trips_find
       @trips = Trips.find( :all )
     end
+
+
+  #This method takes user id and updates his password.
+  #Input : Password-String.
+  #Output : Saves new data in database.
+  #Author : Mohamed A.Gheith.
+
+  def self.UpdatePass(user,password)
+    user.update( :password => password )
+  end 
+
+
+  #This method takes user id and updates his CreditCard.
+  #Input : creditCard-Integer.
+  #Output : Saves new data in database.
+  #Author : Mohamed A.Gheith.
+
+  def self.UpdateCredit(user,creditCard )
+    user.update( :creditCardNumber => creditcard )
+    end
+
+
+  #This method takes user id and updates his Mobile number.
+  #Input : mobileNumber-Integer.
+  #Output : Saves new data in database.
+  #Author : Mohamed A.Gheith.
+
+    def self.UpdateMobile(user,mobileNumber)
+      user.update( :mobileNumber=> mobileNumber )
+    end
+
  end
 
