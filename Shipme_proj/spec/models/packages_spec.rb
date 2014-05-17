@@ -98,7 +98,7 @@ package_test = Packages.confirm_finaldelivery(@user.id)
 expect(package_test).to_not include @package2
 end
 
-#Author: Rana M.Elbrishy
+#Author: Rana M.Elbrishy.
 it "should count the packages per month " do 
   package = Packages.new(description: "laptop", finalDelivery: 'true')
   package = Packages.new(description: "pens", finalDelivery: 'true')
