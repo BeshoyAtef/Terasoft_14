@@ -1,5 +1,13 @@
 ShipmeProj::Application.routes.draw do
   #new routes
+  get "requests/show_package" 
+  get "requests/accept"
+  get "requests/reject"
+  get "requests/show" 
+  get "requests/cancel"
+  post "requests/cancel" 
+  post "requests/accept" 
+  post "requests/reject"
   get "packages/list_takingpackage"
   get "requests/createhelper"
   get "send_sms/send_sms"

@@ -50,9 +50,6 @@ class Users < ActiveRecord::Base
     @user.save
     end
   end
- end
- end
-
 
   #This methods should get users where id is verified or not
   #Inputs: cookies[:user_id]-int
