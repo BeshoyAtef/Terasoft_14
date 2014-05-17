@@ -16,6 +16,10 @@ class Users < ActiveRecord::Base
 	has_many :receivers, :through => :messages
 
 
+
+    def self.search_users_with_same_name(username)
+      @users_with_same_name=Users.find(:all, :conditions => ['username LIKE ?', "#{username}%"])
+    end
 #The method is saving the input to the database
 #Input: username string- email string- encrypted password string- mobilenumber int
 #Return: When the signup is true it redirects me to a sucessfully signup
@@ -39,6 +43,16 @@ class Users < ActiveRecord::Base
   end	
 
 
+#This method gets all users with a certain name.
+#username - string.
+#Returns users_with_same_name - array.
+#Author Madeleine A. Saad.
+
+    def self.search_users_with_same_name(username)
+      @users_with_same_name=Users.find(:all, :conditions => ['username LIKE ?', "#{username}%"])
+    end
+
+    
 #This method is intended to insert the inforamation that is added by the user. 
 #Input:mobileNumber,idNumber,Creditcard-integer.  
 #Author: Mariam S. elSandy.
