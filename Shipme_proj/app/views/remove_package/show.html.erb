@@ -1,0 +1,64 @@
+<html>
+<body>
+
+<table width="500">
+<tr>
+<td colspan="2" style="background-color:#FFA500;">
+<h1>List of all packages</h1>
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @package.destination %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @package.description %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @package.weight %>
+</p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @package.origin %>
+</p>
+
+<p>
+  <strong>Expiry date:</strong>
+  <%= @package.expiryDate %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @packageValue %>
+</p>
+
+<p>
+  <strong>Receiveraddress:</strong>
+  <%= @package.receiverAddress %>
+</p>
+
+<p>
+  <strong>Receivermobile:</strong>
+  <%= @package.receiverMobNumber %>
+</p>
+
+<p>
+  <strong>Receivermail:</strong>
+  <%= @package.receiverEmail %>
+</p>
+
+
+</td>
+</tr>
+</table>
+<%=form_for(:package, :url => {:action => 'deletepackage'}) do |f| %>
+<p>Are you sure you want to delete this package?</p>
+<%= f.submit "Delete" %>
+<%end%>
