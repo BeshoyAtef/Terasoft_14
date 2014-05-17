@@ -213,3 +213,8 @@ class Users < ActiveRecord::Base
   end
 end
 
+  def self.get_user(user_id)
+    Users.find( :all, :conditions => {:id => user_id } )
+  end  
+
+end
