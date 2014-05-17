@@ -10,7 +10,7 @@
 
         <%@packages.each do |p|%>
 	    <%@trip.each do |trip|%>
-	        <%if p.destination == trip.destination && trip.maxWeight >= p.weight && trip.travelDate <=p.expiryDate && p.origin == trip.location %>
+	        <%if p.destination == trip.destination && trip.maxWeight >= p.weight && trip.travelDate <=p.expiryDate  %>
 				<%@users.each do |user| %>
 					<%if trip.users_id == user.id%>
 						<h2><%= user.username%>
