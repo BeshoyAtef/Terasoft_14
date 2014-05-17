@@ -128,9 +128,9 @@
     <!-- Second Level / Start -->
     <ul>
       <li><a href="../users/index">Search Profile</a></li>
-      <li><a href="../users/show">My profile</a></li>
+      <li><a href="../users/show?id= <%= cookies[:user_id] %>"> My profile</a></li>
       <li><a href="../users/update">Complete profile</a></li>
-      <li><a href="../users/edit">Edit profile</a></li>
+      <li><a href="../users/index">Edit profile</a></li>
       <li><a href="../notifications/list"> My Notifications</a></li>
       <li><a href="../requests/list"> My Requests</a></li>
     </ul>
