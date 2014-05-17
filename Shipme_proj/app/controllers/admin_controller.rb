@@ -54,4 +54,13 @@ class AdminController < ApplicationController
   def  update1
     Users.update_unverify(params[:id])
   end
+
+
+  #This method is listing the packages done per month through pages.
+  #Returns: @package_count-int for graph.
+  #Author:  Rana M. Elberishy.
+  
+  def  chart
+    @package_count = Packages.generate_shipments_graph
+  end
 end
