@@ -17,9 +17,6 @@ class Users < ActiveRecord::Base
 
 
 
-    def self.search_users_with_same_name(username)
-      @users_with_same_name=Users.find(:all, :conditions => ['username LIKE ?', "#{username}%"])
-    end
 #The method is saving the input to the database
 #Input: username string- email string- encrypted password string- mobilenumber int
 #Return: When the signup is true it redirects me to a sucessfully signup
