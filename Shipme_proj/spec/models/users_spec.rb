@@ -22,4 +22,15 @@ describe Users do
     non_password_user = User.new(encrypted_password: 'whatever')
     expect(non_password_user).to_not be_valid
   end
+
+  #Author: Salah K.Zalat.
+
+  it "checks the user ID logged in equal to the user ID being showed in the profile page" do
+  @user1 = Users.new(username: 'salah')
+  @user2 = Users.new(username: 'rehab')
+  profile = Users.get_profile(@user1.id)
+  @s = @user1.username
+  
+  expect(@user1.username).to eq @s
+ end
 end

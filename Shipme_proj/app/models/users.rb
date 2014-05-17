@@ -135,5 +135,14 @@ class Users < ActiveRecord::Base
       user.update( :mobileNumber=> mobileNumber )
     end
 
+
+  #This method finds users.
+  #Input: user_id - int.
+  #Author: Salah K.Zalat.
+
+  def self.get_profile(user_id)
+   @user=Users.find(:all,:conditions => {:id => user_id})
+  end
+
  end
 

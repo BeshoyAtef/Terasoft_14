@@ -1,6 +1,6 @@
 class Trips < ActiveRecord::Base
 	belongs_to :users
-	
+	require "will_paginate/array"
 
   	# this method is showing all my trips.
   	# Input :user_id:Integer.
@@ -59,6 +59,16 @@ class Trips < ActiveRecord::Base
 
   def  self.get_all_trips( user_id )
     @trips = Trips.find( :all )
+  end
+
+
+  #This method separates each trip in the view in a single page.
+  #Input : user_id and page -int.
+  #Author : Salah K.Zalat.
+
+  def  self.get_trips(user_id,page)
+    @trips=Trips.find(:all , :conditions => {:users_id => user_id})
+    @trips=@trips.paginate(:page => page, :per_page => 1)
   end
 
 end
