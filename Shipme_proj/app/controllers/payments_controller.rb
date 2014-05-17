@@ -17,10 +17,10 @@ class PaymentsController < ApplicationController
   #Outputs: id int , value_payments int , amountWithdraw int.
   #Author : Mario M. Wadiee.
 
-  def update
-    sid = params[:sid]
-    cid = params[:cid]
-     @pack.to_a.each do|p|
+  def  update
+     sid = params[:sid]
+     cid = params[:cid]
+    @pack.to_a.each do|p|
     @p = Packages.get_packages_payments(sid,cid)
     @sender = Users.get_sender_payments(sid)
     @carry = Users.get_carrier_payments(cid)
