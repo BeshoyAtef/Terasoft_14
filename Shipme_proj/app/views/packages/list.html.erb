@@ -1,5 +1,11 @@
  <!--This view is intended to show all created packages ny the logged in user with show delete edit hyper links to make the user able to see or edit or delete his package.-->
  <!--Author: Ahmed M. Samouka. -->
+<% if !flash[:notice].blank? %>
+  <div class = "notice">
+    <h3 class ="title-2"><%= flash[:notice] %></h3>
+  </div>
+<% end %>
+
 <h3 class="title-2" > My Packages </h3>
 <html>
 <head>

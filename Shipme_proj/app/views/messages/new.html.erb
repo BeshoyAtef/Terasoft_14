@@ -1,2 +1,23 @@
-<h1>Messages#new</h1>
-<p>Find me in app/views/messages/new.html.erb</p>
+<!--This view is intended to allow users to send new messages, by entering the username and the description of the message.-->
+<!--Author: Rehab A. ELShahawy. -->
+
+<%if !flash[:notice].blank?%>
+	<div class="notice">
+	<%= flash[:notice]%>
+<%end%>	
+<form action="create">
+<input type="hidden" value= <%= cookies[ :user_id ]%> name="id">
+<h3 class="title-2"> Send to: </h3>   <input type="text" name="username">
+<br>
+<br>
+<h3 class="title-1"> Type your message here: </h3>
+<br><TEXTAREA Name="text" ROWS=10 COLS=35></TEXTAREA>
+<br>
+<br>
+<br>
+<input name="send" type="submit" value="Send">
+<br>
+<br>
+</form>
+
+
