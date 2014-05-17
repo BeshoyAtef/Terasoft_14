@@ -132,4 +132,33 @@ class PackagesController < ApplicationController
   def  list_takingpackage
     @con=Packages.confirm_package(cookies[:user_id]) 
   end
+
+
+  # This method is to get the rating of a package.
+  # input: package id.
+  # Author: Rana T. Labib.
+
+  def rating
+    @packages = Packages.find(params[:pid])
+  end
+
+
+  # This method is to update the package and insert the carrier's rating.
+  # Input: user(sender) id and package id.
+  # Author: Rana T. Labib.
+
+  def update_rating
+    @packages = Packages.find(params[:pid])
+    @packages.update(:rating => params[:rate])
+  end
+
+  def confirm_delivery
+    package = Packages.find_by_id(params[:pid])
+    package.update(:finalDelivery => 1) 
+    redirect_to :controller => 'packages', :action => 'rating', :pid => params[:pid]
+  end
+
+  def confirm_finaldelivery
+    @con=Packages.confirm_finaldelivery(cookies[:user_id])
+  end
 end
