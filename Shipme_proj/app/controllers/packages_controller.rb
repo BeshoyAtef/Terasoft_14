@@ -106,28 +106,34 @@ class PackagesController < ApplicationController
   def show
     @pack = Packages.find( params[ :id ] ) 
   end
+
+  def delete
+  end
+
+  def destory
+  end
   
 
-  #This method finds all the packages by calling method (find_packages) in the model by passing the parameter  
-  #package_id - Integer.
-  #Author: Abdelrahaman Y. Seoudy.
-
-  def  delete
-    @package = Packages.find_package(params[:id])
-  end
-
-  def  destory
-    @package = Packages.find_package(params[:id])
-    @package.destroy
-    flash[:notice] = "package Deleted successfully"
-    redirect_to(:action => 'list')
-  end
-
+  #This method calls the method update_package_finaldelivery.
+  #This method confirm the package by the sender.
+  #Author: Ahmed H. Nasser.
+  
   def confirm_delivery
-  end  
+    Packages.update_package_finaldelivery(params[:id])
+  end
+  
+
+  #This method calls the method confirm_finalDelivery.
+  #This method returns all the packages still waiting for confirmation.
+  #Author: Ahmed H. Nasser.
+  
+  def confirm_finaldelivery
+    @con=Packages.confirm_finaldelivery(cookies[:user_id])
+  end
+  
 
   #This method calls the method update_package from the model.
-  #This method confirms the package by the carrier
+  #This method confirms the package by the carrier.
   #Author: Ahmed H. Nasser.
   
   def  confirm
@@ -142,4 +148,5 @@ class PackagesController < ApplicationController
   def  list_takingpackage
     @con=Packages.confirm_package(cookies[:user_id]) 
   end
+
 end
