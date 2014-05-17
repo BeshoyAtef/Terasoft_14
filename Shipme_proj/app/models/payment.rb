@@ -26,9 +26,9 @@ class Payment < ActiveRecord::Base
   #output :amountWithdraw int.
   #Author : Mario M. wadiee.
 
-	def self.update(payment,value,user_id,withdraw)
-		Payment.find( :all, :conditions => :amountWithdraw => withdraw)
-		payment.amountWithdraw => value)
-		payment.users_id => user_id)        
+  def  self.update(payment,value,user_id,withdraw)
+    Payment.find( :all, :conditions => :amountWithdraw => withdraw)
+    payment.amountWithdraw => value)
+    payment.users_id => user_id)        
 	end
 end
