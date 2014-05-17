@@ -1,2 +1,13 @@
-<h1>Notifications#list</h1>
-<p>Find me in app/views/notifications/list.html.erb</p>
+<!--This page is for viewing the notification page. -->
+<!--Author: Youssef S.Barakat -->
+<h1>Notifications</h1>
+
+<%@notifications.each do |notification|%>
+<li>
+	<%= notification.description%>
+</li>
+
+
+
+
+<%end%>

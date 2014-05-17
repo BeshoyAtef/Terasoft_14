@@ -1,2 +1,30 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+ <!-- This view  intends to show  trips of a user-->
+<!-- Author: Hagar E. Aly -->
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="trip show">
+
+ <h3 class ="title-2">Trips</h3>
+
+
+  <table summary="Trip detail view">
+    <tr>
+      <th align="left">Destination:</th>
+      <td><%= @trip.destination%></td>
+    </tr>
+    <tr>
+      <th align="left">Location:</th>
+      <td><%= @trip.location %></td>
+    </tr>
+    <tr>
+      <th align="left">Weight:</th>
+      <td><%= @trip.maxWeight %></td>
+    </tr>
+    <tr>
+      <th align="left">Travelling Date:</th>
+      <td><%= @trip.travelDate %></td>
+    </tr>
+  </table>
+
+

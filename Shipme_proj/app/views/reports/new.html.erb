@@ -1,2 +1,49 @@
-<h1>Reports#new</h1>
-<p>Find me in app/views/reports/new.html.erb</p>
+<h3 class="title-2"> Reports </h3>
+ 
+ <!--This view is intended to add a text field for reports and a text field to the package no and a button to submit reports the javascript handles empty spaces. -->
+ <!-- Author : Mohamed A.Gheith.-->
+
+<head>
+ <script>
+ function checkrequired(which){
+var pass=true
+		if (document.images){
+			for (i=0;i<which.length;i++){
+				var tempobj=which.elements[i]
+					if (tempobj.name.substring(0,8)=="required"){
+						if (((tempobj.type=="text"||tempobj.type=="textarea")&&tempobj.value=='')||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+					pass=false
+				break
+			}
+		}
+	}
+}
+	if (!pass){
+		alert("One or more of the required elements are not completed. Please complete them, then submit again!")
+		return false
+	}
+	else
+		return true
+	}
+</script>
+
+</head><body>
+<%#=@all%>
+<form onSubmit="return checkrequired(this)" action= "create" >
+<form  action= 'create' >
+<!--Package Number: <input type="text" name="requiredPackageNo"><br>-->
+Package:
+<select name="requiredPackageNo">
+<% @packages.each do |package| %>
+<option value="<%= package.id %>"><%= package.id %></option>
+<% end %>
+</select>
+Reported Name: <input type="text" name="requiredname"><br>
+Report: <br><TEXTAREA Name="requiredReport" ROWS=10 COLS=35></TEXTAREA><br>
+<input type="submit" value="Submit Report"> 
+<br>
+<br>
+</body>
+</form> 
+
+

@@ -1,8 +1,9 @@
 class AdminController < ApplicationController
-  
+
   require 'rubygems'
-  require 'googlecharts'
-  require 'gchart'
+  #require 'googlecharts'
+  #require 'gchart'
+  require 'will_paginate/array'
 
   def index
     render layout: false
@@ -20,25 +21,31 @@ class AdminController < ApplicationController
   def update
     
   end
+  
+
+   #This method is listing the packages done per month through pages.
+   #amount - page
+   #Returns array of packages done/month
+   #Author:  Rana M. Elberishy.
 
   def list
-  end
-  
-  def chart
-    @package_count = Packages.generate_shipments_graph
+    @packages = Packages.view_shipments_paginated( params[:page] )
     render layout: false
   end
-  
-  def show
-    @package_count = Packages.generate_shipments_graph
-    render layout: false
-  end
-    #Gchart.pie(:title => 'Shipments', :size => '400x200',:data => [10, 45, 45], :labels => ["April", "May", "June"] )
-  
-    #@gchart =Packages.pie_chart_for_shipments
-    #Packages.chart_data(params [:chart_data])
-  
 
+
+  #This method is listing the packages done per month through pages.
+  #Returns @package_count-int for graph.
+  #Author:  Rana M. Elberishy.
+  
+  def  chart
+    @package_count = Packages.generate_shipments_graph
+  end
+
+  def  show
+    
+  end   
+  
   def delete
   end
 

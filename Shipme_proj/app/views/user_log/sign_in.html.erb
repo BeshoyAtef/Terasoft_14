@@ -1,0 +1,30 @@
+<!--This view is intended to add button to sign in -->
+<!--Author: John W.Ghali -->
+<script>
+
+function checkrequired(which)
+{
+    for (i=0;i<which.length;i++)
+    {
+		if(which.elements[i].value.length == 0)
+		{
+				alert("One or more of the required elements are not completed. Please complete them, then sign in again!")
+				return false
+		}
+	}
+}
+</script>
+
+<form onSubmit="return checkrequired(this)"action='in'>
+
+Username: <input type ="text" name="username"><br>
+
+
+Password: <input type ="password" name="password"><br>
+
+<input type ='submit' value='sign in'>
+
+</form>
+
+<br><br><br><br>
+<h3><a href='sign_up'> Signup </a> | <a href='forget'> Forgot password </a> </h3>

@@ -1,2 +1,28 @@
-<h1>Packages#edit</h1>
-<p>Find me in app/views/packages/edit.html.erb</p>
+<!--This view is intended to add a a label 'Edit Package Details' and take the parameters for the new details as well as it sets some restrictions and popup messages to the user-->
+<!--Author: Youssef A. Saleh -->
+<% if !flash[:notice].blank? %>
+	<div class = "notice">
+	<h3 class ="title-2"><%= flash[:notice] %></h3>
+	</div>
+<% end %>
+ <t1 class="Edit packages">
+ <head>
+ </head>
+ <body>
+   <form onSubmit="checkrequired(this);" action= "update" >
+         Destination: <input type="text" name="required_destination"><br>
+		 Description: <input type="text" name="required_description"><br>
+		 Expiry Date: <input type="date" name="required_expirydate"><br>
+		 Weight: <input type="number" name="required_num_weight" min="1" max="10"><br>
+		 Value: <input type="number" name="required_num_value"><br>
+ 		 Carrying Price: <input type="number" name="required_num_price"><br>
+		 Receiver Address: <input type="text" name="required_address"><br>
+		 Receiver Mobile Number: <input type="text" name="required_num_mobile"><br>
+		 Receiver Email: <input type="text" name="required_email"><br>
+		 Origin: <input type="text" name="required_origin"><br>
+		 <input type=hidden value =<%=params[:id]%> name='id'>
+		 <input type="submit" value="Edit Package">
+	</form>
+
+ </body>
+ </t1>
