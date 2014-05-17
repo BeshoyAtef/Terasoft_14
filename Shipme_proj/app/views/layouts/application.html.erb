@@ -112,6 +112,8 @@
 
 
  <% if cookies[:user_id] != nil %>
+  <% @users=Users.find(cookies[:user_id]) %>
+  <% if @users.admin == nil %>
 <ul class="menu" id="responsive">
 
  <li><a href="../homepage/index"><i class="halflings white home"></i>Home</a>
@@ -127,10 +129,10 @@
 <li><a href="#"><i class="halflings white home"></i>Profile</a>
     <!-- Second Level / Start -->
     <ul>
-      <li><a href="../users/index">Search Profile</a></li>
-      <li><a href="../users/show">My profile</a></li>
+      <li><a href="../search_engine/index">Search Profile</a></li>
+      <li><a href="../users/show?id= <%= cookies[:user_id] %>"> My profile</a></li>
       <li><a href="../users/update">Complete profile</a></li>
-      <li><a href="../users/edit">Edit profile</a></li>
+      <li><a href="../users/index">Edit profile</a></li>
       <li><a href="../notifications/list"> My Notifications</a></li>
       <li><a href="../requests/list"> My Requests</a></li>
     </ul>
@@ -143,7 +145,7 @@
     <ul>
       <li><a href="../packages/list">My Packages</a></li>
         <li><a href="../packages/new">Add Pacakage</a></li>
-    
+        <li><a href="../packages/list_takingpackage">Confirm Taking Packages</a></li>
     </ul>
     <!-- Second Level / End -->
   </li>
@@ -172,6 +174,43 @@
 
 </ul>
 <% end %>
+<% if @users.admin==true %>
+<ul class="menu" id="responsive">
+
+<li><a href="#"><i class="halflings white pencil"></i>Statistics</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../admin/list">Shipments/month</a></li>
+      <li><a href="../payments/list">Revenues/month</a></li>
+      <li><a href="../admin/show">Users/month</a></li>
+    
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+  <li><a href="#"><i class="halflings white file"></i> Graphs</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../admin/chart">Shipments Graph</a></li>
+      <li><a href="../payments/edit">Revenues Graph</a></li>
+      <li><a href="../users/list">Users Graph</a></li>
+   
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+  <li><a href="../reports/index"><i class="halflings white pencil"></i> Claims</a>
+    <!-- Second Level / Start -->
+    <!-- Second Level / End -->
+  </li>
+  <li><a href="../admin/edit"><i class="halflings white pencil"></i> Verify Users National IDs</a></li>
+
+   <li><a href="../configurations/new"><i class="halflings white pencil"></i> Set Comission</a></li>
+
+   </ul>
+<% end %>
+<%end %>
 </nav>
 <div class="clearfix"></div>
 

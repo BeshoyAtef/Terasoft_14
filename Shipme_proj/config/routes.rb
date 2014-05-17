@@ -1,5 +1,19 @@
 ShipmeProj::Application.routes.draw do
   #new routes
+  get "requests/show_package" 
+  get "requests/accept"
+  get "requests/reject"
+  get "requests/show" 
+  get "requests/cancel"
+  post "requests/cancel" 
+  post "requests/accept" 
+  post "requests/reject"
+  get "packages/list_takingpackage"
+  get "requests/createhelper"
+  get "send_sms/send_sms"
+  get "send_sms/message"
+  get "send_sms/test"
+  get "admin/chart"
   get "admin/index"
   get "admin/new"
   get "admin/create"
@@ -112,6 +126,13 @@ ShipmeProj::Application.routes.draw do
   get "user_log/log_out"
   get "user_log/used" 
   get "packages/confirm_delivery"
+  get "admin/update1"
+  get "reports/sendSms"
+  get "search_engine/index"
+  get "search_engine/list"
+  get "packages/rating"
+  get "packages/update_rating" 
+  post "packages/update_rating"
 
   #old routes
  get "user/signup"

@@ -1,2 +1,20 @@
-<h1>Trips#delete</h1>
-<p>Find me in app/views/trips/delete.html.erb</p>
+<!-- This view  intends to delete a trip of a user-->
+<!-- Author: Hagar E. Aly -->
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="trip delete">
+  <h2>Delete Trip</h2>
+  
+  <%= form_for(:subject, :url => {:action => 'destory', :id => @trip.id}) do |f| -%>
+
+    <p>Are you sure you want to permanently delete this trip?</p>
+  
+    <p class="reference-destination"><%= @trip.destination %></p>
+  
+    <div class="form-buttons">
+      <%= submit_tag("Delete Subject") %>
+    </div>
+    
+  <% end %>
+</div>
