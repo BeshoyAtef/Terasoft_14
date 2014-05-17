@@ -1,2 +1,38 @@
-<h1>Requests#index</h1>
-<p>Find me in app/views/requests/index.html.erb</p>
+<h1> Accepted Requests</h1>
+ <%@users.to_a.each do |user|%>
+      <%user.each do |n|%>
+        <li>
+          <th> You have accepted a request of a package from <%= link_to n.username %></th>
+        </li>
+        <%end%>
+     <%end%>
+    <%@requests.to_a.each do |request|%>
+      <%if request.senders_id!=nil%>
+       <td class="actions">
+         <th><%= link_to("cancel request", {:action => 'show', :id =>  request.id}) %></th>
+         <th><%= link_to("show package", {:action => 'show_package', :id =>  request.packages_id}) %></th>    
+          <br>
+        </td>
+
+      <%end%> 
+      <%end%> 
+      <%=will_paginate @requests%>          
+   
+               
+
+                                         
+   
+                                
+                                  
+
+              
+                        
+
+                
+               
+
+
+    
+  
+
+       

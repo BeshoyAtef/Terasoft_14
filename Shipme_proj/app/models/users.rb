@@ -69,5 +69,10 @@ class Users < ActiveRecord::Base
   def  self.get_users_credit( user_id )
     @user = Users.find( :all, :conditions => {:id => user_id } )
   end
- end
+ 
 
+  def self.get_user(user_id)
+    Users.find( :all, :conditions => {:id => user_id } )
+  end  
+
+end
