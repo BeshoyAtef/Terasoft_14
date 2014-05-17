@@ -85,10 +85,23 @@ class TripsController < ApplicationController
    @trip = Trips.find_trip(params[ :id ] )
   end
 
+  
+  # this method is deleting the selected trip.
+  # Input :id:Integer.
+  # Author : Hagar E. Aly.
+
   def delete
+     @trip = Trips.find_trip( params[ :id ])
   end
 
+  # this method is deleting the selected trip.
+  # Input :id:Integer.
+  # Author : Hagar E. Aly.
+
   def destory
+    @trip =  Trips.delete_trip( params[ :id ] )
+    flash[:notice] = "Trip Deleted successfuly"
+    redirect_to(:action => 'list')
   end
 
 
