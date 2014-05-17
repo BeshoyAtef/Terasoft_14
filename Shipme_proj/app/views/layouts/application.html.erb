@@ -86,6 +86,7 @@
   </header>
 
   <!-- if conditions to show different menu to admin and user -->
+   <!-- Author: Rehab A.Elshahawy -->
     <% @user=Users.find(cookies[:user_id]) %>
     <% if @user.admin == nil %>
   <div class="clearfix"></div>
