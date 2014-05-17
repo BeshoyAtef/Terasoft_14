@@ -270,4 +270,14 @@ class Packages < ActiveRecord::Base
   def self.confirm_finaldelivery(user_id)
     @con = Packages.find( :all , :conditions => [ ' senders_id = ? AND finalDelivery = ? ' , user_id , false ] )
   end
+
+  #This method is counting the shipments done.
+  #Returns: @package_count-int.
+  #Author:  Rana M. Elberishy.
+  
+  def  self.generate_shipments_graph
+    @packages = Packages.find( :all, :conditions => {:finalDelivery => true} )
+    @packages_months = @packages.group_by { |package| package.created_at}
+    @package_count = @packages_months.count
+  end
 end
