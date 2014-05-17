@@ -10,13 +10,13 @@ require 'will_paginate/array'
 	has_many :payment
 	has_one :reports
 	has_many :requests
-  validates :origin, presence: true
-  validates :destination, presence: true
-  validates :packageValue, presence: true
-  validates :carryingPrice, presence: true
-  validates :receiverAddress, presence:true
-  validates :receiverMobNumber, presence:true
-  validates :weight, presence: true
+  #validates :origin, presence: true
+  #validates :destination, presence: true
+  #validates :packageValue, presence: true
+  #validates :carryingPrice, presence: true
+  #validates :receiverAddress, presence:true
+  #validates :receiverMobNumber, presence:true
+  #validates :weight, presence: true
 
 
     #This method is called by method list in the controller.
