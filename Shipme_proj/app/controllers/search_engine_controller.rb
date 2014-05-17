@@ -6,7 +6,7 @@ class SearchEngineController < ApplicationController
 #Author Madeleine A. Saad.
 
   def list
-  	$name=params[:text]
+  	$name=params[ :text ]
   	@all_users= Users.search_users_with_same_name($name)
   end
 
