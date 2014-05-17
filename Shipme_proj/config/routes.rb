@@ -126,6 +126,7 @@ ShipmeProj::Application.routes.draw do
   get "user_log/log_out"
   get "user_log/used" 
   get "packages/confirm_delivery"
+  get "homepage/instructions"
 
   #old routes
  get "user/signup"

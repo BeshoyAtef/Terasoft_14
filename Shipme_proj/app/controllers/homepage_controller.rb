@@ -10,11 +10,20 @@ class HomepageController < ApplicationController
  	end	
 
 
+
+
 # This method show the international prices
 # Output: show the international prices of other companies in view international prices button
 # Author: Omar A. Abdel-fatah
 
  	def list
+ 	end
+ 	
+ 	
+# This method show the site's instructions and precausions.
+# Author: Hagar E. Aly
+
+ 	def instructions
  	end
 
 end
