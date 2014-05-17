@@ -14,6 +14,10 @@ class Users < ActiveRecord::Base
 	has_many :carriers, :through => :packages
 	has_many :senders, :through => :messages
 	has_many :receivers, :through => :messages
+  #validates :username, presence: true
+  #validates :email, presence: true
+  #validates :encrypted_password, presence: true
+  #validates :mobileNumber, presence:true
 
 
 #The method is saving the input to the database
@@ -22,12 +26,15 @@ class Users < ActiveRecord::Base
 #Author: John W.Ghali
 
   def self.create(email,username,password,mobilenum)
+    @test = mobilenum.to_s
     @user = Users.new
     @user.email=email
     @user.username=username
     @user.encrypted_password=password
     @user.mobileNumber=mobilenum 
     @user.save
+    @user1 ='+20'.to_s + @test
+    SendSmsController.send_sms(@user1 , "Welcome to Shipme Website")
   end
 
 

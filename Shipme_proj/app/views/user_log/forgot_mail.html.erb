@@ -2,7 +2,11 @@
 <!--Author: John W.Ghali -->
 
 <h2>
-<%=@salout%>
+<% if @mobile == nil %>	
+<%=@salout1%>
+<% else %>
+<%=@salout2%>
+<% end%>
 <br>
 <br><br><br><br>
 <h3><a href='sign_in'> Login </a> | <a href='forget'> Forgot password </a> | <a href='sign_up'> Signup </a></h3></h2>
