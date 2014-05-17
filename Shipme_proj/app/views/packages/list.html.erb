@@ -68,7 +68,7 @@ padding:5px;
   </td>
    <% if create_packages.finalDelivery == nil %>
    <td class ="actions">
-         <%= link_to("Confirm Final Delivery",{:action => 'confirm_delivery', :id =>create_packages.id}, :class => 'action rating') %>
+         <%= link_to("Confirm Final Delivery",{:action => 'confirm_delivery', :pid =>create_packages.id}, :class => 'action rating') %>
         <% end %>
 
   </td>
