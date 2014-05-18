@@ -211,5 +211,15 @@ class Users < ActiveRecord::Base
     @users = Users.count
     return @users
   end
+
+
+  #This method find the user whose boolean admin is true.
+  #admin - boolean.
+  #returns: @admin - array
+  #Author: Abdelrahman Y. Seoudy.
+
+  def  self.find_admin
+     @admin = Users.find(:all,:conditions => {:admin => true}).last()
+  end
 end
 
