@@ -168,6 +168,8 @@ ShipmeProj::Application.routes.draw do
  get "create_packages/index"
  get "create_packages/show_package"
  post "create_packages/index"
+ get "users/graph"
+ get "admin/users"
 
 
 
