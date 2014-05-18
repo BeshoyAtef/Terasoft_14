@@ -2,7 +2,6 @@ class AdminController < ApplicationController
   require 'will_paginate/array'
 
   def index
-  render layout: false
   end
 
   def new
@@ -25,7 +24,6 @@ class AdminController < ApplicationController
 
   def list
     @packages = Packages.view_shipments_paginated( params[:page] )
-    render layout: false
   end
 
   def show
