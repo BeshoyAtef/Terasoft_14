@@ -12,11 +12,13 @@
 		<%@users.each do |u|%>
 			<%if u.id == b.senders_id%>
 <!--This link is intended to redirect the user to the full conversation, by passing two paramters (sid,rid) to list method. -->
-		 		&nbsp&nbsp &nbsp&nbsp 
-		 		<a href = "list?sid = <%=b.senders_id%> & 
-		 		rid=<%= b.receivers_id %>"> <%=u.username%> </a> 
-		 		&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
+				<div style="border:1px">
+		 			&nbsp&nbsp &nbsp&nbsp 
+		 			<a href = "list?sid = <%=b.senders_id%> & 
+		 			rid=<%= b.receivers_id %>"> <%=u.username%> </a> 
+		 			&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
 				<%= b.description %>
+				</div>
 				<br>
 				<br>
 				<br>

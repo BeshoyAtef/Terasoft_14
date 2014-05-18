@@ -212,10 +212,15 @@
 <% end %>
 <%end %>
 </nav>
+<style type="text/css">
+.marginBox{
+  margin-left:20px;
+  margin-top:20px;
+  }</style>
 <div class="clearfix"></div>
-
-
-<%= yield %>
+  <div class ="marginBox" > 
+    <%= yield %>
+  </div>
 <%= stylesheet_link_tag 'switcher.css' %>
 <%= javascript_include_tag "switcher.js" %>
 <!-- Footer / Start -->
