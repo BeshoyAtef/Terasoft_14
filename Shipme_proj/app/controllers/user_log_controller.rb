@@ -42,7 +42,6 @@ class UserLogController < ApplicationController
     if cookies[ :user_id ] != nil
       redirect_to :action => "index" ,:controller => "homepage"
     end
-    render layout:false
   end
 
 
