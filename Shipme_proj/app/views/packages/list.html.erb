@@ -26,37 +26,24 @@ padding:5px;
 <table  syle="margin-left:10px" class="table table-hover">
 <tr>
 <tr style="background-color:#989898">
+  <th> ID </th>
   <th>Destination</th>
-  <th>Description</th>   
-  <th>Weight</th>
-  <th>origin</th>
-  <th>value</th>   
+  <th>Description</th>    
   <th>expiry date</th>
-  <th>Receiveraddress</th>
-  <th>Receiver mobile</th>   
-  <th>Receiver Email</th>
+
 </tr>
 <tbody>
   <% @create_packages.each do |create_packages| %>
 <tr>
+
+  <td><%= create_packages.id %></td>
+  
   <td><%= create_packages.destination %></td>
 
- 
   <td><%= create_packages.description %></td>
 
-  <td><%= create_packages.weight %></td>
-
-  <td><%= create_packages.origin %></td>
-
-  <td><%= create_packages.packageValue %></td>
- 
   <td><%= create_packages.expiryDate %></td>
- 
-  <td><%= create_packages.receiverAddress %></td>
 
-  <td><%= create_packages.receiverMobNumber %></td>
-
-  <td><%= create_packages.receiverEmail %></td>
   <td class ="actions">
         <%= link_to("Show",{:action => 'show', :id =>create_packages.id}, :class => 'action show') %>
   </td>
@@ -81,8 +68,9 @@ padding:5px;
  </head>
  </html>
 <br>
-
-<a href='new'> create new package</a>
+<a href='new' class="button color"> create new package</a>
+<br>
+<br>
 
 
 

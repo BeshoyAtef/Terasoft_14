@@ -135,6 +135,9 @@ ShipmeProj::Application.routes.draw do
   post "packages/update_rating"
   get "notifications/test"
   get "homepage/instructions"
+  post "configurations/create"
+  get "packages/confirm"
+  post "messages/update"
 
   #old routes
  get "user/signup"

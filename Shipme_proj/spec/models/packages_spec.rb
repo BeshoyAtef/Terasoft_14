@@ -97,12 +97,4 @@ it "Returns the package if only the user id is equal to sender id and final deli
 package_test = Packages.confirm_finaldelivery(@user.id)
 expect(package_test).to_not include @package2
 end
-
-#Author: Rana M.Elbrishy.
-it "should count the packages per month " do 
-  package = Packages.new(description: "laptop", finalDelivery: 'true')
-  package = Packages.new(description: "pens", finalDelivery: 'true')
-  package_count = Packages.generate_shipments_graph
-  expect(package_count == 2)
-  end
 end

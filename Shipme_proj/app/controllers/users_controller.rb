@@ -85,7 +85,7 @@ class UsersController < ApplicationController
     $user_id=params[:id]
     @user=Users.get_profile($user_id)
     @trip=Trips.get_trips($user_id,params[:page])
-  end
+   end
 
   def delete
   end

@@ -1,14 +1,74 @@
 <!-- This view is intended to show all the packages waiting for confirmation -->
 <!-- Author: Ahmed H. Nasser -->
+<h3 class="title-2" > Packages you are carrying </h3>
+<html>
+<head>
+<style>
+table,th,td
+{
+border:1px solid white;
+border-collapse:collapse;
+}
+th,td
+{
+padding:5px;
+}
+</style>
+</head>
+<body>
 
-<h3 class="title-2"> Packages you are carrying </h3>
+<table  syle="margin-left:10px" class="table table-hover">
+<tr>
+<tr style="background-color:#989898">
+  <th> ID </th>
+  <th> username </th>
+  <th>Destination</th>
+  <th>Description</th>   
+  <th>Weight</th>
+  <th>value</th>   
+  <th>expiry date</th>
+  <th>Receiveraddress</th>
+  <th>Receiver mobile</th>   
+  <th>ReceivedbyCarrier</th>
+  <th>finalDelivery</th>
+</tr>
+<tbody>
+  <% @con.each do |c| %>
+<tr>
 
-<% @con.each do |c|%>
+  <td><%= c.id %></td>
+  <% @user=Users.find(c.senders_id)%>
+  <td><%= @user.username %></td>
+  
+  <td><%= c.destination %></td>
 
+  <td><%= c.description %></td>
 
-<li>
-<%= c.description %> 
-<a href= 'confirm?id=<%=c.id%>'> confirm </a>
-</li>
+  <td><%= c.weight %></td>
 
-<%end%>
+  <td><%= c.packageValue %></td>
+ 
+  <td><%= c.expiryDate %></td>
+ 
+  <td><%= c.receiverAddress %></td>
+
+  <td><%= c.receiverMobNumber %></td>
+
+  <td><%= c.receivedByCarrier %></td>
+
+  <td><%= c.finalDelivery %></td>
+
+  <% if c.receivedByCarrier == nil %>
+  <td class ="actions">
+        <a href= 'confirm?id=<%=c.id%>'> confirm taking package </a>
+  </td>
+  <%end%>
+ <% end %>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </body>
+ </style>
+ </head>
+ </html>

@@ -84,7 +84,7 @@ end
 
   def forgot_mail
   @salout1 = "Please enter a valid email, then try again"
-  @salout2 = "A message will be sent to you with your password to in a few minutes"
+  @salout2 = "A message will be sent to you with your password in a few minutes"
   @users = Users.find( :all )
   @users.each do |u|
     if u.email== params[ :email ]

@@ -6,15 +6,18 @@
 <div class="trip delete">
   <h2>Delete Trip</h2>
   
-  <%= form_for(:subject, :url => {:action => 'destory', :id => @trip.id}) do |f| -%>
+  <%= form_for(:subject, :url => {:action => 'destory', :id => @trip.id}) do |f| %>
 
     <p>Are you sure you want to permanently delete this trip?</p>
   
     <p class="reference-destination"><%= @trip.destination %></p>
   
     <div class="form-buttons">
-      <%= submit_tag("Delete Subject") %>
+      <%= submit_tag("Delete") %>
     </div>
-    
+    <br>
+    <br>
   <% end %>
 </div>
+<br>
+<br>
