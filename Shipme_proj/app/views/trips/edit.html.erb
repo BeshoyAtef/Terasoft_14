@@ -1,0 +1,21 @@
+<!--This view is intended to add a label 'Edit Trip Details' and take the parameters for the new details as well as it sets some restrictions and popup messages to the user-->
+<!--Author: Youssef A. Saleh -->
+<% if !flash[:notice].blank? %>
+	<div class = "notice">
+	<h3 class ="title-2"><%= flash[:notice] %></h3>
+	</div>
+<% end %>
+</head>
+<body>
+ 	<form "edit"   action= "update" >
+		Destination: <input type="text" name="required_destination"><br>
+		Location: <input type="text" name="required_location"><br>
+		Travelling Date(mm/dd/yyyy): <input type="date" name="required_traveldate"><br>
+		Weight <input type="number" name="required_num_weight" min="1" max="10"><br>
+		<input type=hidden value =<%=params[:id]%> name='id'>
+		<input type="submit" value="Edit Trip">
+		<br>
+		<br>
+	</form>
+</body>
+</t1>

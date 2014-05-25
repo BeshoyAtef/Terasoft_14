@@ -1,0 +1,52 @@
+<!--this view list for the admin all the reports with a link in a table, when this link is pressed the reported user recieve an SMS-->
+<!--Author: Ahmed M.Samouka-->
+<h3 class="title-2" > My reports </h3>
+<html>
+<head>
+<style>
+table,th,td
+{
+border:1px solid white;
+border-collapse:collapse;
+}
+th,td
+{
+padding:5px;
+}
+</style>
+</head>
+<body>
+
+<table  syle="margin-left:10px" class="table table-hover">
+<tr>
+<tr style="background-color:#989898">
+      <th>Report ID</th>
+      <th>Description,</th>
+      <th>Verified,</th>
+      <th>Reporter Id,</th>
+      <th>Reported Id,</th>
+      <th>Package Id,</th>
+    </tr>
+</tr>
+
+  <tbody>
+    <% @view_reportes.each do |v| %>
+      <tr>
+        <td><%= v.id %></td>
+        <td><%= v.description %></td>
+        <td><%= v.verified%></td>
+        <td><%= v.reporters_id %></td>
+        <td><%= v.reported_id %></td>
+        <td><%= v.packages_id %></td>
+
+        
+        <td><a href = 'sendSms?id=<%=v.reported_id%>' >Send SMS to the reported user</td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+</table>
+</body>
+</style>
+</head>
+</html>

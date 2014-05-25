@@ -1,0 +1,39 @@
+<h3 class="title-2"> Accepted Requests</h1>
+ <%@users.to_a.each do |user|%>
+      <%user.each do |n|%>
+        <li>
+          <th> You have accepted a request of a package from <%= link_to n.username %></th>
+        </li>
+        <%end%>
+     <%end%>
+    <%@requests.to_a.each do |request|%>
+      <%if request.senders_id!=nil%>
+       <td class="actions">
+         <th><%= link_to("cancel request", {:action => 'show', :id =>  request.id}) %></th>
+         <%@pack=request.packages_id%>
+         <th><a href = "../packages/show?id=<%=@pack%>"> show package </a> </th>
+          <br>
+        </td>
+
+      <%end%> 
+      <%end%> 
+      <%=will_paginate @requests%>          
+   
+               
+
+                                         
+   
+                                
+                                  
+
+              
+                        
+
+                
+               
+
+
+    
+  
+
+       

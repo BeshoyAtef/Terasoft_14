@@ -1,0 +1,103 @@
+ <!--This view is intended to be able to create a new package without a blank text boxes. -->
+ <!--Author: Ahmed M. Samouka. -->
+
+ <t1 class="package create">
+ <head>
+ <script>
+ function checkrequired(which){
+var pass=true
+if (document.images){
+  for (i=0;i<which.length;i++){
+
+    var tempobj=which.elements[i]
+    if (tempobj.name.substring(0,8)=="required"){
+    if (((tempobj.type=="text"||tempobj.type=="textarea")&&(tempobj.value=='' || tempobj.value.indexOf(" ") == 0) )||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+      pass=false
+  break
+ }
+ if ((tempobj.type=="number"&&(tempobj.value=='' || tempobj.value.indexOf(" ") == 0 || isNaN(tempobj.value)) )||(tempobj.type.toString().charAt(0)=="s"&&tempobj.selectedIndex==-1)){
+      pass=false
+  break
+ }
+  }
+   }
+    }
+  if (!pass){
+     alert("One or more of the required elements are not completed or have wrong value. Please complete them, then submit again!")
+    return false
+  }
+  else
+    return true
+  }
+</script>
+</head>
+<html>
+<body>
+
+<h3 class="title-2" > Create new Packages </h3>
+<form onSubmit="return checkrequired(this)" action="create" method="get" >
+  <div class="field">
+     Destination:
+    <input type="text" name="requireddestination">
+  </div>
+   <br>
+ 
+  <div class="field">
+     Description:
+    <input type="text" name="requireddescription">
+  </div>
+   <br>
+ 
+  <div class="field">
+     Weight: <br>
+    <input type="number" name="requiredweight" min="1" max="10">
+  </div>
+   <br>
+ 
+  <div class="field">
+     Origin:
+    <input type="text" name="requiredorigin">
+  </div>
+   <br>
+ 
+  <div class="field">
+     Package Value: <br>
+    <input type="number" name="requiredpackageValue">
+  </div>
+   <br>
+ 
+  <div class="field">
+     Expiry Date: <br>
+    <input type="date" name="requiredexpiryDate">
+  </div>
+   <br>
+    <br>
+  
+  <div class="field">
+     Receiver Address:
+    <input type="text" name="requiredreceiverAddress">
+  </div>
+   <br>
+
+    <div class="field">
+     Receiver Mobile Number: <br>
+    <input type="number" name="requiredreceiverMobNumber">
+  </div>
+ <br>
+    <div class="field">
+     Receiver Email:
+    <input type="email" name="receiverEmail">
+  </div>
+  <br>
+  <br>
+
+  <input type="submit" value="Create Package"></ins>
+<br>
+<br>
+</form>
+<a href='list' class="button color"> back</a>
+<br>
+<br>
+</body>
+</html>
+

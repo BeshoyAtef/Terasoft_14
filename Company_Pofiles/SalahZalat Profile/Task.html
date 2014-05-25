@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+function myFunction()
+{
+var str = "Name: Salah Khaled Zalat.";
+var result = str.fontcolor("green");
+document.getElementById("namz").innerHTML=result;
+var str = "Birth Date:01/08/1993.";
+var result = str.fontcolor("yellow");
+document.getElementById("bd").innerHTML=result;
+var str = "Studying At The German University In Cairo.";
+var result = str.fontcolor("red");
+document.getElementById("guc").innerHTML=result;
+var str = "Email: Salah.Zalat@Gmail.com";
+var result = str.fontcolor("white");
+document.getElementById("email").innerHTML=result;
+}
+</script>
+<style>
+body
+{
+background-color:black;
+background-image:url("300048_10150322412103435_1020948625_n.jpg");
+background-repeat:no-repeat;
+background-position:right;
+margin-right:200px
+
+back
+}
+h1
+{
+color:orange;
+text-align:center;
+}
+p
+{
+font-family:"Times New Roman";
+font-size:20px;
+font-weight: bold;
+color: orange;
+}
+</style>
+</head>
+
+<body>
+	<title>Salah Zalat Profile</title>
+<marquee><h1>Welcome to My Profile!</h1></marquee>
+<br><br><br><br><br><br><br><br><br>
+<div id="namz"><p>Name:Salah Khaled Zalat.</p></div>
+<div id="guc"><p>Studying At The German University In Cairo.</p></div>
+<div id ="bd"><p>Birth Date:01/08/1993.</p></div>
+<div id ="email"><p>Email: Salah.Zalat@Gmail.com</p></div>
+<p><b><a href="https://www.facebook.com/salah.zalat" target="https://www.facebook.com/salah.zalat">Visit My Facebook Profile!</a></b></p>
+<button onclick="myFunction()">Click Here To Change Font Color !</button>
+</body>
+</html>

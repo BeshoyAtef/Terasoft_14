@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShipmeProj</title>
+
+
+
+
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<%= stylesheet_link_tag 'style.css' %>
+<%= stylesheet_link_tag 'colors/blue.css' %>
+<%= javascript_include_tag "jquery.min.js" %>
+<%= javascript_include_tag "jquery-ui.min.js" %>
+<%= javascript_include_tag "jquery.flexslider.js" %>
+<%= javascript_include_tag "jquery.selectnav.js" %>
+<%= javascript_include_tag "jquery.twitter.js" %>
+<%= javascript_include_tag "jquery.modernizr.js" %>
+<%= javascript_include_tag "jquery.easing.1.3.js" %>
+<%= javascript_include_tag "jquery.contact.js" %>
+<%= javascript_include_tag "jquery.isotope.min.js" %>
+<%= javascript_include_tag "jquery.jcarousel.js" %>
+<%= javascript_include_tag "jquery.fancybox.min.js" %>
+<%= javascript_include_tag "jquery.layerslider.min.js" %>
+<%= javascript_include_tag "custom.js" %>
+<!-- <%= javascript_include_tag "google_analytics_auto.js" %> -->
+
+<%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper2">
+<!-- 960 Container -->
+<div class="container">
+
+  <!-- Header -->
+  <header id="header">
+
+    <!-- Logo -->
+    <div class="ten columns">
+      <div id="logo">
+        <h1><a href="#"><%= image_tag("logo.png", :alt => "ShipMe logo") %>
+        </a></h1>
+        <!--<div id="tagline">Text_test</div>!-->
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <!-- Social / Contact -->
+    <div class="six columns">
+
+      <!-- Social Icons -->
+      <ul class="social-icons">
+        <li class="twitter"><a href="https://twitter.com/">Twitter</a></li>
+        <li class="facebook"><a href="https://www.facebook.com/">Facebook</a></li>
+      </ul>
+
+      <div class="clearfix"></div>
+
+      <!-- Contact Details -->
+      
+
+      <div class="clearfix"></div>
+
+
+      <!-- if conditions to show login or logout -->
+      <% if cookies[:user_id] == nil %>
+       <nav class="top-search">
+       <form action="../user_log/sign_in" >
+      <input name="send" type="submit" value="Login">
+      </form>
+      </nav>
+      <% end %>
+
+    <% if cookies[:user_id] != nil %>
+      <nav class="top-search">
+       <form action="../user_log/log_out" >
+      <input name="send" type="submit" value="Logout">
+      </form>
+      </nav>
+      <% end %>
+
+    </div>
+  </header>
+  <!-- Header / End -->
+
+  <div class="clearfix"></div>
+
+</div>
+<!-- 960 Container / End -->
+</div>
+
+<!-- Wrapper / Start -->
+<div id="wrapper">
+
+<!-- Header
+================================================== -->
+<div id="top-line"></div>
+
+
+
+<!-- Navigation
+================================================== -->
+<nav id="navigation" class="style-2">
+
+<div class="left-corner"></div>
+<div class="right-corner"></div>
+
+
+
+ <% if cookies[:user_id] != nil %>
+  <% @users=Users.find(cookies[:user_id]) %>
+  <% if @users.admin == nil %>
+<ul class="menu" id="responsive">
+
+ <li><a href="../homepage/index"><i class="halflings white home"></i>Home</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../homepage/list">International Prices</a></li>
+      <li><a href="../homepage/instructions">Instructions</a></li>
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+<li><a href="#"><i class="halflings white home"></i>Profile</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../search_engine/index">Search Profile</a></li>
+      <li><a href="../users/show?id= <%= cookies[:user_id] %>"> My profile</a></li>
+      <li><a href="../users/update">Complete profile</a></li>
+      <li><a href="../users/index">Edit profile</a></li>
+      <li><a href="../notifications/list"> My Notifications</a></li>
+      <li><a href="../requests/list"> My Requests</a></li>
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+  <li><a href="#"><i class="halflings white briefcase"></i> Packages</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../packages/list">My Packages</a></li>
+        <li><a href="../packages/new">Add Pacakage</a></li>
+        <li><a href="../packages/list_takingpackage">Confirm Taking Packages</a></li>
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+  <li><a href="#"><i class="halflings white briefcase"></i> Trips </a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../trips/list"> My Trips</a></li>
+      <li><a href="../trips/new"> Add Trip</a></li>
+    
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+  <li><a href="#"><i class="halflings white pencil"></i> Claims</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../reports/new">Place Claim</a></li>
+  
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+  <li><a href="../messages/show"><i class="halflings white envelope"></i> Messages</a></li>
+
+</ul>
+<% end %>
+<% if @users.admin==true %>
+<ul class="menu" id="responsive">
+
+<li><a href="#"><i class="halflings white pencil"></i>Statistics</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../admin/list">Shipments/month</a></li>
+      <li><a href="../payments/list">Revenues/month</a></li>
+      <li><a href="../admin/users">Users/month</a></li>
+    
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+
+  <li><a href="#"><i class="halflings white file"></i> Graphs</a>
+    <!-- Second Level / Start -->
+    <ul>
+      <li><a href="../admin/chart">Shipments Graph</a></li>
+      <li><a href="../admin/new">Revenues Graph</a></li>
+      <li><a href="../users/graph">Users Graph</a></li>
+   
+    </ul>
+    <!-- Second Level / End -->
+  </li>
+
+  <li><a href="../reports/index"><i class="halflings white pencil"></i> Claims</a>
+    <!-- Second Level / Start -->
+    <!-- Second Level / End -->
+  </li>
+  <li><a href="../admin/edit"><i class="halflings white pencil"></i> Verify Users National IDs</a></li>
+
+   <li><a href="../configurations/new"><i class="halflings white pencil"></i> Set Comission</a></li>
+
+   </ul>
+<% end %>
+<%end %>
+</nav>
+<style type="text/css">
+.marginBox{
+  margin-left:20px;
+  margin-top:20px;
+  }</style>
+<div class="clearfix"></div>
+  <div class ="marginBox" > 
+    <%= yield %>
+  </div>
+<%= stylesheet_link_tag 'switcher.css' %>
+<%= javascript_include_tag "switcher.js" %>
+<!-- Footer / Start -->
+
+<footer id="footer">
+  <!-- 960 Container -->
+  <div class="container">
+
+    <!-- About -->
+    <div class="four columns">
+      <%= image_tag("logo-footer.png", :id => "logo-footer") %>
+      </div>
+
+    <!-- Contact Details -->
+    <div class="four columns">
+      <h4>Contact Details</h4>
+      <ul class="contact-details-alt">
+        <li><i class="halflings white map-marker"></i> <p><strong>Address:</strong> 123 Seward Street, Oklahoma City, egypt</p></li>
+        <li><i class="halflings white user"></i> <p><strong>Phone:</strong> +2 000 000 110</p></li>
+        <li><i class="halflings white envelope"></i> <p><strong>Email:</strong> <a href="#">Shipme_mail@shipme.org</a></p></li>
+      </ul>
+    </div>
+
+    
+  <!-- 960 Container / End -->
+
+</footer>
+<!-- Footer / End -->
+
+
+<!-- Footer Bottom / Start  -->
+<footer id="footer-bottom">
+
+  <!-- 960 Container -->
+  <div class="container">
+
+    <!-- Copyrights -->
+    <div class="eight columns">
+      <div class="copyright">
+        © Copyright 2014 by <a href="#">Shipme</a>. All Rights Reserved.
+      </div>
+    </div>
+
+    <!-- Menu -->
+    <div class="eight columns">
+      <nav id="sub-menu">
+        <ul>
+          <li><a href="#">FAQ's</a></li>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+  <!-- 960 Container / End -->
+
+</footer>
+<!-- Footer Bottom / End -->
+
+
+</body>
+</html>
+

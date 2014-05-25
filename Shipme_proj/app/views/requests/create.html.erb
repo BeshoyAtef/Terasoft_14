@@ -1,0 +1,25 @@
+<!--This view sends to a carrier request for a certain package-->
+<!--Author: Manar A. ElTayeb.-->
+
+<% if @requests_count < 3 && @already = false %>
+
+<h2>
+ 
+<form action="create" >
+<input type=hidden value=<%=params[:pid]%> name="pid">
+<input type=hidden value=<%=params[:cid]%> name="cid">
+<input type=hidden value=<%=cookies[:user_id]%> name="user_id">
+<input type = submit value= "send">
+</form>
+<%else %>
+<font color="blue">
+
+
+<%end%>
+
+<% if @requests_count < 3 and @already == false%>
+     <p>  sent successfully :) </p>
+      <% elsif @requests_count >= 3%>
+          <p2> you are not allowed to send request! </p2>
+
+	<%end%>

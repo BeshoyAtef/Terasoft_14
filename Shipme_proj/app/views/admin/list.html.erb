@@ -1,0 +1,76 @@
+  <head>
+  <style type="text/css">
+
+  body
+  {
+    
+  }
+
+  h1 
+  {
+    
+  }
+
+  p
+  {
+    font-family: "Times New Roman";
+    font-size: 20px;
+  }
+
+  table,th,td
+  {
+    border:1px solid black;
+    border-collapse:collapse
+  }
+
+  </style>
+  <title>Shipments done</title>
+  <table style="width:1000px">     
+  <tr>
+  <td colspan="12" style="background-color:#3ADF00;">
+
+  <p id="notice"><%= notice %></p>
+  <tbody>
+  <tr>
+    <th>Package no.</th>
+    <th>destination</th>
+    <th>description</th>
+    <th>weight</th>
+    <th>type</th>
+    <th>creationDate </th>
+    <th>expiryDate </th>
+    <th>packageValue</th>
+    <th>receiverAddress </th>
+    <th>receiverMobNumber</th>
+    <th>receiverEmail</th>
+    <th>rating</th>
+  </tr>
+
+      <% @packages.to_a.each do |package| %>
+      <tr>
+        <td><%= package.id%></td>
+        <td><%= package.destination %></td>
+        <td><%= package.description %></td>
+        <td><%= package.weight %></td>
+        <td><%= package.type %></td>
+        <td><%= package.expiryDate %></td>
+        <td><%= package.created_at %></td>
+        <td><%= package.packageValue %></td>
+        <td><%= package.receiverAddress %></td>
+        <td><%= package.receiverMobNumber %></td>
+        <td><%= package.receiverEmail %></td>
+        <td><%= package.rating %></td>
+      </tr>
+      <% end %>
+    </tr>
+    
+  </tbody>
+  </table>
+
+  <br>
+    <%= link_to("<< Back ", {:action => 'index'}, :class => 'admin') %>
+  </br>
+
+  <%=will_paginate @packages%> 
+  </body>
+ </html>

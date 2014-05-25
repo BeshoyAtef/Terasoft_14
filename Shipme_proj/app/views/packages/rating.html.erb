@@ -1,0 +1,22 @@
+<p>
+<h3 class"title-2" >The final delivery is confirmed</h3>
+<% $package_id %>
+</p>
+<p>
+  <strong><b><style type="text/css"></style>Please rate your carrier:</b></strong><br>
+</P>
+<%= stylesheet_link_tag 'star-rating.css' %>
+<%= stylesheet_link_tag 'star-rating.min.css' %>
+<%= javascript_include_tag "star-rating.js" %>
+<%= javascript_include_tag "star-rating.min.js" %>
+<form action="update_rating">
+<input id="input-1" type="float" name="rate" class="rating" min="0" max="5" data-symbol="&#9733;;" style="height:14px" size ="md"></p><br>
+
+<script type="text/javascript">
+$("#input-1").rating();
+</script>
+	<input type="hidden" value= <%= params[:pid] %> name="pid">  
+  	<input type="submit" value="rate" >
+  	<br>
+  	<br>
+ </form>

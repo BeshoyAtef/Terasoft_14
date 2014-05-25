@@ -1,0 +1,42 @@
+<!-- This view intent to list the national idnumber , username and redirect to update1-unverify the id-  and update-verify the id- .-->
+<!-- input: -->
+<!-- output: -->
+<!-- Author: Mariam S. elSandy .-->
+
+ <h3 class ="title-2">Verify ids</h3>
+ <head>
+ 	<style>
+ 	table,th,td{
+ 		border:1px solid white;
+ 		border-collapse:collapse;
+ 	}
+ 	th,td
+ 	{
+ 		padding:5px;
+ 	}
+ 	</style>
+ </head>
+ <body>
+
+ 	<br>
+
+<table style="margin-left:10px" class="table table-hover">
+	<tr>
+  <tr style="background-color:#989898">
+  <th>National Id Number</th>
+  <th>Username</th> 
+</tr>
+
+ <% @users.each do |user| %>
+    <tr>
+      <td><%=user.idNumber %></td>
+      <td><%=user.username%></td>
+      <td class="actions">
+        <%= link_to("Verify", {:action => 'update', :id => user.id}, :class => 'action update') %>
+        <%= link_to("UnVerify", {:action => 'update1', :id => user.id}, :class => 'action update1') %>
+      </td>
+    </tr>
+    <% end %>
+ 
+</table>
+</body>

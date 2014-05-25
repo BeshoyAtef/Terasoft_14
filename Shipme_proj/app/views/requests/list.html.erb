@@ -1,0 +1,33 @@
+<html>
+  <body>
+    <!--This view is intended to view users that sent requests to carrier and a link to accept or reject the request-->
+    <!--Author: Mohamed M. Khairy -->
+    <h3 class="title-2"> Pending requests </h3> 
+
+    <% @users.to_a.each do |user| %> 
+      <% user.each do |n| %>
+        <li>
+          <th> <%= link_to n.username %> sent you a request of a package</th>
+        </li>
+      <%end%>
+    <%end%>
+    
+    <% @requests.to_a.each do |request| %>
+      <%if request.senders_id!=nil%>
+        <td class="actions">
+          <th><%= link_to("Respond to request", {:action => 'show', :id => request.id}) %></th>
+
+          <%@pack=request.packages_id%>
+         <th><a href = "../packages/show?id=<%=@pack%>"> show package </a> </th>
+          <br>
+        </td>
+
+      <%end%> 
+    <%end%> 
+    <th><%= link_to("Accepted requests", {:action => 'index'})%></th> 
+    
+<%=will_paginate @requests%>    
+  </body>
+</html>             
+
+                                     

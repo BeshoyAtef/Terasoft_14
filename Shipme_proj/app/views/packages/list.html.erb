@@ -1,0 +1,77 @@
+ <!--This view is intended to show all created packages ny the logged in user with show delete edit hyper links to make the user able to see or edit or delete his package.-->
+ <!--Author: Ahmed M. Samouka. -->
+<% if !flash[:notice].blank? %>
+  <div class = "notice">
+    <h3 class ="title-2"><%= flash[:notice] %></h3>
+  </div>
+<% end %>
+
+<h3 class="title-2" > My Packages </h3>
+<html>
+<head>
+<style>
+table,th,td
+{
+border:1px solid white;
+border-collapse:collapse;
+}
+th,td
+{
+padding:5px;
+}
+</style>
+</head>
+<body>
+
+<table  syle="margin-left:10px" class="table table-hover">
+<tr>
+<tr style="background-color:#989898">
+  <th> ID </th>
+  <th>Destination</th>
+  <th>Description</th>    
+  <th>expiry date</th>
+
+</tr>
+<tbody>
+  <% @create_packages.each do |create_packages| %>
+<tr>
+
+  <td><%= create_packages.id %></td>
+  
+  <td><%= create_packages.destination %></td>
+
+  <td><%= create_packages.description %></td>
+
+  <td><%= create_packages.expiryDate %></td>
+
+  <td class ="actions">
+        <%= link_to("Show",{:action => 'show', :id =>create_packages.id}, :class => 'action show') %>
+  </td>
+  <td class ="actions">
+         <%= link_to("Edit",{:action => 'edit', :id =>create_packages.id}, :class => 'action edit') %>
+  </td>
+   <td class ="actions">
+         <%= link_to("Delete",{:action => 'delete', :id =>create_packages.id}, :class => 'action delete') %>
+  </td>
+   <% if create_packages.finalDelivery == nil %>
+   <td class ="actions">
+         <%= link_to("Confirm Final Delivery",{:action => 'confirm_delivery', :pid =>create_packages.id}, :class => 'action rating') %>
+        <% end %>
+
+  </td>
+ </tr>
+  <% end %>
+ </tbody>
+ </table>
+ </body>
+ </style>
+ </head>
+ </html>
+<br>
+<a href='new' class="button color"> create new package</a>
+<br>
+<br>
+
+
+
+

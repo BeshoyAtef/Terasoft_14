@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>My Profile</title>
+<meta charset="utf-8">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="css/5grid/init.js?use=mobile,desktop,1000px"></script>
+<script src="js/init.js"></script>
+<noscript>
+<link rel="stylesheet" href="css/5grid/core.css">
+<link rel="stylesheet" href="css/5grid/core-desktop.css">
+<link rel="stylesheet" href="css/5grid/core-1200px.css">
+<link rel="stylesheet" href="css/5grid/core-noscript.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style-desktop.css">
+</noscript>
+</head>
+<body>
+<nav id="nav">
+  <ul>
+    <li><a href="#top">Homepage</a></li>
+    <li><a href="#work">Info</a></li>
+    <li><a href="#portfolio">Fav</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="wrapper wrapper-style1 wrapper-first">
+  <article class="5grid-layout" id="top">
+    <div class="row">
+      <div class="4u"> <span class="me image image-full"><img src="images/Barakat.jpg" alt=""></span> </div>
+      <div class="8u">
+        <header>
+          <h1>My Name is Youssef Barakat</h1>
+        </header>
+		<h2>Objective</h2>
+        <p><strong>GUCIAN</strong> seeking a progressive Job Opportunity in the field of Internet Technology and Business Informatics where I can utilize and improve my qualifications and skills to achieve my ambition </p> 
+        <a href="#work" class="button button-big">Learn more about me</a> </div>
+		<audio preload="auto" src="Invincible.mp3" loop="true" autobuffer>
+Unsupported in Firefox
+</audio>
+
+<script>
+
+function setCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+
+function getCookie(c_name)
+{
+    var i,x,y,ARRcookies=document.cookie.split(";");
+    for (i=0;i<ARRcookies.length;i++)
+    {
+      x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+      y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+      x=x.replace(/^\s+|\s+$/g,"");
+      if (x==c_name)
+        {
+        return unescape(y);
+        }
+      }
+}
+
+var song = document.getElementsByTagName('audio')[0];
+var played = false;
+var tillPlayed = getCookie('timePlayed');
+function update()
+{
+    if(!played){
+        if(tillPlayed){
+        song.currentTime = tillPlayed;
+        song.play();
+        played = true;
+        }
+        else {
+                song.play();
+                played = true;
+        }
+    }
+
+    else {
+    setCookie('timePlayed', song.currentTime);
+    }
+}
+setInterval(update,1000);
+</script>
+    </div>
+  </article>
+</div>
+<div class="wrapper wrapper-style2">
+  <article id="work">
+    <header>
+      <img src="images/Barakat1.jpg" alt=""> </header>
+    <div class="5grid-layout">
+      <div class="row">
+        <div class="4u">
+          <section class="box box-style1"> <span class="image image-centered"><img src="images/Inf.jpg" alt=""></span>
+			<h3>Personal Information</h3>
+            <ul>
+			<li>Gender: Male</li>
+			<li>Marital Status: Single</li>
+			<li>Date Of Birth: 4/7/1993</li>
+			<li>Nationality: Egyptian</li>
+			</ul>
+          </section>
+        </div>
+        <div class="4u">
+          <section class="box box-style1"> <span class="image image-centered"><img src="images/CSF.png" alt=""></span>
+            <h3>College De la Sainte Famille "Education"</h3>
+			<ul>
+			<li>Secondary Educational Degree</li>
+			<li>Preparatory Educational Degree</li>
+			<li>Primary Education Degree</li>
+			</ul>
+          </section>
+        </div>
+        <div class="4u">
+          <section class="box box-style1"> <span class="image image-centered"><img src="images/skills.jpg" alt=""></span>
+            <h3>Skills</h3>
+            <ul>
+			<li>Writing skills</li>
+			<li>Leadership skills, performing under pressure</li>
+			<li>Self motivated</li>
+			<li>Team-player and organized</li>
+			<li>Fast learner</li>
+			<li>Ability to work in groups or individually according to job requirements</li>
+			</ul>
+          </section>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <a href="#portfolio" class="button button-big">Discover my favorite things</a> </footer>
+  </article>
+</div>
+<div class="wrapper wrapper-style3">
+  <article id="portfolio">
+    <header>
+      <img src="images/Quote.jpg" alt=""> </header>
+    <div class="5grid-layout">
+      <div class="row">
+        <div class="12u"> </div>
+      </div>
+      <div class="row">
+        <div class="4u">
+          <article class="box box-style2"><img src="images/Football.jpg" alt="">
+            <h3>Football</h3>
+          </article>
+        </div>
+        <div class="4u">
+          <article class="box box-style2"><img src="images/kick.jpg" alt="">
+            <h3>Kick Boxing</h3>
+          </article>
+        </div>
+        <div class="4u">
+          <article class="box box-style2"><img src="images/workout.jpg" alt="">
+            <h3>Fitness Workout</h3>
+          </article>
+        </div>
+      </div>
+      <div class="row">
+        <div class="4u">
+          <article class="box box-style2"><img src="images/music.jpg" alt="">
+            <h3>Music</h3>
+          </article>
+        </div>
+        <div class="4u">
+          <article class="box box-style2"><img src="images/wwe.jpg" alt="">
+            <h3>Wrestling</h3>
+          </article>
+        </div>
+        <div class="4u">
+          <article class="box box-style2"> <img src="images/movies.jpg" alt="">
+            <h3>Movies</h3>
+          </article>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <a href="#contact" class="button button-big">Get in touch with me</a> </footer>
+  </article>
+</div>
+<div class="wrapper wrapper-style4">
+  <article id="contact">
+    <header>
+	<img src="images/Barakat2.jpg" alt="">
+	  </header>
+	  <ul>
+	  <li>Mobile:01110654322</li>
+	  <li>Email:barakota11@hotmail.com</li>
+	  <li>Gmail:youssefbarakat93@gmail.com</li>
+	  </ul>
+      <div class="row row-special">
+        <div class="12u">
+          <h3>Find me on</h3>
+          <ul class="social">
+            <li class="facebook"><a href="https://www.facebook.com/ysbarakat">Facebook</a></li>
+            <li class="googleplus"><a href="https://plus.google.com/u/0/">Google+</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+<title> Profile Page</title>
+<script language="JavaScript">
+function setToday() {
+var now   = new Date();
+var day   = now.getDate();
+var month = now.getMonth();
+var year  = now.getYear();
+if (year < 2000)    
+year = year + 1900; 
+this.focusDay = day;
+document.calControl.month.selectedIndex = month;
+document.calControl.year.value = year;
+displayCalendar(month, year);
+}
+function isFourDigitYear(year) {
+if (year.length != 4) {
+alert ("Sorry, the year must be four-digits in length.");
+document.calControl.year.select();
+document.calControl.year.focus();
+} else { return true; }
+}
+function selectDate() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+displayCalendar(month, year);
+    }
+}
+
+function setPreviousYear() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+year--;
+document.calControl.year.value = year;
+displayCalendar(month, year);
+   }
+}
+function setPreviousMonth() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+if (month == 0) {
+month = 11;
+if (year > 1000) {
+year--;
+document.calControl.year.value = year;
+}
+} else { month--; }
+document.calControl.month.selectedIndex = month;
+displayCalendar(month, year);
+   }
+}
+function setNextMonth() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+if (month == 11) {
+month = 0;
+year++;
+document.calControl.year.value = year;
+} else { month++; }
+document.calControl.month.selectedIndex = month;
+displayCalendar(month, year);
+   }
+}
+function setNextYear() {
+var year = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day = 0;
+var month = document.calControl.month.selectedIndex;
+year++;
+document.calControl.year.value = year;
+displayCalendar(month, year);
+   }
+}
+function displayCalendar(month, year) {       
+month = parseInt(month);
+year = parseInt(year);
+var i = 0;
+var days = getDaysInMonth(month+1,year);
+var firstOfMonth = new Date (year, month, 1);
+var startingPos = firstOfMonth.getDay();
+days += startingPos;
+document.calButtons.calPage.value  =   " Su Mo Tu We Th Fr Sa";
+document.calButtons.calPage.value += "\n --------------------";
+for (i = 0; i < startingPos; i++) {
+if ( i%7 == 0 ) document.calButtons.calPage.value += "\n ";
+document.calButtons.calPage.value += "   ";
+}
+for (i = startingPos; i < days; i++) {
+if ( i%7 == 0 ) document.calButtons.calPage.value += "\n ";
+if (i-startingPos+1 < 10)
+document.calButtons.calPage.value += "0";
+document.calButtons.calPage.value += i-startingPos+1;
+document.calButtons.calPage.value += " ";
+}
+for (i=days; i<42; i++)  {
+if ( i%7 == 0 ) document.calButtons.calPage.value += "\n ";
+document.calButtons.calPage.value += "   ";
+}
+document.calControl.Go.focus();
+}
+function getDaysInMonth(month,year)  {
+var days;
+if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12)  days=31;
+else if (month==4 || month==6 || month==9 || month==11) days=30;
+else if (month==2)  {
+if (isLeapYear(year)) { days=29; }
+else { days=28; }
+}
+return (days);
+}
+function isLeapYear (Year) {
+if (((Year % 4)==0) && ((Year % 100)!=0) || ((Year % 400)==0)) {
+return (true);
+} else { return (false); }
+}
+</script>
+</head>
+<body style="overflow: hidden" onLoad="setToday()">
+<img src="PP.gif" width="200" height="200">
+<a href="https://www.facebook.com/ahmed.hesham.nasser">
+<img src="Facebook.png"></a>
+<Form>
+<p><b>Name:</b> <i>Ahmed Hesham Nasser</i></p> 
+<p><b>Age:</b> <i>20</i></p>
+<p><b>Birth Date:</b> <i>27/07/1993</i> </p>
+<p><b>University:</b> <i>German University In Cairo</i> </p>
+<p><b>Major:</b> <i>Business Informatics</i> </p>
+<p><b>Interests:</b></p>
+<ul>
+<li><i>Cars <img src="Car.png"></li></i>
+<li><i>Cards <img src="Cards.png"></li></i>
+<li><i>Video Games <img src="Controller.png"></li></i>
+<li><i>Working out <img src="Dumbbell.png"></li></i>
+</ul>
+</Form>
+<FORM NAME="calControl" onSubmit="return false;">
+<TABLE>
+<tr><td colspan=7>
+<SELECT NAME="month" onChange="selectDate()">
+<OPTION>January</OPTION>
+<OPTION>February</OPTION>
+<OPTION>March</OPTION>
+<OPTION>April</OPTION>
+<OPTION>May</OPTION>
+<OPTION>June</OPTION>
+<OPTION>July</OPTION>
+<OPTION>August</OPTION>
+<OPTION>September</OPTION>
+<OPTION>October</OPTION>
+<OPTION>November</OPTION>
+<OPTION>December</OPTION>
+</SELECT>
+<INPUT NAME="year" TYPE=TEXT SIZE=4 MAXLENGTH=4>
+<INPUT TYPE="button" NAME="Go" value="Update" onClick="selectDate()">
+</td>
+</tr>
+</form>
+<form name="calButtons">
+<tr><td><textarea font="Tahoma" NAME="calPage" WRAP=no ROWS=8 COLS=22></textarea></td><tr><td>
+<input type=button name="previousYear" VALUE=" <<  "  onClick="setPreviousYear()">
+<input type=button name="previousYear" VALUE="  <  "  onClick="setPreviousMonth()">
+<input type=button name="previousYear" VALUE="Today"  onClick="setToday()">
+<input type=button name="previousYear" VALUE="  >  "  onClick="setNextMonth()">
+<input type=button name="previousYear" VALUE="  >> "  onClick="setNextYear()">
+</td></tr>
+</table></form></font>
+</body>
+</html>

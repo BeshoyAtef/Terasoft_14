@@ -1,0 +1,24 @@
+<!-- This view is intended to redirect to method destroy and gives it package ID. -->
+<!-- Author: Abdelrahman Y. Seoudy. -->
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="package delete">
+  <h2>Delete package</h2>
+ 
+  <%= form_for(:subject, :url => {:action => 'destory', :id => @package.id}) do |f| %>
+
+    <p>Are you sure you want to permanently delete this package?</p>
+ 
+    <p class="reference-destination"><%= @package.description %></p>
+ 
+    <div class="form-buttons">
+      <%= submit_tag("Delete package") %>
+    </div>
+   
+  <% end %>
+</div>
+<br>
+<br>
+
+

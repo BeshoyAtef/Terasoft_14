@@ -1,0 +1,59 @@
+<!-- This view shows the profile page for the users including the trips and the rating of the user. -->
+<!-- Author: Salah K.Zalat.-->
+
+<%@user.each do |user|%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<%= stylesheet_link_tag 'profile.css' %>
+	
+</head>
+
+<body>
+	
+	<div id="content" class="clearfix">
+		<section id="left">
+			<div id="userStats" class="clearfix">
+				
+				
+				<div class="data">
+					<h1><%= user.username %></h1>
+					<h3>Email:  <%= user.email%></h3>
+					<h4>Mobile Number: <%= user.mobileNumber%></h4>
+					<div class="socialMediaLinks">
+					</div>
+					<div class="sep"></div>
+					<ul class="numbers clearfix">
+						<li><b>Rating</b><strong><%= user.averageRating%></strong></li>
+						<%end%>
+					</ul>
+			
+			</div>
+			</div>
+		</section>
+		
+		<section id="right">
+			<div class="gcontent">
+				<div class="head"><h1>Trips</h1></div>
+				<div class="boxy">
+				<% @trip.each do |trips| %>
+				<h5>Destination:  <%= trips.destination%></h5>
+				<h5>Location:  <%= trips.location%></h5>
+				<h5>Travel Date:  <%= trips.travelDate%></h5>
+				<h5>Created At:  <%= trips.created_at%></h5>
+				<% end %>
+
+				<%=will_paginate @trip%>
+					
+
+	
+		</section>
+	</div>
+<br>
+<br>
+<br>
+<br>
+</body>
+
+</html>
