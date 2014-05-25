@@ -64,7 +64,7 @@ class Packages < ActiveRecord::Base
   #Author: Ahmed H. Nasser.
    
     def self.confirm_package(user_id)
-      @con = Packages.find( :all , :conditions => [ ' carriers_id = ? AND receivedByCarrier = ? ' , user_id , false ] )
+      @con = Packages.find( :all , :conditions => {:carriers_id => user_id })
     end	
   
 
@@ -90,6 +90,7 @@ class Packages < ActiveRecord::Base
       @new.packageValue = @comp.packageValue
       @new.rating = @comp.rating
       @new.senders_id = @comp.senders_id
+      @new.carriers_id=@comp.carriers_id
       @new.receivedByCarrier = true
       @comp.destroy
       @new.save

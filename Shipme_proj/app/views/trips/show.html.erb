@@ -3,12 +3,13 @@
 
 <%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
 
-<div class="trip show">
-
  <h3 class ="title-2">Trips</h3>
 
-
   <table summary="Trip detail view">
+     <tr>
+      <th align="left">Travelling Date:</th>
+      <td><%= @trip.travelDate %></td>
+    </tr>
     <tr>
       <th align="left">Destination:</th>
       <td><%= @trip.destination%></td>
@@ -21,10 +22,7 @@
       <th align="left">Weight:</th>
       <td><%= @trip.maxWeight %></td>
     </tr>
-    <tr>
-      <th align="left">Travelling Date:</th>
-      <td><%= @trip.travelDate %></td>
-    </tr>
+   
   </table>
 
 

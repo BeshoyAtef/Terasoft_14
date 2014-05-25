@@ -16,7 +16,7 @@ class ReportsController < ApplicationController
   #Author : Mohamed A.Gheith.
   
   def new
-   @packages = Packages.find(:all , :conditions => {:senders_id => cookies[:user_id]})
+   @packages = Packages.find(:all , :conditions => {:carriers_id => cookies[:user_id]})
   end
 
 

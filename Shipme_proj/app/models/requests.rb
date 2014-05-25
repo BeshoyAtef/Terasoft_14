@@ -1,7 +1,9 @@
 class Requests < ActiveRecord::Base
-	belongs_to :sender, :class_name => "Users"
-	belongs_to :carrier, :class_name => "Users"
-	belongs_to :packages
+belongs_to :sender, :class_name => "Users"
+belongs_to :carrier, :class_name => "Users"
+belongs_to :packages
+
+  require 'will_paginate/array'
 
 
   # This method gets the requests that a certain user is the carrier of them.
@@ -10,10 +12,10 @@ class Requests < ActiveRecord::Base
   # Author: Youssef A. Saleh.
 
 
-	def self.requests_for_edit_notification(user_id)
-	  current_user_request = Requests.find(:all, :conditions => {:carriers_id => user_id})
-	  return current_user_request
-	end
+def self.requests_for_edit_notification(user_id)
+current_user_request = Requests.find(:all, :conditions => {:carriers_id => user_id})
+return current_user_request
+end
 
 
 
@@ -22,7 +24,7 @@ class Requests < ActiveRecord::Base
   #Returns: @requests
   #Author: Youssef S.Barakat
 
-  def  self.get_requests_accept_reject( user_id )
+  def self.get_requests_accept_reject( user_id )
     @requests = Requests.find( :all, :conditions => {:carriers_id => user_id} )
   end
 
@@ -32,7 +34,7 @@ class Requests < ActiveRecord::Base
   #Returns: @requests
   #Author: Youssef S.Barakat
 
-  def  self.get_requests_delete_package( user_id )
+  def self.get_requests_delete_package( user_id )
     @requests = Requests.find( :all, :conditions => {:senders_id => user_id} )
   end
 
@@ -42,9 +44,10 @@ class Requests < ActiveRecord::Base
   #Returns: @requests
   #Author: Youssef S.Barakat
 
-  def  self.get_requests_delete_trip( user_id )
+  def self.get_requests_delete_trip( user_id )
     @requests = Requests.find( :all, :conditions => {:carriers_id => user_id} )
   end
+
   def self.requests_for_edit_notification(user_id)
      current_user_request = Requests.find(:all, :conditions => {:carriers_id => user_id})
      return current_user_request
@@ -78,7 +81,6 @@ class Requests < ActiveRecord::Base
     return @is_accepted
   end
 
-
   #This method is inserting the request sent by the user in the database.
   #carrier_id , sender_id , package_id - integer.
   #Author:Manar A. Eltayeb.
@@ -103,6 +105,6 @@ class Requests < ActiveRecord::Base
   #Author:Manar A. Eltayeb.
 
   def self.count_requests ( packages_id )
-    @requests_counter = Requests.find( :all, :conditions => { :packages_id => packages_id} ).count 
+    @requests_counter = Requests.find( :all, :conditions => { :packages_id => packages_id} ).count
   end
 end

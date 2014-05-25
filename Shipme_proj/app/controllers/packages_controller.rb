@@ -66,9 +66,7 @@ class PackagesController < ApplicationController
     @receiver_email = params[ :required_email ]
     @weight = params[ :required_num_weight ]
     data_validated = true
-    if  (!(@expiry_date =~ /(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})/) or @destination == nil or !(@destination =~ /\S/) or @expiry_date == nil or !(@expiry_date =~ /\S/) or @description == nil or !(@description =~ /\S/) or @origin == nil or !(@origin =~ /\S/) or @package_value == nil or !(@package_value =~ /\S/) or @carrying_price == nil or !(@carrying_price =~ /\S/) or @receiver_address == nil or !(@receiver_address =~ /\S/) or @receiver_email == nil or !(@receiver_email =~ /\S/) or @receiver_mob_number == nil or !(@receiver_mob_number =~ /\S/) or @weight == nil or !(@weight =~ /\S/) or !is_numeric(@weight) or !is_numeric(@package_value) or !is_numeric(@carrying_price))
-      data_validated = false
-    end
+    
     if(@is_accepted != true && data_validated == true)
       temp = Packages.edit_the_package(@is_accepted, @current_package, @destination, @description, @origin, @package_value, @expiry_date, @carrying_price, @receiver_address, @receiver_mob_number, @receiver_email, @weight, @current_user_id)
       flash[:notice] = "Your package was edited successfully!"  
@@ -79,9 +77,6 @@ class PackagesController < ApplicationController
     elsif (!is_numeric(@weight) or !is_numeric(@package_value) or !is_numeric(@carrying_price))
       flash[ :notice ] = "please enter numbers only in the weight/value/carrying price field(s)"
       redirect_to(:action => 'edit', :id => $current_id)
-     elsif (!(@expiry_date =~ /(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})/))
-       flash[ :notice ] = "Please enter date in the format of dd/mm/yyyy, and try again!"
-       redirect_to(:action => 'edit', :id => $current_id)
     elsif (@is_accepted == true)
       flash[ :notice ] = "Sorry, your package can NOT be edited, because it is accepted be a carrier through you carrying request!"
       redirect_to :action =>'list'              
@@ -108,9 +103,14 @@ class PackagesController < ApplicationController
   end
 
   def delete
+    @package = Packages.find( params[ :id ] ) 
   end
 
   def destory
+    @package =  Packages.find( params[ :id ] )
+    @package.destroy
+    flash[:notice] = "Package Deleted successfuly"
+    redirect_to(:action => 'list')
   end
   
 
@@ -140,6 +140,7 @@ class PackagesController < ApplicationController
   
   def  confirm
     Packages.update_package(params[:id])
+    redirect_to :action => 'list_takingpackage'
   end
 
 
