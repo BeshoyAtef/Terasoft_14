@@ -1,0 +1,6 @@
+<u1 class = "users">
+
+<h3> Number Of Users Registerd: <%= @count_users.inspect %>  </h3>
+
+
+</u1>
