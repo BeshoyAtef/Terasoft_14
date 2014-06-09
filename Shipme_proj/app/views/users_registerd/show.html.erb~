@@ -1,0 +1,4 @@
+<html>
+<%= button_to "View", action: "count" %>
+
+</html>

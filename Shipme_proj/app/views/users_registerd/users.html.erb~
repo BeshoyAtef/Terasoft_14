@@ -1,0 +1,2 @@
+<html>
+<h3> Number of users registerd :</h3> <%= @users %> 
